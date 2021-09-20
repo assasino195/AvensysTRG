@@ -43,8 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Benelli.cs" />
+    <Compile Include="bike.cs" />
+    <Compile Include="FirstClass.cs" />
+    <Compile Include="LandCalculator.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="listparts.cs" />
+    <Compile Include="PlanesInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rectangle.cs" />
+    <Compile Include="SecondClass.cs" />
+    <Compile Include="ThirdClass.cs" />
+    <Compile Include="unbox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
