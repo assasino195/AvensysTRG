@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week2 test-Heng Wei Yao\Week3 test-Heng Wei Yao\bin\Debug\Week3 test-Heng Wei Yao.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week2 test-Heng Wei Yao\Week3 test-Heng Wei Yao\bin\Debug\Week3 test-Heng Wei Yao.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week2 test-Heng Wei Yao\Week3 test-Heng Wei Yao\bin\Debug\Week3 test-Heng Wei Yao.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week2 test-Heng Wei Yao\Week3 test-Heng Wei Yao\obj\Debug\Week3 test-Heng Wei Yao.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week2 test-Heng Wei Yao\Week3 test-Heng Wei Yao\obj\Debug\Week3 test-Heng Wei Yao.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week2 test-Heng Wei Yao\Week3 test-Heng Wei Yao\obj\Debug\Week3 test-Heng Wei Yao.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week2 test-Heng Wei Yao\Week3 test-Heng Wei Yao\obj\Debug\Week3 test-Heng Wei Yao.pdb
