@@ -111,20 +111,45 @@ namespace week3_ses2
                             stay = false;
                             break;
                         }
+                    case "7"://hcf and lcm
+                        {
+                            hcf hcff = new hcf();
+                            delcal del6  = new delcal(hcff.fhcf);
+                            operation.performoperations(a, b, del6);
+                            break;
+                        }
                 }
 
             }
         }
         class hcf
         {
+            //private void hcf_finder(object sender,EventArgs e)
+            //{
+
+            //}
+           
             public void fhcf(int a,int b)
             {
+                int temp0, temp1, temp2, gcf, lcm;
+                temp1 = a;
+                temp2 = b;
+                while (temp2 != 0)
+                {
 
+                    temp0 = temp2;
+                    temp2 = temp1 % temp2;
+                    temp1 = temp0;
+                }
+                gcf = temp1;
+                lcm = ((a * b) / gcf);
+                Console.WriteLine($"GCF of {a} & {b} is: {gcf}");
+                Console.WriteLine($"LCM of {a} & {b} is {lcm}");
             }
         }
         static void Main(string[] args)
         {
-            //delcalulator();
+            delcalulator();
 
             Console.ReadLine();
         }
