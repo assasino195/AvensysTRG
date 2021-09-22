@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace week_3_ses_1
 {
-    class Class1
+    class operation
     {
+        //public static void performoperations(int a,int b,delexample del)
+        //{
+        //    del(a, b);
+        //}
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace week_3_ses_1
 {
-    class genderenum
+    enum genderenum
     {
+        Default,
+        male,
+        female
     }
 }

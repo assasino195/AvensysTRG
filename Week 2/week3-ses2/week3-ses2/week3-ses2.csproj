@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="calculator.cs" />
     <Compile Include="calculatorclass.cs" />
+    <Compile Include="calculatordelegate.cs" />
+    <Compile Include="operation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

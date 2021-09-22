@@ -585,6 +585,57 @@ namespace week3_pretest_practice
                     }
             }
         }
+        
+        static void calculatorwithdelegate()
+        {
+            
+            bool stay = true;
+            while(stay)
+            {
+                menu();
+                string input = Console.ReadLine();
+                switch(input)
+                {
+                    case "1"://add
+                        {
+                            
+                            break;
+                        }
+                    case "2"://sub
+                        {
+
+                            break;
+                        }
+                    case "3"://divi
+                        {
+
+                            break;
+                        }
+                    case "4"://multi
+                        {
+
+                            break;
+                        }
+                    case "5"://mod
+                        {
+
+                            break;
+                        }
+                    case "6"://exit
+                        {
+
+                            break;
+                        }
+                }
+                Console.WriteLine("please enter first digit");
+                int inputopt = Int32.Parse(Console.ReadLine());
+
+                Console.WriteLine("please enter Second digit");
+                int inputopt2 = Int32.Parse(Console.ReadLine());
+
+
+            }
+        }
         static void menus()
         {
             Console.WriteLine("1.q1 password check");
@@ -601,7 +652,7 @@ namespace week3_pretest_practice
             Console.WriteLine("12.q12 Replace characters with +1 count of it");
             Console.WriteLine("13.q13 convert int to hex & binary");
         }
-        static void Main(string[] args)
+        static void Main11(string[] args)
         {
             bool stay = true;
             while(stay)
@@ -696,17 +747,26 @@ namespace week3_pretest_practice
                 }
             }
             //passwordcheck();
-           
-            //Console.ReadLine();
-            /*write a program to find a prime number between 1 to 100 , then reverse the number if the reverse number is also a prime one , then store the number
 
-            find out the total number of days and sessions you have joined till now then convert the total time into seconds.
-            Using boxing and unboxing concept
+//Console.ReadLine();
+/*write a program to find a prime number between 1 to 100 , then reverse the number if the reverse number is also a prime one , then store the number
 
-            5.write a program  that determines whether a string is a valid hex code .A hex code must begin with a pound key # and is exactly 6 characters in length. 
-            Each character must be a digit from 0-9 or an alphabetic character from A-F. All alphabetic characters may be uppercase or lowercase.
-            (use inheritance concept)
-            */
-        }
-    }
+find out the total number of days and sessions you have joined till now then convert the total time into seconds.
+Using boxing and unboxing concept
+
+5.write a program  that determines whether a string is a valid hex code .A hex code must begin with a pound key # and is exactly 6 characters in length. 
+Each character must be a digit from 0-9 or an alphabetic character from A-F. All alphabetic characters may be uppercase or lowercase.
+(use inheritance concept)
+*/
+/*1.Do a calculator program  to perform different arrithematic operations using delegate concept          
+ * 2 Do the HCF & LCM program using delegates and event concept      
+ * Write a C# program to create a function to input a string and count number of words are present  in the string , then  print them separately in an event.
+3 Do  the same calculator program but here use the Anonymous method .
+write a c# program to find out from the given angle values whether a geometrical shape  can be formed or not . if yes then what type of shape it is. Use anonymous method , event and delegate
+*/
+
+
+
+}
+}
 }
