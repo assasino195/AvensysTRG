@@ -18,6 +18,7 @@ namespace delegateventwithtimere
             {
                 this.c = c;
                 checkcount();
+                notify();
             }
             public void checkcount()
             {
@@ -26,11 +27,7 @@ namespace delegateventwithtimere
                     Console.WriteLine("Event Received");
                     Thread.Sleep(3000);
                 }
-                else
-                {
-                    Console.WriteLine("Count is: "+c);
-                    Thread.Sleep(500);
-                }
+               
             }
             private void notify()
             {
@@ -61,6 +58,7 @@ namespace delegateventwithtimere
             private static void op_send(int count)
             {
                 Console.WriteLine("count is :"+count);
+                Thread.Sleep(500);
             }
         }
     }
