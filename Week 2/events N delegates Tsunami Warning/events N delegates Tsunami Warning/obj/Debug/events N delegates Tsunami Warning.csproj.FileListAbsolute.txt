@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events N delegates Tsunami Warning\events N delegates Tsunami Warning\bin\Debug\events N delegates Tsunami Warning.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events N delegates Tsunami Warning\events N delegates Tsunami Warning\bin\Debug\events N delegates Tsunami Warning.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events N delegates Tsunami Warning\events N delegates Tsunami Warning\bin\Debug\events N delegates Tsunami Warning.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events N delegates Tsunami Warning\events N delegates Tsunami Warning\obj\Debug\events N delegates Tsunami Warning.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events N delegates Tsunami Warning\events N delegates Tsunami Warning\obj\Debug\events N delegates Tsunami Warning.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events N delegates Tsunami Warning\events N delegates Tsunami Warning\obj\Debug\events N delegates Tsunami Warning.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events N delegates Tsunami Warning\events N delegates Tsunami Warning\obj\Debug\events N delegates Tsunami Warning.pdb
