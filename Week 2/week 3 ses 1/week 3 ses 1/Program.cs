@@ -101,6 +101,22 @@ namespace week_3_ses_1
 
 
         }
+        static void watertank()
+        {
+            int[] input = new int[6] { 3, 0, 0, 2, 0, 4 };
+            int firstlargest=-1, secondlargest=-1, firstlargestindex=-1, secondlargestindex=-1;
+            for(int i=0;i<input.Length;i++)
+            {
+                if(input[i]>firstlargest)
+                {
+                    secondlargestindex = firstlargestindex;
+                    secondlargest = firstlargest;
+                    firstlargest = input[i];
+                    firstlargestindex = i;
+                }
+                else
+            }
+        }
         
         static void Main1(string[] args)
         {
