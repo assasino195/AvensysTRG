@@ -66,6 +66,7 @@ namespace week3_ses2
             Operation op = new Operation();
             op.send += Op_send;//subscribing
             op.GetInput(a, b);
+            
             Console.ReadLine();
         }
 
@@ -75,11 +76,78 @@ namespace week3_ses2
             Console.WriteLine("LCM: " + LCM);
         }
 
-        static void Main(string[] args)
+        static void Main2(string[] args)
         {
             Console.WriteLine("Find the Highest Common Factor and Lowest Common Multiple using Delegate Events");
             print();
         }
     }
+    public delegate void EventString(string input,int count);
+    class DelegatePrintstring
+    {
+        private static void print()
+        {
+            Console.WriteLine("Input string");
+            string a = Console.ReadLine();
+            
+            Ops opp = new Ops();
+            opp.send += Op_Sends;
+            opp.getinput(a);
+            string[] i = a.Split(' ');
+            foreach(string k in i)
+            {
+                Console.WriteLine(k);
+            }
+            
+        }
+        private static void Op_Sends(string b,int count)
+        {
+            Console.WriteLine(b+"\n count of string: "+count);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Printing count");
+
+            print();
+            Console.ReadLine();
+        }
+
+    }
+    
+    class Ops
+    {
+        public EventString send;
+        int count;
+        string a;
+        
+        
+        public void getinput( string a)
+        {
+           
+            this.a = a;
+            countSplit();
+            
+        }
+       
+            
+        public void countSplit()
+        {
+            string[] k = a.Split(' ');
+            foreach (string i in k)
+            {
+                count++;
+                
+            }
+        }
+        private void Notify()
+        {
+            if (send != null)
+            {
+                send(a,count);
+            }
+        }
+    } 
+     
+    
 }
 

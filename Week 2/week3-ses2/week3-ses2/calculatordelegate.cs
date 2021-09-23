@@ -147,7 +147,7 @@ namespace week3_ses2
                 Console.WriteLine($"LCM of {a} & {b} is {lcm}");
             }
         }
-        static void Main(string[] args)
+        static void Main22(string[] args)
         {
             delcalulator();
 

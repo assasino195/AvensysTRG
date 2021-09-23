@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\delegateventwithtimere\delegateventwithtimere\bin\Debug\delegateventwithtimere.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\delegateventwithtimere\delegateventwithtimere\bin\Debug\delegateventwithtimere.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\delegateventwithtimere\delegateventwithtimere\bin\Debug\delegateventwithtimere.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\delegateventwithtimere\delegateventwithtimere\obj\Debug\delegateventwithtimere.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\delegateventwithtimere\delegateventwithtimere\obj\Debug\delegateventwithtimere.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\delegateventwithtimere\delegateventwithtimere\obj\Debug\delegateventwithtimere.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\delegateventwithtimere\delegateventwithtimere\obj\Debug\delegateventwithtimere.pdb
