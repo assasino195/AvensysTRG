@@ -1,0 +1,6 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events delegate send alert msg  to subscribers\events delegate send alert msg  to subscribers\bin\Debug\events delegate send alert msg  to subscribers.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events delegate send alert msg  to subscribers\events delegate send alert msg  to subscribers\bin\Debug\events delegate send alert msg  to subscribers.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events delegate send alert msg  to subscribers\events delegate send alert msg  to subscribers\bin\Debug\events delegate send alert msg  to subscribers.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events delegate send alert msg  to subscribers\events delegate send alert msg  to subscribers\obj\Debug\events delegate send alert msg  to subscribers.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events delegate send alert msg  to subscribers\events delegate send alert msg  to subscribers\obj\Debug\events delegate send alert msg  to subscribers.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\events delegate send alert msg  to subscribers\events delegate send alert msg  to subscribers\obj\Debug\events delegate send alert msg  to subscribers.pdb
