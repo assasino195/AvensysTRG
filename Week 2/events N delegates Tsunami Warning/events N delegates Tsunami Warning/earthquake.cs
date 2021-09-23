@@ -16,7 +16,7 @@ namespace events_N_delegates_Tsunami_Warning
             tsu.send += tsualertadded;
         }
 
-        public void tsualertadded(string n,double i)
+        public void tsualertadded(string n,double i)//printing part important to add in the values from the publisher to be displayed
         {
             
             Console.WriteLine($"Location of Tsunami is: {n}\n probability of tsunami is: {i}");

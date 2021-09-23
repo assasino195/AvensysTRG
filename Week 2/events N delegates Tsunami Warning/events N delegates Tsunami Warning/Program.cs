@@ -17,6 +17,7 @@ namespace events_N_delegates_Tsunami_Warning
             string input = Console.ReadLine();
             Console.WriteLine("enter intensity of earthquake");
             double intens = double.Parse(Console.ReadLine());
+
             tsu.getInput(input, intens);
             Console.ReadLine();
 

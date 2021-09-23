@@ -26,7 +26,7 @@ namespace events_N_delegates_Tsunami_Warning
             {
                 probability = inten * 0.7 + 0.3;
             }
-            private void notify()
+            private void notify()//sends back the values to the subscriber to be displayed
             {
                 if(send!=null)
                 {
