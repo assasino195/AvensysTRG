@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "string split print Delegate events", "string split print Delegate events\string split print Delegate events.csproj", "{CEC52EE5-D3B5-4D86-BCA1-2F0472682594}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEC52EE5-D3B5-4D86-BCA1-2F0472682594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC52EE5-D3B5-4D86-BCA1-2F0472682594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC52EE5-D3B5-4D86-BCA1-2F0472682594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC52EE5-D3B5-4D86-BCA1-2F0472682594}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DF93E07-C051-404F-875A-F7789D85995C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\string split print Delegate events\string split print Delegate events\obj\Debug\string split print Delegate events.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\string split print Delegate events\string split print Delegate events\obj\Debug\string split print Delegate events.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\string split print Delegate events\string split print Delegate events\bin\Debug\string split print Delegate events.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\string split print Delegate events\string split print Delegate events\bin\Debug\string split print Delegate events.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\string split print Delegate events\string split print Delegate events\bin\Debug\string split print Delegate events.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\string split print Delegate events\string split print Delegate events\obj\Debug\string split print Delegate events.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\string split print Delegate events\string split print Delegate events\obj\Debug\string split print Delegate events.pdb
