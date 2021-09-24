@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\HospitalSys\HospitalSys\bin\Debug\HospitalSys.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\HospitalSys\HospitalSys\bin\Debug\HospitalSys.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\HospitalSys\HospitalSys\bin\Debug\HospitalSys.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\HospitalSys\HospitalSys\obj\Debug\HospitalSys.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\HospitalSys\HospitalSys\obj\Debug\HospitalSys.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\HospitalSys\HospitalSys\obj\Debug\HospitalSys.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\HospitalSys\HospitalSys\obj\Debug\HospitalSys.pdb
