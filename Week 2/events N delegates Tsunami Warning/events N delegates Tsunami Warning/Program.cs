@@ -13,6 +13,7 @@ namespace events_N_delegates_Tsunami_Warning
             tsunami tsu = new tsunami();
             earthquake eq = new earthquake();
             eq.subscribetoevent(tsu);
+            tsu.subscribetoevent(eq);
             Console.WriteLine("Enter location of earthquake");
             string input = Console.ReadLine();
             Console.WriteLine("enter intensity of earthquake");

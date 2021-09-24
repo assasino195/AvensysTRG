@@ -21,7 +21,7 @@ namespace delegate_and_events_password_encrypt
                 lst.Add(value);
                 if(passwordadded!=null)
                 {
-                    passwordadded?.Invoke(this, null);
+                    passwordadded.Invoke(this, null);
                 }
             }
         }

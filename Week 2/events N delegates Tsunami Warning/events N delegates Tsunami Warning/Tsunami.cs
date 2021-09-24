@@ -13,26 +13,38 @@ namespace events_N_delegates_Tsunami_Warning
             public event EventHandler send;
             double inten;
             string place;
-            double probability;
+        private earthquake quake;
+           // double probability;
             public void getInput(string place,double inten)
             {
                 this.place = place;
                 this.inten = inten;
-                calculateintensity();
+                //calculateintensity();
                 notify();
+                
             }
 
-            public void calculateintensity()
-            {
-                probability = inten * 0.7 + 0.3;
-            }
+            
             private void notify()//sends back the values to the subscriber to be displayed
             {
                 if(send!=null)
                 {
-                    send(place, probability);
+                    send(place, inten);
                 }
             }
+        public void subscribetoevent(earthquake quake)
+        {
+            this.quake = quake;
+            quake.send += Quake_send;
+
+        }
+
+        private void Quake_send(double chance)
+        {
+            Console.WriteLine($"Chance of tsunami happening: {chance}");
+        }
+
+        
         
     }
 }
