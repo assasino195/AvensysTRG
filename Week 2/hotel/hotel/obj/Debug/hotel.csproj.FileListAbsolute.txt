@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\hotel\hotel\bin\Debug\hotel.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\hotel\hotel\bin\Debug\hotel.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\hotel\hotel\bin\Debug\hotel.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\hotel\hotel\obj\Debug\hotel.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\hotel\hotel\obj\Debug\hotel.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\hotel\hotel\obj\Debug\hotel.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Week 2\hotel\hotel\obj\Debug\hotel.pdb
