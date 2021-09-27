@@ -11,19 +11,19 @@ namespace Week3Test
     {
         public static void Add(int x, int y)
         {
-            Console.WriteLine("Addition: " + (x + y));
+            Console.WriteLine($"Addition: {x+y}");
         }
         public static void Min(int x, int y)
         {
-            Console.WriteLine("Subtraction: " + (x - y));
+            Console.WriteLine($"Subtraction: {x-y}");
         }
         public void Times(int x, int y)
         {
-            Console.WriteLine("Multiplication: " + (x * y));
+            Console.WriteLine($"Multiplication: {x*y}");
         }
         public void Div(int x, int y)
         {
-            Console.WriteLine("Division: " + (x / y));
+            Console.WriteLine($"Division: {x/y}");
         }
 
        

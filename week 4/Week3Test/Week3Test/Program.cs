@@ -11,10 +11,10 @@ namespace Week3Test
         static void menu()
         {
             Console.WriteLine("Questions");
-            Console.WriteLine("1: Q1 Rectangle Plot)");
-            Console.WriteLine("2: Q2 ");
-            Console.WriteLine("3: Q3");
-            Console.WriteLine("4: Q4");
+            Console.WriteLine("1: Q1 LOTERRY WINNER)");
+            Console.WriteLine("2: Q2 Delegate Ops ");
+            Console.WriteLine("3: Q3 Timer");
+            Console.WriteLine("4: Q6 Exception Handling");
             Console.WriteLine("5: EXIT");
 
         }
@@ -36,7 +36,7 @@ namespace Week3Test
         }
         static void q1()
         {
-            
+
 
             List<string> names = new List<string>();
             List<string> nos = new List<string>();
@@ -75,20 +75,20 @@ namespace Week3Test
                             else
                             {
                                 //for(int i=0;i<nos.Count;i++)
-                              //  {
-                                    if (nos.Contains(temp))
-                                    {
-                                        Console.WriteLine("Regenerate another");
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        nos.Add(temp);
-                                        names.Add(inputname);
-                                        Console.WriteLine("Added Numbers");
+                                //  {
+                                if (nos.Contains(temp))
+                                {
+                                    Console.WriteLine("Regenerate another");
+                                    break;
+                                }
+                                else
+                                {
+                                    nos.Add(temp);
+                                    names.Add(inputname);
+                                    Console.WriteLine("Added Numbers");
 
-                                    }
-                               // }
+                                }
+                                // }
                                 //foreach (string i in nos)
                                 //{
                                 //    Console.WriteLine(i);
@@ -144,7 +144,7 @@ namespace Week3Test
                         }
                 }
             }
-           
+
 
             //int num = random.Next(9);
 
@@ -153,44 +153,61 @@ namespace Week3Test
         }
         private static void q2()
         {
+            Math operationCalculator = new Math();
+            EventHandlerOperation add = new EventHandlerOperation(Math.Add);
+            EventHandlerOperation sub = new EventHandlerOperation(Math.Min);
+            EventHandlerOperation multi = operationCalculator.Times;
+            EventHandlerOperation divi = new EventHandlerOperation(operationCalculator.Div); ;
+            EventHandlerOperation all = add + sub + multi + divi;
+            Console.WriteLine("enter first digit");
+            int input1 = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("enter second digit");
+            int input2 = Int32.Parse(Console.ReadLine());
+            all.Invoke(input1, input2);
+
+
+
+        }
+        public static void q3()
+        {
             bool stay = true;
-            while(stay)
+            while (stay)
             {
                 timer timers = new timer();
                 maintimer mt = new maintimer(false);
                 Console.WriteLine("Timer Start? Y/N");
-               // int count = 0;
+                // int count = 0;
                 string input = Console.ReadLine().ToUpper();
-                for(int i=0;i<5;i++)
-                { 
-                if (input == "Y")
+                for (int i = 0; i < 5; i++)
                 {
-                   
+                    if (input == "Y")
+                    {
+
                         // timers.timerstart();
                         mt.isCounterRunning = true;
 
-                    
-                }
-                else if (input == "N")
-                {
-                    mt.isCounterRunning = false;
+
+                    }
+                    else if (input == "N")
+                    {
+                        mt.isCounterRunning = false;
                         stay = false;
 
-                }
-                else
-                {
-                    Console.WriteLine("reinput");
-                }
-                if (mt.isCounterRunning == true)
-                {
-                    timers.timerstart();
-                }
-                else
-                {
-                    timers.displaycounter();
+                    }
+                    else
+                    {
+                        Console.WriteLine("reinput");
+                    }
+                    if (mt.isCounterRunning == true)
+                    {
+                        timers.timerstart();
+                    }
+                    else
+                    {
+                        timers.displaycounter();
                         break;
-                }
-                //count++;
+                    }
+                    //count++;
                     //if (count == 5)
                     //{
                     //    Console.WriteLine("stop counter? Y/N");
@@ -201,14 +218,13 @@ namespace Week3Test
                     //    }
                     //}
                 }
-            }
-            
-        }
-        public static void q3()
-        {
 
+            }
+        }
+        public static void q6()
+        {
             exceptionhandling ecp = new exceptionhandling();
-            
+
             Console.WriteLine("Enter no. from 0-9 to get index");
             ecp.getElementInt(Console.ReadLine());
             Console.WriteLine("Enter first digit for dividing");
@@ -221,24 +237,7 @@ namespace Week3Test
             Console.WriteLine("Enter index you wish to call");
             int input1 = Int32.Parse(Console.ReadLine());
             ecp.arrcheck(input, input1);
-        }
-        public static void q6()
-        {
 
-
-           
-                Math operationCalculator = new Math();
-                EventHandlerOperation add = new EventHandlerOperation(Math.Add);
-                EventHandlerOperation min = new EventHandlerOperation(Math.Min);
-                EventHandlerOperation x = operationCalculator.Times;
-                EventHandlerOperation div = new EventHandlerOperation(operationCalculator.Div); ;
-                EventHandlerOperation del5 = add + min + x + div;
-            Console.WriteLine("enter first digit");
-                int input1 = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("enter second digit");
-                int input2 = Int32.Parse(Console.ReadLine());
-                del5.Invoke(input1, input2);
-            
         }
         static void Main(string[] args)
         {
@@ -256,13 +255,13 @@ namespace Week3Test
                         }
                     case 2:
                         {
-                           q2();
+                            q2();
                             break;
 
                         }
                     case 3:
                         {
-                           q3();
+                            q3();
                             break;
                         }
                     case 4:
@@ -286,3 +285,4 @@ namespace Week3Test
         }
     }
 }
+
