@@ -26,39 +26,28 @@ namespace delegate_and_events_password_encrypt
             Console.WriteLine("");
             while (stay)
             {
-                //for (int i = 0; i < 3; i++)
-                //{
+               
                     
                     Console.WriteLine("Your encrypted string is:");
                     string encryptedstring = StringCipher.Encrypt(plaintext, password);
                     Console.WriteLine(encryptedstring);
                     pub[count] = encryptedstring;
-                //}
-                //Console.WriteLine("If you want to stop and print all password type Q and hit enter");
-               // string checker = Console.ReadLine();
+                
+               Console.WriteLine("If you want to stop and print all password type Q and hit enter");
+                string checker = Console.ReadLine();
                 count++;
-                string input;
-                do
+                if(checker=="q")
                 {
-                    Console.Write("Your input (enter to quit):");
-                    input = Console.ReadLine();
-                    Console.WriteLine("input is:" + input);
-                } while (!String.IsNullOrWhiteSpace(input));
-
-                // Stop the worker thread
-                stay = false;
-                //if(checker=="q")
-                //{
-                //    stay = false;
-
-
-                //}
+                    stay = false;
+                   
+                    
+                }
             }
             Console.WriteLine("Stored passwords are");
             for (int i = 0; i < count; i++)
             {
                 
-                Console.WriteLine(i+": "+pub[i]);
+                Console.WriteLine((i+1)+": "+pub[i]);
             }
 
            
