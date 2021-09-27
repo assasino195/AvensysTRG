@@ -157,12 +157,13 @@ namespace Week3Test
             EventHandlerOperation add = new EventHandlerOperation(Math.Add);
             EventHandlerOperation sub = new EventHandlerOperation(Math.Min);
             EventHandlerOperation multi = operationCalculator.Times;
-            EventHandlerOperation divi = new EventHandlerOperation(operationCalculator.Div); ;
+            EventHandlerOperation divi = new EventHandlerOperation(operationCalculator.Div);
             EventHandlerOperation all = add + sub + multi + divi;
             Console.WriteLine("enter first digit");
             int input1 = Int32.Parse(Console.ReadLine());
             Console.WriteLine("enter second digit");
             int input2 = Int32.Parse(Console.ReadLine());
+            add.Invoke(input1, input2);
             all.Invoke(input1, input2);
 
 
@@ -207,6 +208,7 @@ namespace Week3Test
                         timers.displaycounter();
                         break;
                     }
+                    
                     //count++;
                     //if (count == 5)
                     //{
