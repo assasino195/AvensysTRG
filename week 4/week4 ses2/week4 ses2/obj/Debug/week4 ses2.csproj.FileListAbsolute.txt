@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 4\week4 ses2\week4 ses2\bin\Debug\week4 ses2.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 4\week4 ses2\week4 ses2\bin\Debug\week4 ses2.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 4\week4 ses2\week4 ses2\bin\Debug\week4 ses2.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 4\week4 ses2\week4 ses2\obj\Debug\week4 ses2.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 4\week4 ses2\week4 ses2\obj\Debug\week4 ses2.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 4\week4 ses2\week4 ses2\obj\Debug\week4 ses2.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 4\week4 ses2\week4 ses2\obj\Debug\week4 ses2.pdb
