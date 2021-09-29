@@ -126,6 +126,7 @@ namespace week3_ses2
            
             this.a = a;
             countSplit();
+            Notify();
             
         }
        

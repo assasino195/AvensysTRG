@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F375DC56-E185-4A40-86F7-4BA70507C6BB}</ProjectGuid>
+    <ProjectGuid>{A8C28C2D-9828-431C-9D32-41B2E957436A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>week4_ses2</RootNamespace>
-    <AssemblyName>week4 ses2</AssemblyName>
+    <RootNamespace>week_4_ses_1</RootNamespace>
+    <AssemblyName>week 4 ses 1</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Funcc.cs" />
+    <Compile Include="inteventargs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="q10eventargs.cs" />
+    <Compile Include="publiseher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

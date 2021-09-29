@@ -537,7 +537,7 @@ namespace week4_ses2
                                         foreach (string o in k)
                                         {
 
-                                            if (namee==o)
+                                            if (namee == o)
                                             {
                                                 Console.WriteLine(a);
                                             }
@@ -566,16 +566,16 @@ namespace week4_ses2
                             }
                             else
                             {
-                                
+
                                 Console.WriteLine("Enter ID:");
                                 object d = Console.ReadLine();
 
 
                                 try
                                 {
-                                     i = int.Parse((string)d);
-                                     tested = i.ToString();
-                                   
+                                    i = int.Parse((string)d);
+                                    tested = i.ToString();
+
                                 }
                                 catch (ArgumentNullException e)
                                 {
@@ -616,7 +616,7 @@ namespace week4_ses2
 
                                         }
                                     }
-                                    if(!found)
+                                    if (!found)
                                     {
                                         Console.WriteLine("User not found");
                                     }
@@ -627,7 +627,7 @@ namespace week4_ses2
                             break;
                         }
 
-                        
+
                     case "3":
                         {
                             foreach (string a in lst1)
@@ -649,6 +649,149 @@ namespace week4_ses2
             }
         }
 
+        public static void q8()
+        {
+            int[] arr = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            string a = "a b c d e f g h i o";
+            string[] arr1 = a.Split(' ');
+            Predicate<int> arrcheck = (input) =>
+              {
+                  bool found = false;
+                  foreach (int i in arr)
+                  {
+                      if (input == i)
+                      {
+                          found = true;
+                      }
+
+                  }
+                  return found;
+              };
+            Predicate<string> strarrcheck = (input1) =>
+              {
+                  bool found = false;
+                  foreach (string k in arr1)
+                  {
+                      if (input1 == k)
+                      {
+                          found = true;
+                      }
+                  }
+                  return found;
+              };
+            Console.WriteLine("enter number to check");
+            int no = int.Parse(Console.ReadLine());
+            Console.WriteLine($"is number in Array? {arrcheck(no)}");
+            Console.WriteLine();
+            Console.WriteLine("enter string to check");
+            string letter = Console.ReadLine();
+            Console.WriteLine($"Is letter in Array? {strarrcheck(letter)}");
+        }
+
+
+        class q10class
+        {
+            public event EventHandler<q10eventargs> q10operationeventchecker;
+            public void calq10(object a, object b)
+            {
+
+                q10eventargs q10 = new q10eventargs(a, b);
+                if (q10operationeventchecker != null)
+                {
+                    q10operationeventchecker(this, q10);
+                }
+            }
+        }
+        class samevaluexception : Exception
+        {
+            public samevaluexception() { Console.WriteLine(base.Message); }
+            public samevaluexception(string valueexcpetion) : base(string.Format("Enter two different values" + valueexcpetion))
+            {
+               
+            }
+        }
+        class q91
+        {
+            public int c { get; private set; }
+            public q91(int a, int b)
+            {
+                c = a + b;
+            }
+        }
+        public static void Q9()
+        {
+            Console.WriteLine("enter first digit");
+            object a = Console.ReadLine();
+            Console.WriteLine("enter Second digit");
+            object b = Console.ReadLine();
+            int a1 = 0; ;
+            int a2 = 0; ;
+
+            try
+            {
+                a1 = int.Parse(a.ToString());
+                a2 = int.Parse(b.ToString());
+                if (a1 != a2)
+                {
+                    q91 q = new q91(a1, a2);
+                    Console.WriteLine(q.c);
+                }
+                else
+                {
+                    throw (new samevaluexception($" instead of {a1} & {a2}"));
+                }
+
+
+            }
+            catch (samevaluexception e)
+            {
+                Console.WriteLine(e.Message.ToString());
+
+
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine($"Argument null caught: " + e.Message);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"Format exception caught: {e.Message}");
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine($"Over flow exception caught: {e.Message}");
+            }
+           
+           
+
+
+            //q9class q9c = new q9class();
+            //q9c.q9operandcheckerevent += Q9c_q9operandcheckerevent;
+            //q9c.calq9(a, b);
+
+
+
+        }
+        static void q10()
+        {
+            Console.WriteLine("enter first digit");
+            object a = Console.ReadLine();
+            Console.WriteLine("enter Second digit");
+            object b = Console.ReadLine();
+            q10class q10 = new q10class();
+            q10.q10operationeventchecker += Q9c_q9operandcheckerevent;
+            q10.calq10(a, b);
+        }
+
+
+        private static void Q9c_q9operandcheckerevent(object sender, q10eventargs e)
+        {
+            if (e.c != 0)
+            {
+                Console.WriteLine($"Result is: {e.c}");
+            }
+        }
+
         static void Main(string[] args)
         {
             //while (true)
@@ -657,7 +800,10 @@ namespace week4_ses2
             //q2();
             //3();
             //q4();
-            q6();
+            // q6();
+            //q8();
+            //Q9();
+            q10();
             //}
             Console.ReadLine();
         }
