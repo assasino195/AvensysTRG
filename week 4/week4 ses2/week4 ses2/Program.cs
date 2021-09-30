@@ -1038,4 +1038,24 @@ Q4- Create an array with 10 integers, Write an indexer to access its values and 
 
 Q5- Write a program to enter customer information to the customer collection. Customer information can contain id, name, address etc. Write methods and/or indexers 
         to access the customer information by id and name.if you access an customer information which is not present handle the exception and show appropriate messages.
+
+Q7 Write a class which has a function which can take any function as an argument. Execute the function passed as an argument and Print the nameof the function to be executed.
+
+Q8 Create a class which has an array with some values. Constitute a function which can eveluate whether a user provided parameter is present in the array using Predicate delegate.
+
+Q9 Write a program which takes two arguments and does some operation. If the value of the two operand is same then throw a custom exception called MyArgumentException which passes a message "Two operands cannot be same". Print the message on the caller class.
+
+Q10  Write a program which uses the EventHandler delagate to notify the caller using a custom eventArgs. In the custom eventargs you should have your Message and an exception object to notify whether exception occured or not. 
+
+Q11  write a program to issue a book from library, to enter the library you need to be a student of the class (need to verify using some roll no etc.) but you can only issue one book at a time. give the details of student after the book is issued. *Use exception handling to show the error message  use generic class
+
+
+Q12  Suppose you are working in an MNC.  after your joining there will be a probation period of 6 months, in this period you are drawing only 80% of your monthly salary. after that you will get the full salary.    Every month from your salary you have 
+1. 12% tax
+2. 8% to provident fund after paying the tax    
+3. 5% to health insurance after paying PF              
+4. 7% to Mutual Funds after paying Health insurance. 
+* Now calculate the total amount of money you will get after all these investments in a year.
+use exception handling to show the error msg. and create  generic class to store the data
+
         */
