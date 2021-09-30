@@ -23,7 +23,7 @@ namespace week_4_ses_1
         //    calculateint();
         //    inteventargs arg = new inteventargs(a);
         //    numbermodifiedevent(this, arg);
-        //}
+         //}
         public void startcalculate()
         {
             Console.WriteLine(interest);

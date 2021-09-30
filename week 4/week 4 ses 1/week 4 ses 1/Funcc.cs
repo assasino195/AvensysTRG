@@ -57,6 +57,7 @@ namespace week_4_ses_1
                    {
                        Console.WriteLine("ITS A SQUARE");
                    }
+                   else Console.WriteLine("not a square");
                };
 
             
@@ -71,9 +72,11 @@ namespace week_4_ses_1
             Console.Write("Square root of:");
             double lol = double.Parse(Console.ReadLine());
             Console.WriteLine("is "+ funcprac(lol));
+            Console.WriteLine();
             Console.WriteLine("enter number for perfect square?");
             int lolol = int.Parse(Console.ReadLine());
             actprac(lolol);
+            Console.WriteLine();
             Console.WriteLine("Pred test input number");
             int lololol = int.Parse(Console.ReadLine());
             Console.WriteLine(predprac(lololol)); 

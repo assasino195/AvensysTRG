@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customexception.cs" />
     <Compile Include="Funcc.cs" />
     <Compile Include="inteventargs.cs" />
     <Compile Include="Program.cs" />

@@ -201,7 +201,7 @@ namespace week4_ses2
             {
                 Console.WriteLine($"Directory not found {e}");
             }
-            catch (NotSupportedException e)
+            catch (NotSupportedException )
             {
                 Console.WriteLine($"not supproted exception");
             }
@@ -482,7 +482,7 @@ namespace week4_ses2
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"EXCEPTION CAUGHT!");
+                    Console.WriteLine($"EXCEPTION CAUGHT! {e.Message}");
                 }
             }
 
@@ -559,7 +559,7 @@ namespace week4_ses2
                                 {
                                     Console.WriteLine($"Over flowed {ex.Message}");
                                 }
-                                catch (Exception e)
+                                catch (Exception)
                                 {
                                     Console.WriteLine($"EXCEPTION CAUGHT!");
                                 }
@@ -589,7 +589,7 @@ namespace week4_ses2
                                 {
                                     Console.WriteLine($"Over flowed {ex.Message}");
                                 }
-                                catch (Exception e)
+                                catch (Exception)
                                 {
                                     Console.WriteLine($"EXCEPTION CAUGHT!");
                                 }
@@ -791,6 +791,220 @@ namespace week4_ses2
                 Console.WriteLine($"Result is: {e.c}");
             }
         }
+        class library<T>
+        {
+            public T[] namelist = new T[5];
+            
+            public T name { get; set; }
+            
+            public T this[int index]
+            {
+                get { return namelist[index]; }
+                set { namelist[index] = value; }
+            }
+            //public bool loaned { get; set; }
+            
+        }
+        
+        public static void q11()
+        {
+            library<int> intlst = new library<int>();
+            library<string> NameLst = new library<string>();
+            library<bool> boollst = new library<bool>();
+            library<int> bookList = new library<int>();
+            library<int> bookloanedto = new library<int>();
+            NameLst.namelist =new string[] { "john", "mary", "peter", "parker", "wiliam" };
+            intlst.namelist = new int[] { 111, 222, 333, 444, 555 };
+            bookList.namelist = new int[] { 1001, 1002, 1003, 1004, 1005 };
+            boollst.namelist = new bool[] { false, false, false, false, false };
+            bookloanedto.namelist = new int[] { 0, 0, 0, 0, 0 };
+            
+            bool stay = true;
+            
+            while(stay)
+            {
+                Console.WriteLine("1. Lend a book");
+                Console.WriteLine("2. Return a book");
+                string input = Console.ReadLine();
+
+                switch(input)
+                {
+                    case "1":
+                        {
+                            
+                            Console.WriteLine("enter ID");
+                            object id = Console.ReadLine();
+                            int parsedid=0;
+                            int parsedbookid = 0;
+                            bool managetoborrow = false;
+                            for(int i=0;i<bookList.namelist.Length;i++)
+                            {
+                                Console.WriteLine($"{i}: {bookList[i]}");
+                            }
+                            Console.Write("Enter option no of book you wish to borrow");
+                            object bookid = Console.ReadLine();
+                            try
+                            {
+                                 parsedid = int.Parse((string)id);
+                                parsedbookid = int.Parse((string)bookid);
+                            }
+                            catch (ArgumentNullException e)
+                            {
+                                Console.WriteLine($"Argument null caught: " + e.Message);
+                            }
+                            catch (FormatException e)
+                            {
+                                Console.WriteLine($"Format exception caught: {e.Message}");
+                            }
+                            catch (OverflowException e)
+                            {
+                                Console.WriteLine($"Over flow exception caught: {e.Message}");
+                            }
+                            catch(Exception e)
+                            {
+                                Console.WriteLine($"Exception caught: {e.Message}");
+                            }
+                            finally
+                            {
+                                
+                                for (int i = 0; i < intlst.namelist.Length; i++)
+                                {
+                                    if (intlst[i] == parsedid)
+                                    {
+                                        if (boollst[i] == false)
+                                        {
+                                            boollst[i] = true;
+                                            Console.WriteLine($"Name: {NameLst[i]} Student ID: {intlst[i]} has loaned book {bookList[parsedbookid]} ");
+                                            bookloanedto[parsedbookid] = intlst[i];
+                                            managetoborrow = true;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine($"{parsedid} have already borrowed a book");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        
+                                    }
+                                }
+                                if(managetoborrow==false)
+                                {
+                                    Console.WriteLine("You do not have the privilege to lend this book as you do not belong to this class");
+                                }
+                            }
+                            break;
+                        }
+                    case "2":
+                        {
+                            Console.WriteLine("enter ID");
+                            object id = Console.ReadLine();
+                            int parsedid = 0;
+                            //int parsedbookid = 0;
+                            try
+                            {
+                                parsedid = int.Parse((string)id);
+
+                            }
+                            catch (ArgumentNullException e)
+                            {
+                                Console.WriteLine($"Argument null caught: " + e.Message);
+                            }
+                            catch (FormatException e)
+                            {
+                                Console.WriteLine($"Format exception caught: {e.Message}");
+                            }
+                            catch (OverflowException e)
+                            {
+                                Console.WriteLine($"Over flow exception caught: {e.Message}");
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine($"Exception caught: {e.Message}");
+                            }
+                            finally
+                            {
+                                
+                                for(int i=0;i<bookloanedto.namelist.Length;i++)
+                                { 
+                                    if(bookloanedto[i]==parsedid)
+                                    {
+                                        //boollst[bookloanedto[i]] = false;
+                                        for(int k=0;k<intlst.namelist.Length;k++)
+                                        {
+                                            if (intlst[k] == parsedid && boollst[k] == true)
+                                            {
+                                                Console.WriteLine($"{NameLst[k]} has returned book id:{intlst[k]}");
+                                                boollst[k] = false;
+                                            }
+                                        }
+                                       
+                                        bookloanedto[i] = 0;
+                                        
+                                        
+                                    }
+                                    
+                                }
+                            }
+                                break;
+                        }
+                }
+            }
+           
+
+
+
+            
+        }
+        class salary<T>
+        {
+            public T var1 { get; set; }
+            public T totalpay { get; set; }
+            public T totaltax { get; set; }
+            public T totalinvestment { get; set; }
+            public T takehomeafterbills { get; set; }
+            public T insurancepaid { get; set; }
+            public void print()
+            {
+                
+               
+            }
+            
+        }
+        public static void q12()
+        {
+            salary<double> a = new salary<double>();
+           // salary<double> totalsalaryy = new salary<double>();
+           // salary<double> calculatemonths = new salary<double>();
+            Console.WriteLine($"enter total probation months");
+            int probmonths = int.Parse(Console.ReadLine());
+            Console.WriteLine($"enter salary per month");
+            double salarypermnth = double.Parse(Console.ReadLine());
+            Console.WriteLine("Total months to calculate");
+            int toalmths = int.Parse(Console.ReadLine());
+            double probationpay = (probmonths * salarypermnth)*0.8;
+            double totalpay = (((toalmths - probmonths) * salarypermnth) + probationpay);
+            double totaltax = (totalpay * 0.12);
+            double investment = (totalpay * 0.15);
+            double insurance = (totalpay * 0.5);
+            double afterbills = totalpay - totaltax - investment - insurance;
+
+            a.var1 = probationpay;
+            a.totalpay = totalpay;
+            a.takehomeafterbills = afterbills;
+            a.totalinvestment = investment;
+            a.totaltax = totaltax;
+            a.insurancepaid = insurance;
+            Console.WriteLine("Probation pay: "+a.var1);
+            Console.WriteLine("Total pay before bills & tax: "+a.totalpay);
+            Console.WriteLine("Total tax paid: "+a.totaltax);
+            Console.WriteLine($"Total Investments: "+a.totalinvestment);
+            Console.WriteLine("Total Insurance: "+a.insurancepaid);
+            Console.WriteLine("Total take home pay after bills "+a.takehomeafterbills);
+            
+
+
+        }
 
         static void Main(string[] args)
         {
@@ -803,7 +1017,9 @@ namespace week4_ses2
             // q6();
             //q8();
             //Q9();
-            q10();
+            //q10();
+            //q11();
+            q12();
             //}
             Console.ReadLine();
         }
