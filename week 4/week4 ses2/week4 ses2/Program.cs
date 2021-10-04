@@ -1040,6 +1040,70 @@ namespace week4_ses2
 
         }
 
+        class Question2
+        {
+            int Q2input;
+            string[] Q2;
+
+            public void getInput()
+            {
+                Console.Write("Enter the limit: ");
+                Q2input = Convert.ToInt32(Console.ReadLine());
+            }
+
+            public void printnumbers()
+            {
+                Q2[0] = "0";
+                for (int i = 1; i < Q2input + 1; i++)
+                {
+                    Thread.Sleep(1000);
+                    for (int j = 1; j <= i; j++)
+                    {
+                        if (i == 1)
+                        {
+                            Console.Write(Q2[1]);
+                        }
+                        else
+                        {
+                            Console.Write(Q2[j] + "\t");
+                        }
+                    }
+                    Console.WriteLine("\n");
+                }
+            }
+
+            public void addNumbers()
+            {
+                Q2 = new string[Q2input + 1];
+                for (int i = 1; i < Q2input + 1; i++)
+                {
+                    if (i == 1)
+                    {
+                        Thread.Sleep(500);
+                        Q2[1] = "1";
+                    }
+                    else
+                    {
+                        Thread.Sleep(500);
+                        Q2[i] = Convert.ToString(Convert.ToInt32(Q2[i - 1]) + Convert.ToInt32(Q2[i - 2]));
+                    }
+                }
+
+            }
+        }
+        public static void q13()
+        {
+            //Q2
+            Question2 Q2 = new Question2();
+            Thread Q2add = new Thread(Q2.addNumbers);
+            Q2.getInput();
+            Q2add.Start();
+            Thread.Sleep(100);
+            Q2.printnumbers();
+            Q2add.Abort();
+            Console.ReadLine();
+        }
+
         static void Main(string[] args)
         {
             //while (true)
@@ -1053,7 +1117,8 @@ namespace week4_ses2
             //Q9();
             //q10();
             //q11();
-            q12();
+            //q12();
+            q13();
             //}
             Console.ReadLine();
         }
