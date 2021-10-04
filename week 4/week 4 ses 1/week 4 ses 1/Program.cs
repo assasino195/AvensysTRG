@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace week_4_ses_1
 {
@@ -134,6 +135,15 @@ namespace week_4_ses_1
             Console.WriteLine(b.name);
             Console.WriteLine(b[4]);
         }
+        public static void threadstes()
+        {
+            Thread t = new Thread(() => { string v = "Starting Thread"; });
+            Thread t1 = new Thread(() => { string v = "Starting Thread again"; });
+            t.Start();
+            Thread.Sleep(1000);
+            t1.Start();
+
+        }
         static void Main(string[] args)
         {
 
@@ -167,6 +177,17 @@ namespace week_4_ses_1
                     case "5":
                         {
                             classques();
+                            break;
+                        }
+                    case "6":
+                        {
+                            threadstes();
+                            Thread.Sleep(1000);
+                            for (int i=0;i<50;i++)
+                            {
+                                Console.WriteLine( "Hello world");
+                            }
+                            
                             break;
                         }
                 }

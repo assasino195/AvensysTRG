@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace week4_ses2
 {
@@ -971,6 +972,20 @@ namespace week4_ses2
             }
             
         }
+        public static void q12print()
+        {
+            salary<double> a = new salary<double>();
+            Console.WriteLine(a.var1);
+            Console.WriteLine($"enter total probation months");
+            int probmonths = int.Parse(Console.ReadLine());
+            Console.WriteLine($"enter salary per month");
+            double salarypermnth = double.Parse(Console.ReadLine());
+            Console.WriteLine("Total months to calculate");
+            int toalmths = int.Parse(Console.ReadLine());
+            double probationpay = (probmonths * salarypermnth) * 0.8;
+            a.var1 = probationpay;
+            Console.WriteLine(a.var1);
+        }
         public static void q12()
         {
             salary<double> a = new salary<double>();
@@ -995,12 +1010,31 @@ namespace week4_ses2
             a.totalinvestment = investment;
             a.totaltax = totaltax;
             a.insurancepaid = insurance;
-            Console.WriteLine("Probation pay: "+a.var1);
-            Console.WriteLine("Total pay before bills & tax: "+a.totalpay);
-            Console.WriteLine("Total tax paid: "+a.totaltax);
-            Console.WriteLine($"Total Investments: "+a.totalinvestment);
-            Console.WriteLine("Total Insurance: "+a.insurancepaid);
-            Console.WriteLine("Total take home pay after bills "+a.takehomeafterbills);
+
+            Thread probpay = new Thread(() => {  Console.WriteLine("Probation pay: " + a.var1); });
+            Thread notaxtotalpay = new Thread(() => { Console.WriteLine("Total pay before bills & tax: " + a.totalpay); });
+            Thread totaltaxpr = new Thread(() => { Console.WriteLine("Total tax paid: " + a.totaltax); });
+            Thread totalinve = new Thread(() => { Console.WriteLine($"Total Investments: " + a.totalinvestment); });
+            Thread totalinsu = new Thread(() => { Console.WriteLine("Total Insurance: " + a.insurancepaid); });
+            Thread takehome = new Thread(() => { Console.WriteLine("Total take home pay after bills " + a.takehomeafterbills); });
+            //Thread tp = new Thread(new ParameterizedThreadStart());
+            //Console.WriteLine("Probation pay: "+a.var1);
+            //Console.WriteLine("Total pay before bills & tax: "+a.totalpay);
+            //Console.WriteLine("Total tax paid: "+a.totaltax);
+            //Console.WriteLine($"Total Investments: "+a.totalinvestment);
+            //Console.WriteLine("Total Insurance: "+a.insurancepaid);
+            //Console.WriteLine("Total take home pay after bills "+a.takehomeafterbills);
+            Thread.Sleep(5000);
+            probpay.Start();
+            
+            notaxtotalpay.Start();
+            totaltaxpr.Start();
+            totalinve.Start();
+            totalinsu.Start();
+            takehome.Start();
+            Console.WriteLine("All the pay went to:");
+            //q12print();
+            
             
 
 
