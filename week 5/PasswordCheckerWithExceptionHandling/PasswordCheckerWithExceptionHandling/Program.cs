@@ -8,14 +8,7 @@ namespace PasswordCheckerWithExceptionHandling
 {
     class Program
     {
-        public static bool Contains(string target, string list)
-        {
-            return target.IndexOfAny(list.ToCharArray()) != -1;
-        }
-        private static bool CheckInvalidInput(string stringToCheck, IEnumerable<char> allowedChars)
-        {
-            return stringToCheck.All(allowedChars.Contains);
-        }
+       
         static void Main(string[] args)
         {
 
@@ -24,14 +17,7 @@ namespace PasswordCheckerWithExceptionHandling
             //int bigletter = 0;
             //int valid = 0;
             string input = string.Empty;
-            char temp = ' ';
-            //char temp2 = ' ';
-            int count = 0;
-            string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            string lowercase = uppercase.ToLower();
-            string digits = "123456789";
-            string special = " ! @ # $ % ^ & * ( ) + = _ - { } [ ] : ; ";
-            var allowedchars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()+=-[]{}";
+            
            
            
             
@@ -50,55 +36,18 @@ namespace PasswordCheckerWithExceptionHandling
                 Console.WriteLine($"Over flowed {ex.Message}");
             }
 
-
-
-            bool okay = CheckInvalidInput(input, allowedchars);
-            if (okay == false)
-            {
-                Console.WriteLine("Your password contained characters that are not allowed");
-            }
-            if (Contains(input, lowercase) && Contains(input, uppercase) && Contains(input, digits))
-            {
-
-            }
-            else
-            {
-                okay = false;
-            }
-            foreach (char a in input)
-            {
-                if (temp == a)
-                {
-                    count++;
-                }
-                else
-                {
-                    count = 0;
-                }
-                if (count > 1)
-                {
-                    okay = false;
-                    Console.WriteLine("Passoword contained multiple iteration of same character eg. aaa max=2");
-                }
-                temp = a;
-
-
-
-            }
-
-
-            if (okay == true)
-            {
-                Console.WriteLine("password accepted");
-
-            }
-            else
-            {
-                Console.WriteLine("password not accepted");
-            }
-            Console.WriteLine();
+            publisher p = new publisher();
+            p.send += P_send;
+            p.getinput(input);
+           
+           
             Console.ReadLine();
 
+        }
+
+        private static void P_send(string s)
+        {
+            Console.WriteLine(s);
         }
     }
 }
