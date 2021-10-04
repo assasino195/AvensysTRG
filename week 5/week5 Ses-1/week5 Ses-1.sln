@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "week5 Ses-1", "week5 Ses-1\week5 Ses-1.csproj", "{8784E312-2F28-42FC-A544-1514958B18B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckShape", "week5 Ses-1\CheckShape.csproj", "{8784E312-2F28-42FC-A544-1514958B18B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
