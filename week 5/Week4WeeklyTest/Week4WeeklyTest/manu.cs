@@ -19,10 +19,12 @@ namespace Week4WeeklyTest
         public object Add(object a, object b)
         {
             int k,o;
-            if (int.TryParse((string)(a),out k)&& int.TryParse((string)(b), out o)) //&& (b is int intt2))
+            if (a is Type && b is Type) //&& (b is int intt2))
             {
-                int output = k + o;
-                return output;
+                List<Type> i = new List<Type>();
+                i.Add((Type)a);
+                i.Add((Type)b);
+                return i;
             }
             else if (a is string str && b is string str1)
             {
@@ -30,21 +32,28 @@ namespace Week4WeeklyTest
                 output += str1;
                 return output;
             }
-            else if (a is List<object> lst1 && b is List<object> lst2)
+            else if (a is List<string> lst1 && b is List<string> lst2)
 
             {
-                List<object> op = new List<object>();
-                op.Add(lst1);
-                op.Add(lst2);
+                List<string> op = new List<string>();
+                op.AddRange(lst1);
+                op.AddRange(lst2);
+                for (int i = 0; i < op.Count; i++)
+                {
+                    return op[i];
+                }
                 return op;
+                 
+              
+                
             }
-            else if (a is Type && b is Type )
+            else if (int.TryParse((string)(a), out k) && int.TryParse((string)(b), out o))
             {
-                List<Type> i = new List<Type>();
-                i.Add((Type)a);
-                i.Add((Type)b);
-                return i;
+               
+                int output = k + o;
+                return output;
             }
+            
 
             else
             {

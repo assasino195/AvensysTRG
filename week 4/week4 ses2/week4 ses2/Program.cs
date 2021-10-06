@@ -89,6 +89,7 @@ namespace week4_ses2
                     int a1 = Int32.Parse((string)a);//cannot hear u
                     int a2 = Int32.Parse((string)b);
                     Console.WriteLine($"{a1} * {a2} = {a1 * a2}");
+                   
                 }
                 catch (InvalidCastException ex)
                 {

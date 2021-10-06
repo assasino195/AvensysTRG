@@ -1,7 +1,6 @@
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Week4WeeklyTest\obj\Debug\Q2.csproj.AssemblyReference.cache
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Week4WeeklyTest\obj\Debug\Q2.csproj.CoreCompileInputs.cache
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Week4WeeklyTest\bin\Debug\Week4WeeklyTest.exe.config
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Week4WeeklyTest\bin\Debug\Week4WeeklyTest.exe
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Week4WeeklyTest\bin\Debug\Week4WeeklyTest.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Week4WeeklyTest\obj\Debug\Q2.csproj.CoreCompileInputs.cache
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Week4WeeklyTest\obj\Debug\Week4WeeklyTest.exe
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Week4WeeklyTest\obj\Debug\Week4WeeklyTest.pdb

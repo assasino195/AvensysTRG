@@ -1,6 +1,7 @@
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Q5\bin\Debug\Q5.exe.config
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Q5\bin\Debug\Q5.exe
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Q5\bin\Debug\Q5.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Q5\obj\Debug\Q5.csproj.AssemblyReference.cache
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Q5\obj\Debug\Q5.csproj.CoreCompileInputs.cache
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Q5\obj\Debug\Q5.exe
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\Week4WeeklyTest\Q5\obj\Debug\Q5.pdb
