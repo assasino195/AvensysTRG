@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace threadingexamples
 {
@@ -52,6 +53,5 @@ namespace threadingexamples
             Thread.Sleep(5000);
             Console.WriteLine("Perform task quickly");
         }
-    }
     }
 }
