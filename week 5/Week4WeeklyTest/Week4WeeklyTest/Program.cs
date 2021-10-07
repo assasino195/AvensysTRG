@@ -22,6 +22,7 @@ namespace Week4WeeklyTest
             lst2.Add("10");
            // Console.WriteLine(obj.Add(a, b));
             Console.WriteLine(obj.Add(lst1,lst2));
+           // int x=Convert.ToInt32()
             lst1.AddRange(lst2);
             Console.ReadLine();
         }

@@ -40,7 +40,7 @@ namespace Week4WeeklyTest
                 op.AddRange(lst2);
                 for (int i = 0; i < op.Count; i++)
                 {
-                    return op[i];
+                    Console.WriteLine(op[i]);
                 }
                 return op;
                  

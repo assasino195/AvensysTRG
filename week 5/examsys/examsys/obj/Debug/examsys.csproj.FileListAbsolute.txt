@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\examsys\examsys\bin\Debug\examsys.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\examsys\examsys\bin\Debug\examsys.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\examsys\examsys\bin\Debug\examsys.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\examsys\examsys\obj\Debug\examsys.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\examsys\examsys\obj\Debug\examsys.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\examsys\examsys\obj\Debug\examsys.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\examsys\examsys\obj\Debug\examsys.pdb

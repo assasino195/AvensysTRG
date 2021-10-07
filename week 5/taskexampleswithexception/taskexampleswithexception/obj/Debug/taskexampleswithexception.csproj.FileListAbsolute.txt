@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\taskexampleswithexception\taskexampleswithexception\bin\Debug\taskexampleswithexception.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\taskexampleswithexception\taskexampleswithexception\bin\Debug\taskexampleswithexception.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\taskexampleswithexception\taskexampleswithexception\bin\Debug\taskexampleswithexception.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\taskexampleswithexception\taskexampleswithexception\obj\Debug\taskexampleswithexception.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\taskexampleswithexception\taskexampleswithexception\obj\Debug\taskexampleswithexception.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\taskexampleswithexception\taskexampleswithexception\obj\Debug\taskexampleswithexception.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\taskexampleswithexception\taskexampleswithexception\obj\Debug\taskexampleswithexception.pdb
