@@ -63,6 +63,9 @@ namespace ComplexClass
             {
                 Console.WriteLine($"key is {kvp.Key} value is: {kvp.Value}");
             }
+
+            Dictionary<int, int[]> d1 = new Dictionary<int, int[]>();
+            d1.Add(0,(new int[5]{ 1,2,3,4,5}));
             bool stay = true;
             while (stay)
             {
