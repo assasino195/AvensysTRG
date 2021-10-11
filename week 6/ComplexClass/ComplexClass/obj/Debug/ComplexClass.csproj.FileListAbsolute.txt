@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ComplexClass\ComplexClass\bin\Debug\ComplexClass.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ComplexClass\ComplexClass\bin\Debug\ComplexClass.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ComplexClass\ComplexClass\bin\Debug\ComplexClass.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ComplexClass\ComplexClass\obj\Debug\ComplexClass.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ComplexClass\ComplexClass\obj\Debug\ComplexClass.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ComplexClass\ComplexClass\obj\Debug\ComplexClass.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ComplexClass\ComplexClass\obj\Debug\ComplexClass.pdb
