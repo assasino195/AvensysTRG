@@ -1,2 +1,1 @@
-larry,1,Specialist,0,0,0
-mary,2,,1,0,0
+lary,1,1/10/2010 12:00:00 AM visited Emergency.1/1/2010 12:00:00 AM visited Specialist.

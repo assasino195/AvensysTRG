@@ -21,18 +21,18 @@ namespace QUestion_2
             {
                 string[] entires = line.Split(',');
 
-                try
-                {
-                    int a1 = int.Parse(entires[3]);
-                    int b1 = int.Parse(entires[4]);
-                    int c1 = int.Parse(entires[5]);
-                    Patient temppat = new Patient(entires[0], entires[1], entires[2], a1, b1, c1,entires[6]);
+                //try
+                //{
+                //    int a1 = int.Parse(entires[3]);
+                //    int b1 = int.Parse(entires[4]);
+                //    int c1 = int.Parse(entires[5]);
+                    Patient temppat = new Patient(entires[0], entires[1], entires[2]);
                     patlst.Add(temppat);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("exception caught : " + e.Message);
-                }
+                //}
+                //catch (Exception e)
+                //{
+                //    Console.WriteLine("exception caught : " + e.Message);
+                //}
             }
             //}
             //else
@@ -71,7 +71,7 @@ namespace QUestion_2
                                 }
                                 if (newpat)
                                 {
-                                    Patient p = new Patient(name, id, null, 0, 0, 0,null);
+                                    Patient p = new Patient(name, id,null);
                                     patlst.Add(p);
                                     Console.WriteLine("added new user to system");
                                 }
@@ -171,7 +171,7 @@ namespace QUestion_2
                                 List<string> output = new List<string>();
                                 foreach (var cus in patlst)
                                 {
-                                    output.Add($"{cus.name},{cus.id},{cus.issue},{cus.countemg},{cus.clic},{cus.spec}");
+                                    output.Add($"{cus.name},{cus.id},{cus.issue}");
                                 }
                                 File.WriteAllLines(filepath, output);
                                 Console.WriteLine("all entries updated");

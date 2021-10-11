@@ -16,14 +16,14 @@ namespace QUestion_2
         public int clic { get; set; }
         public int spec { get; set; }
         public DateTime visited { get; set; }
-        public Patient(string n,string i,string h,int emg,int c,int s,string issue)
+        public Patient(string n,string i,string issue)
         {
             name = n;
             id = i;
-            hist = h;
-            countemg = emg;
-            clic = c;
-            spec = s;
+            //hist = h;
+            //countemg = emg;
+            //clic = c;
+            //spec = s;
             this.issue = issue;
 
         }
