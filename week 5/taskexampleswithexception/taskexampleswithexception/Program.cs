@@ -84,9 +84,10 @@ namespace TaskExample
 
         private static void ExceptionInTask()
         {
-            var task1 = new Task.Run(() => { throw new InvalidOperationException(); });
+            var task1 =  Task.Run(() => { throw new InvalidOperationException(); });
+             
             try
-            {
+            {   
                 task1.Wait();
             }
             catch (AggregateException ex)

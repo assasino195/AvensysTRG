@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\QUestion 2\bin\Debug\QUestion 2.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\QUestion 2\bin\Debug\QUestion 2.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\QUestion 2\bin\Debug\QUestion 2.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\QUestion 2\obj\Debug\QUestion 2.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\QUestion 2\obj\Debug\QUestion 2.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\QUestion 2\obj\Debug\QUestion 2.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\QUestion 2\obj\Debug\QUestion 2.csproj.AssemblyReference.cache

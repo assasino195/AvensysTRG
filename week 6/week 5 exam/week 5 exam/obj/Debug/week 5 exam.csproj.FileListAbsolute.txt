@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\week 5 exam\bin\Debug\week 5 exam.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\week 5 exam\bin\Debug\week 5 exam.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\week 5 exam\bin\Debug\week 5 exam.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\week 5 exam\obj\Debug\week 5 exam.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\week 5 exam\obj\Debug\week 5 exam.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\week 5 exam\obj\Debug\week 5 exam.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\week 5 exam\week 5 exam\obj\Debug\week 5 exam.pdb

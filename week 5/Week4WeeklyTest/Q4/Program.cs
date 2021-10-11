@@ -47,7 +47,7 @@ namespace Q4
             {
                 input1 = int.Parse((string)(a));
                 input2 = int.Parse((string)(b));
-                Thread t = new Thread(() => { display(input1, input2); });
+               // Thread t = new Thread(() => { display(input1, input2); });
                 Thread t1 = new Thread(() => { p.add(input1, input2); });
                 Thread t2 = new Thread(() => { p.subtract(input1, input2); });
                 Thread t3 = new Thread(() => { p.divide(input1, input2); });
