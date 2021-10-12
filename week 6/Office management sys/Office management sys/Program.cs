@@ -37,6 +37,7 @@ namespace Office_management_sys
                                         Console.WriteLine("2.Remove Employee");
                                         Console.WriteLine("3.Change employee role");
                                         Console.WriteLine("4.Assign task to employee");
+                                        Console.WriteLine("5.Check Submitted Reports");
                                         Console.WriteLine("0.Quit");
                                         string choice = Console.ReadLine();
                                         switch (choice)
@@ -167,6 +168,33 @@ namespace Office_management_sys
                                                     }
                                                     break;
                                                 }
+                                            case "5":
+                                                {
+                                                    foreach (var dic in dict)
+                                                    {
+                                                        if (dic.Value.role == "User")
+                                                        {
+                                                            Console.WriteLine($"{dic.Key} {dic.Value.name} {dic.Value.role}");
+                                                        }
+                                                    }
+                                                    Console.WriteLine("Enter employee ID you wish to view report");
+                                                    string aa = Console.ReadLine();
+                                                    if (dict.ContainsKey(aa))
+                                                    {
+                                                        foreach (var dic in dict)
+                                                        {
+                                                            if (dic.Key.Equals(aa))
+                                                            {
+                                                                foreach (string a in dic.Value.worksubmitted)
+                                                                {
+                                                                    Console.WriteLine(a);
+                                                                }
+
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
+                                                }
                                             case "0":
                                                 {
                                                     stay = false;
@@ -181,24 +209,61 @@ namespace Office_management_sys
                                     }
                                 case "Admin":
                                     {
-                                        foreach (var dic in dict)
+                                        Console.WriteLine("1.Assign roles\n2.View Employee Reports");
+                                        string aaa = Console.ReadLine();
+                                        switch(aaa)
                                         {
-                                            Console.WriteLine($"{dic.Key} {dic.Value.name} {dic.Value.role}");
-                                        }
-                                        Console.WriteLine("Enter employee ID you wish to assign");
-                                        string idint = Console.ReadLine();
-                                        if (dict.ContainsKey(idint))
-                                        {
-                                            foreach (var w in dict)
-                                            {
-                                                if (w.Key.Equals(idint))
+                                            case "1":
                                                 {
-                                                    Console.WriteLine($"Enter task you wish to assign to {w.Value.name} {w.Value.id}");
-                                                    w.Value.taskassigned = Console.ReadLine();
-                                                    Console.WriteLine("Assigned Task");
+                                                    foreach (var dic in dict)
+                                                    {
+                                                        Console.WriteLine($"{dic.Key} {dic.Value.name} {dic.Value.role}");
+                                                    }
+                                                    Console.WriteLine("Enter employee ID you wish to assign");
+                                                    string idint = Console.ReadLine();
+                                                    if (dict.ContainsKey(idint))
+                                                    {
+                                                        foreach (var w in dict)
+                                                        {
+                                                            if (w.Key.Equals(idint))
+                                                            {
+                                                                Console.WriteLine($"Enter task you wish to assign to {w.Value.name} {w.Value.id}");
+                                                                w.Value.taskassigned = Console.ReadLine();
+                                                                Console.WriteLine("Assigned Task");
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
                                                 }
-                                            }
+                                            case "2":
+                                                {
+                                                    foreach (var dic in dict)
+                                                    {
+                                                        if (dic.Value.role == "User")
+                                                        {
+                                                            Console.WriteLine($"{dic.Key} {dic.Value.name} {dic.Value.role}");
+                                                        }
+                                                    }
+                                                    Console.WriteLine("Enter employee ID you wish to view report");
+                                                    string aa = Console.ReadLine();
+                                                    if(dict.ContainsKey(aa))
+                                                    {
+                                                        foreach(var dic in dict)
+                                                        {
+                                                            if(dic.Key.Equals(aa))
+                                                            {
+                                                                foreach(string a in dic.Value.worksubmitted)
+                                                                {
+                                                                    Console.WriteLine(a);
+                                                                }
+                                                               
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
+                                                }
                                         }
+                                       
                                         break;
 
                                     }
@@ -206,6 +271,14 @@ namespace Office_management_sys
                                     {
                                         Console.WriteLine($"{worker.Value.id} {worker.Value.name} ");
                                         Console.WriteLine($"Your task for today is {worker.Value.taskassigned}");
+                                        Console.WriteLine("Do you have report to submit? Y/N");
+                                        string inp = Console.ReadLine().ToUpper();
+                                        if(inp=="Y")
+                                        {
+                                            Console.WriteLine("Enter the report you wish to submit.");
+                                            worker.Value.submitwork(Console.ReadLine());
+                                            Console.WriteLine("Successfully submitted report");
+                                        }
                                         break;
                                     }
                             }

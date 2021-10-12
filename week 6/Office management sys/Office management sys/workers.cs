@@ -35,7 +35,7 @@ namespace Office_management_sys
             if(role=="User")
             {
                 DateTime dt = DateTime.UtcNow.AddHours(8);
-                worksubmitted.Add($"{name} {id} has submitted work on {dt}");
+                worksubmitted.Add($"{name} {id} has submitted work on {dt}\n{work}");
             }
         }
     }
