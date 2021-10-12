@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Office management sys\Office management sys\bin\Debug\Office management sys.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Office management sys\Office management sys\bin\Debug\Office management sys.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Office management sys\Office management sys\bin\Debug\Office management sys.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Office management sys\Office management sys\obj\Debug\Office management sys.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Office management sys\Office management sys\obj\Debug\Office management sys.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Office management sys\Office management sys\obj\Debug\Office management sys.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Office management sys\Office management sys\obj\Debug\Office management sys.pdb
