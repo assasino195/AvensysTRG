@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Exam Longtitude Questions\Exam Longtitude Questions\bin\Debug\Exam Longtitude Questions.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Exam Longtitude Questions\Exam Longtitude Questions\bin\Debug\Exam Longtitude Questions.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Exam Longtitude Questions\Exam Longtitude Questions\bin\Debug\Exam Longtitude Questions.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Exam Longtitude Questions\Exam Longtitude Questions\obj\Debug\Exam Longtitude Questions.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Exam Longtitude Questions\Exam Longtitude Questions\obj\Debug\Exam Longtitude Questions.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Exam Longtitude Questions\Exam Longtitude Questions\obj\Debug\Exam Longtitude Questions.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Exam Longtitude Questions\Exam Longtitude Questions\obj\Debug\Exam Longtitude Questions.pdb
