@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\even length string cehcker\bin\Debug\even length string cehcker.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\even length string cehcker\bin\Debug\even length string cehcker.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\even length string cehcker\bin\Debug\even length string cehcker.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\even length string cehcker\obj\Debug\even length string cehcker.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\even length string cehcker\obj\Debug\even length string cehcker.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\even length string cehcker\obj\Debug\even length string cehcker.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\even length string cehcker\obj\Debug\even length string cehcker.pdb
