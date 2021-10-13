@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ipaddresscheck\ipaddresscheck\bin\Debug\ipaddresscheck.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ipaddresscheck\ipaddresscheck\bin\Debug\ipaddresscheck.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ipaddresscheck\ipaddresscheck\bin\Debug\ipaddresscheck.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ipaddresscheck\ipaddresscheck\obj\Debug\ipaddresscheck.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ipaddresscheck\ipaddresscheck\obj\Debug\ipaddresscheck.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ipaddresscheck\ipaddresscheck\obj\Debug\ipaddresscheck.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ipaddresscheck\ipaddresscheck\obj\Debug\ipaddresscheck.pdb
