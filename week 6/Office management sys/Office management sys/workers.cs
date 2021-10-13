@@ -12,12 +12,13 @@ namespace Office_management_sys
         public string id { get; set; }
         public string role { get; set; }
         public string taskassigned { get; set; }
-        public List<string> worksubmitted = new List<string>();
-        public workers(string n,string i,string r)
+        public bool worksubmitted { get; set; }
+        public workers(string n,string i,string r,bool work)
         {
             name = n;
             id = i;
             role = r;
+            worksubmitted = work;
         }
         public void assigntask(string task,workers w)
         {
@@ -34,9 +35,14 @@ namespace Office_management_sys
         {
             if(role=="User")
             {
-                DateTime dt = DateTime.UtcNow.AddHours(8);
-                worksubmitted.Add($"{name} {id} has submitted work on {dt}\n{work}");
+                worksubmitted = true;
             }
+        }
+        public override string ToString()
+        {
+            string output = id + "," + name + "," + role+","+worksubmitted;
+           
+            return $"{id},{name},{role},{worksubmitted}";
         }
     }
 }

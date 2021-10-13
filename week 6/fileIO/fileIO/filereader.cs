@@ -19,7 +19,7 @@ namespace fileIO
             StreamWriter sw = new StreamWriter(fs);
             foreach(var d in dict)
             {
-                sw.Write($"{d.Key} count: {d.Value}");
+                sw.Write($"{d.Key} count:{d.Value}\t");
             }
             //sw.WriteLine("Hello world");
 
@@ -50,40 +50,61 @@ namespace fileIO
             StreamReader sr = new StreamReader(fs);
 
             sr.BaseStream.Seek(0, SeekOrigin.Begin);
-            string str = sr.ReadLine();
-           
+            List<string> a = new List<string>();
             
-
-            while (str != null)
+            string str = sr.ReadToEnd();
+           
+            for(int i=0;i<str.Length;i++)
             {
-                foreach (char a in str)
+                if (dict.ContainsKey(str[i]))
                 {
-
-
-                    if (dict.ContainsKey(a))
+                    dict[str[i]] += 1;
+                }
+                else
+                {
+                    if (str[i].Equals(" "))
                     {
-                        foreach (var d in dict)
-                        {
-                            if (d.Key.Equals(a))
-                            {
-                                Console.WriteLine("added "+a);
-                                dict[a]++;
-                                break;
-                            }
-                           
-                        }
+                       
                     }
                     else
                     {
-                        dict.Add(a, 1);
+                        dict.Add(str[i], 1);
                     }
                 }
-                Console.WriteLine();
-                str = sr.ReadLine();
             }
+            Console.WriteLine();
+            str = sr.ReadLine();
+
 
             sr.Close();
             fs.Close();
+            //while (str != null)
+            //{
+            //    foreach (char a in str)
+            //    {
+
+
+            //        if (dict.ContainsKey(a))
+            //        {
+            //            foreach (var d in dict)
+            //            {
+            //                if (d.Key.Equals(a))
+            //                {
+            //                    Console.WriteLine("added "+a);
+            //                    dict[a]++;
+
+
+            //                    break;
+            //                }
+
+            //            }
+            //        }
+            //        else
+            //        {
+            //            dict.Add(a, 1);
+            //        }
+            //    }
+
         }
     }
 }

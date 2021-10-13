@@ -1,0 +1,2 @@
+a count:2	b count:2	c count:2	d count:2	e count:2	f count:2	g count:2	h count:2	i count:2	j count:2	k count:2	l count:2	m count:2	n count:2	o count:2	p count:2	q count:2	r count:2	s count:2	t count:2	u count:2	v count:2	w count:2	x count:2	y count:2	z count:2	 count:3	
+ count:3	0 count:2	1 count:2	2 count:2	3 count:2	4 count:2	5 count:2	6 count:2	7 count:2	8 count:2	9 count:2	

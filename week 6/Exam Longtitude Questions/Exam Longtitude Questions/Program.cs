@@ -8,8 +8,8 @@ namespace Exam_Longtitude_Questions
         {
             //Console.WriteLine("EAST OR WEST");
             //string direction = Console.ReadLine().ToUpper();
-            Console.WriteLine("Enter Degree");
-            int degree = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter longitude");
+            double degree = double.Parse(Console.ReadLine());
             //if (direction=="WEST")
             //{
             //    Console.WriteLine(calculateWESTTIME(degree));
@@ -30,7 +30,7 @@ namespace Exam_Longtitude_Questions
 
 
         }
-        static DateTime calculateeasttime(int a)
+        static DateTime calculateeasttime(double a)
         {
             DateTime dt = DateTime.UtcNow;
             double output = a * 4;

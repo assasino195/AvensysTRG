@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Office_management_sys
 {
@@ -12,9 +11,87 @@ namespace Office_management_sys
         static void Main(string[] args)
         {
             Dictionary<string, workers> dict = new Dictionary<string, workers>();
-            dict.Add("1", new workers("David", "1", "SuperAdmin"));
-            dict.Add("2", new workers("Adam", "2", "Admin"));
-            dict.Add("3", new workers("John", "3", "User"));
+            string filename = "officeemployees.txt";
+            string fullfilename = @"C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Office management sys\Office management sys\bin\Debug";
+            FileStream fs = new FileStream($"{ filename}.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+
+            sr.BaseStream.Seek(0, SeekOrigin.Begin);
+            //string str = sr.ReadToEnd();
+
+            //while(str!=null)
+            //{
+            //    var strr = str.Split(' ');
+            //    string[] test = strr.ToString();
+            //    foreach(string splitted in test)
+            //    {
+
+            //    }
+            //    if(!dict.ContainsKey(strarr[0]))
+            //    {
+            //        dict.Add(strarr[0], new workers(strarr[1],strarr[0], strarr[2], bool.Parse(strarr[3])));
+            //    }
+            //}
+
+            List<string> aftersplit = new List<string>();
+            List<string> finalproduct = new List<string>();
+            List<string> testing = new List<string>();
+            testing.Add(sr.ReadToEnd());
+            foreach(string test in testing)
+            {
+                //Console.WriteLine(test);
+                string[] splitted = test.Split('\n');
+                foreach(string tes in splitted)
+                {
+                    //Console.WriteLine(tes);
+                    string[] splitoncemore = tes.Split('\r');
+                    foreach(string final in splitoncemore)
+                    {
+                        Console.WriteLine(final);
+                        aftersplit.Add(final);
+                        //dict.Add(final[0].ToString(), new workers(final[1].ToString(), final[0].ToString(), final[2].ToString(), bool.Parse(final[3].ToString())));
+                    }
+                }
+                //foreach(string testing2 in splitted)
+                //{
+                //    string[] splitagain = testing2.Split(',');
+                //    dict.Add(splitagain[0], new workers(splitagain[1], splitagain[0], splitagain[2], bool.Parse(splitagain[3])));
+                //}
+               
+            }
+            foreach(string fin in aftersplit)
+            {
+                if(string.IsNullOrEmpty(fin))
+                {
+                    
+                }
+                else
+                {
+                    finalproduct.Add(fin);
+                }
+               
+            }
+            foreach(string kk in finalproduct)
+            {
+               // Console.WriteLine(kk);
+                string[] finalle = kk.Split(',');
+                dict.Add(finalle[0], new workers(finalle[1], finalle[0], finalle[2], bool.Parse(finalle[3])));
+            }
+            
+            //List<string> str = File.ReadAllLines(fullfilename).ToList();
+
+            //foreach (string entries in str)
+            //{
+            //    string[] splitted = entries.Split(',');
+            //    dict.Add(splitted[0], new workers(splitted[1], splitted[0], splitted[2], bool.Parse(splitted[3])));
+            //}
+
+            sr.Close();
+            fs.Close();
+
+            //dict.Add("1", new workers("David", "1", "SuperAdmin", false));
+            //dict.Add("2", new workers("Adam", "2", "Admin", false));
+            //dict.Add("3", new workers("John", "3", "User", false));
             bool stay = true;
             while (stay)
             {
@@ -80,7 +157,7 @@ namespace Office_management_sys
                                                     }
                                                     else
                                                     {
-                                                        dict.Add(id, new workers(name, id, role));
+                                                        dict.Add(id, new workers(name, id, role,false));
                                                         Console.WriteLine("Added new worker!");
                                                         addedworker = true;
 
@@ -185,10 +262,7 @@ namespace Office_management_sys
                                                         {
                                                             if (dic.Key.Equals(aa))
                                                             {
-                                                                foreach (string a in dic.Value.worksubmitted)
-                                                                {
-                                                                    Console.WriteLine(a);
-                                                                }
+                                                                Console.WriteLine("work submitted is: " + dic.Value.worksubmitted);
 
                                                             }
                                                         }
@@ -252,11 +326,7 @@ namespace Office_management_sys
                                                         {
                                                             if(dic.Key.Equals(aa))
                                                             {
-                                                                foreach(string a in dic.Value.worksubmitted)
-                                                                {
-                                                                    Console.WriteLine(a);
-                                                                }
-                                                               
+                                                                Console.WriteLine("work submitted is: " + dic.Value.worksubmitted);
                                                             }
                                                         }
                                                     }
@@ -299,10 +369,21 @@ namespace Office_management_sys
                 {
                     Console.WriteLine("ID does not match ");
                     Console.WriteLine("Do you wish to exit the system? Y/N");
-                    string a = Console.ReadLine().ToUpper();
-                    if (a == "Y")
+                    string exitting = Console.ReadLine().ToUpper();
+                    if (exitting == "Y")
                     {
+                       
+                        
                         stay = false;
+                        FileStream fs1 = new FileStream($"{filename}.txt", FileMode.OpenOrCreate, FileAccess.Write);
+                        StreamWriter sw = new StreamWriter(fs1);
+                        foreach(var d in dict)
+                        {
+                            sw.WriteLine($"{d.Value.id},{d.Value.name},{d.Value.role},{d.Value.worksubmitted}");
+                        }
+                        sw.Close();
+                        fs1.Close();
+                        
                     }
                 }
             }

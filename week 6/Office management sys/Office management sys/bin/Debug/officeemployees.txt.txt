@@ -1,0 +1,4 @@
+1,David,SuperAdmin,False
+2,Adam,Admin,False
+3,John,User,False
+4,timothy,User,False

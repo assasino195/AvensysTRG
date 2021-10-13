@@ -1,0 +1,17 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\UnitTestProject2.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\UnitTestProject2.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\even length string cehcker.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\even length string cehcker.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\even length string cehcker.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.CopyComplete
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\obj\Debug\UnitTestProject2.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\obj\Debug\UnitTestProject2.pdb
