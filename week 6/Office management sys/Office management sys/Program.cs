@@ -41,8 +41,10 @@ namespace Office_management_sys
             {
                 //Console.WriteLine(test);
                 string[] splitted = test.Split('\n');
+
                 foreach(string tes in splitted)
                 {
+                    
                     //Console.WriteLine(tes);
                     string[] splitoncemore = tes.Split('\r');
                     foreach(string final in splitoncemore)
@@ -75,7 +77,7 @@ namespace Office_management_sys
             {
                // Console.WriteLine(kk);
                 string[] finalle = kk.Split(',');
-                dict.Add(finalle[0], new workers(finalle[1], finalle[0], finalle[2], bool.Parse(finalle[3])));
+                dict.Add(finalle[0], new workers(finalle[1], finalle[0], finalle[3], bool.Parse(finalle[2])));
             }
             
             //List<string> str = File.ReadAllLines(fullfilename).ToList();

@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Reverse a string without bcl\Reverse a string without bcl\bin\Debug\Reverse a string without bcl.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Reverse a string without bcl\Reverse a string without bcl\bin\Debug\Reverse a string without bcl.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Reverse a string without bcl\Reverse a string without bcl\bin\Debug\Reverse a string without bcl.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Reverse a string without bcl\Reverse a string without bcl\obj\Debug\Reverse a string without bcl.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Reverse a string without bcl\Reverse a string without bcl\obj\Debug\Reverse a string without bcl.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Reverse a string without bcl\Reverse a string without bcl\obj\Debug\Reverse a string without bcl.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\Reverse a string without bcl\Reverse a string without bcl\obj\Debug\Reverse a string without bcl.pdb

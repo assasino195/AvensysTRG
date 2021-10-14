@@ -15,3 +15,11 @@ C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehc
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.CopyComplete
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\obj\Debug\UnitTestProject2.dll
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\obj\Debug\UnitTestProject2.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Castle.Core.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Moq.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Castle.Core.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\Moq.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\even length string cehcker\UnitTestProject2\bin\Debug\System.Threading.Tasks.Extensions.xml

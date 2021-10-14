@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\reverse number without converting to string\reverse number without converting to string\bin\Debug\reverse number without converting to string.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\reverse number without converting to string\reverse number without converting to string\bin\Debug\reverse number without converting to string.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\reverse number without converting to string\reverse number without converting to string\bin\Debug\reverse number without converting to string.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\reverse number without converting to string\reverse number without converting to string\obj\Debug\reverse number without converting to string.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\reverse number without converting to string\reverse number without converting to string\obj\Debug\reverse number without converting to string.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\reverse number without converting to string\reverse number without converting to string\obj\Debug\reverse number without converting to string.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\reverse number without converting to string\reverse number without converting to string\obj\Debug\reverse number without converting to string.pdb
