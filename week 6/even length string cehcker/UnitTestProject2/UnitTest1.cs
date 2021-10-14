@@ -19,7 +19,8 @@ namespace even_length_string_cehcker
         [TestMethod]
         public void TestMethod1()
         {
-            Program p = new Program();
+            checkerclass p = new checkerclass();
+            Program.chck.checker("abcabc");
             var result = p.checker("abcabc");
             Assert.IsTrue(result);
         }

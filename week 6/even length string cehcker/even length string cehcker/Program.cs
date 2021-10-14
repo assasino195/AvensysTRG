@@ -10,6 +10,7 @@ namespace even_length_string_cehcker
     {
         public bool result;
         public int addresult;
+        public static checkerclass chck;
         static void Main(string[] args)
         {
             Console.WriteLine("enter string");

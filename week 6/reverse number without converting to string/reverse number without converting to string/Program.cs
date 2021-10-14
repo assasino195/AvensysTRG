@@ -14,16 +14,16 @@ namespace reverse_number_without_converting_to_string
             int n = int.Parse(Console.ReadLine());
             Console.WriteLine(reverseNumber(n));
             //int n = 12345;
-            int left = n;
-            int rev = 0;
-            while (Convert.ToBoolean(left)) // instead of left>0 , to reverse signed numbers as well
-            {
-                int r = left % 10;
-                rev = rev * 10 + r;
-                left = left / 10;  //left = Math.floor(left / 10); 
-            }
+            //int left = n;
+            //int rev = 0;
+            //while (Convert.ToBoolean(left)) // instead of left>0 , to reverse signed numbers as well
+            //{
+            //    int r = left % 10;
+            //    rev = rev * 10 + r;
+            //    left = left / 10;  //left = Math.floor(left / 10); 
+            //}
 
-            Console.WriteLine(rev);
+            //Console.WriteLine(rev);
             Console.ReadLine();
         }
         public static int reverseNumber(int Number)
@@ -31,7 +31,7 @@ namespace reverse_number_without_converting_to_string
             int ReverseNumber = 0;
             while (Number > 0)
             {
-                ReverseNumber = (ReverseNumber * 10) + (Number % 10);
+                ReverseNumber = (ReverseNumber * 10) + (Number % 10);//multiple reverse by 10 to move it << 1 space and + number % 10 because we want the ones place of the number so
                 Number = Number / 10;
             }
             return ReverseNumber;
