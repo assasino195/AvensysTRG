@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\valid string check string\bin\Debug\valid string check string.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\valid string check string\bin\Debug\valid string check string.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\valid string check string\bin\Debug\valid string check string.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\valid string check string\obj\Debug\valid string check string.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\valid string check string\obj\Debug\valid string check string.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\valid string check string\obj\Debug\valid string check string.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\valid string check string\obj\Debug\valid string check string.pdb
