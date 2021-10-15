@@ -1,0 +1,21 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\xunit.abstractions.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\xunit.runner.visualstudio.testadapter.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\xunit.runner.reporters.net452.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\xunit.runner.utility.net452.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\TestProject1.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\TestProject1.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\xunit.assert.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\xunit.core.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\xunit.execution.desktop.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\obj\Debug\net48\TestProject1.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\obj\Debug\net48\TestProject1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\obj\Debug\net48\TestProject1.AssemblyInfoInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\obj\Debug\net48\TestProject1.AssemblyInfo.cs
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\obj\Debug\net48\TestProject1.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\obj\Debug\net48\TestProject1.csproj.CopyComplete
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\obj\Debug\net48\TestProject1.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\obj\Debug\net48\TestProject1.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\valid string check string.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\valid string check string.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\valid string check string\TestProject1\bin\Debug\net48\valid string check string.exe.config

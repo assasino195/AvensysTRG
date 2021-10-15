@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ticketbooking\ticketbooking\bin\Debug\ticketbooking.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ticketbooking\ticketbooking\bin\Debug\ticketbooking.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ticketbooking\ticketbooking\bin\Debug\ticketbooking.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ticketbooking\ticketbooking\obj\Debug\ticketbooking.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ticketbooking\ticketbooking\obj\Debug\ticketbooking.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ticketbooking\ticketbooking\obj\Debug\ticketbooking.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\ticketbooking\ticketbooking\obj\Debug\ticketbooking.pdb

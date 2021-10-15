@@ -1,0 +1,15 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\bin\Debug\form dedmo.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\bin\Debug\form dedmo.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\bin\Debug\form dedmo.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\form dedmo.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\MainWindow.g.cs
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\App.g.cs
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\form dedmo_MarkupCompile.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\form dedmo_MarkupCompile.lref
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\MainWindow.baml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\form dedmo.g.resources
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\form_dedmo.Properties.Resources.resources
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\form dedmo.csproj.GenerateResource.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\form dedmo.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\form dedmo.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\form dedmo\form dedmo\obj\Debug\form dedmo.pdb

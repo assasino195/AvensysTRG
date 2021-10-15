@@ -1,0 +1,86 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\TestProject1\\TestProject1.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\TestProject1\\TestProject1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\TestProject1\\TestProject1.csproj",
+        "projectName": "TestProject1",
+        "projectPath": "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\TestProject1\\TestProject1.csproj",
+        "packagesPath": "C:\\Users\\weiya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\TestProject1\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\weiya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\valid string check string\\valid string check string.csproj": {
+                "projectPath": "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\valid string check string\\valid string check string.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.9.4, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\valid string check string\\valid string check string.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\valid string check string\\valid string check string.csproj",
+        "projectName": "valid string check string",
+        "projectPath": "C:\\Users\\weiya\\source\\repos\\AVENSYSTRG\\AvensysTRG\\week 6\\valid string check string\\valid string check string\\valid string check string.csproj"
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    }
+  }
+}

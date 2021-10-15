@@ -6,8 +6,53 @@ using System.Threading.Tasks;
 
 namespace valid_string_check_string
 {
-    class Program
+    public class Program
     {
+        public bool checkforvalid(string a)
+        {
+
+            Stack<char> stack = new Stack<char>();
+            bool valid = false;
+            foreach (char c in a)
+            {
+                if (c == '{' || c == '[' || c == '(')
+                {
+                    stack.Push(c);
+                }
+                else if (c == '}' || c == ']' || c == ')')
+                {
+                    char tem = stack.Pop();
+                    if (tem == '{' && c == '}')
+                    {
+
+                        valid = true;
+
+
+                    }
+
+                    else if (tem == '[' && c == ']')
+                    {
+
+
+                        valid = true;
+                    }
+                    else if (tem == '(' && c == ')')
+                    {
+
+                        valid = true;
+
+
+                    }
+                    else
+                    {
+                        valid = false;
+                        break;
+
+                    }
+                }
+            }
+            return valid;
+        }
         static void Main(string[] args)
         {
             Dictionary<char, int> dict = new Dictionary<char, int>();
@@ -17,47 +62,8 @@ namespace valid_string_check_string
             {
                 Console.WriteLine("enter string");
                 string a = Console.ReadLine();
-                Stack<char> stack = new Stack<char>();
-                bool valid = false;
-                foreach (char c in a)
-                {
-                    if (c == '{' || c == '[' || c == '(')
-                    {
-                        stack.Push(c);
-                    }
-                    else if (c == '}' || c == ']' || c == ')')
-                    {
-                        char tem = stack.Pop();
-                        if (tem == '{' && c == '}')
-                        {
-
-                            valid = true;
-
-
-                        }
-                       
-                        else if (tem == '[' && c == ']')
-                        {
-
-
-                            valid = true;
-                        }
-                        else if (tem == '('&& c == ')')
-                        {
-                            
-                                valid = true;
-                            
-                          
-                        }
-                        else
-                        {
-                            valid = false;
-                            break;
-
-                        }
-                    }
-                }
-                Console.WriteLine(valid);
+                Program p = new Program();
+                p.checkforvalid(a);
                 //int curlybracket = 0;
                 //int smileybracket = 0;
                 //int supercurlybracket = 0;
@@ -108,6 +114,8 @@ namespace valid_string_check_string
                 //}
 
             }
+
+            
         }
     }
 }
