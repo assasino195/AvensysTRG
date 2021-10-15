@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\schoolinterviewsys\schoolinterviewsys\bin\Debug\schoolinterviewsys.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\schoolinterviewsys\schoolinterviewsys\bin\Debug\schoolinterviewsys.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\schoolinterviewsys\schoolinterviewsys\bin\Debug\schoolinterviewsys.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\schoolinterviewsys\schoolinterviewsys\obj\Debug\schoolinterviewsys.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\schoolinterviewsys\schoolinterviewsys\obj\Debug\schoolinterviewsys.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\schoolinterviewsys\schoolinterviewsys\obj\Debug\schoolinterviewsys.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 6\schoolinterviewsys\schoolinterviewsys\obj\Debug\schoolinterviewsys.pdb
