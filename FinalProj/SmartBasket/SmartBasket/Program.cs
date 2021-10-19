@@ -143,6 +143,7 @@ namespace SmartBasket
                                                         if (prodDict.ContainsKey(prod.productID))
                                                         {
                                                             prodDict[prod.productID].productCount = prodDict[prod.productID].productCount - prod.productCount;
+                                                            prod.dtadded = todaysdate;
                                                             cusdic.Value.PurchaseHistory.Add(prod);
                                                         }
                                                     }
@@ -159,7 +160,7 @@ namespace SmartBasket
                                                 foreach (var p in cusdic.Value.PurchaseHistory)
                                                 {
                                                    
-                                                        Console.WriteLine($"{ p.productID} { p.productName} { p.productCount} { p.productPrice} { p.productCategory}");
+                                                        Console.WriteLine($"On {p.dtadded}\t you purchased {p.productCount} product ID: { p.productID}\t{ p.productName}\t at a price of { p.productPrice} { p.productCategory}");
                                                     
                                                 }
                                                 break;

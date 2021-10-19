@@ -34,7 +34,9 @@ namespace SmartBasket
                     {
                         int prodcoun = int.Parse(entires[3]);
                         double prodcost = double.Parse(entires[4]);
+                        DateTime dtadded = DateTime.Parse( entires[6]);
                         Product p = new Product(entires[1], entires[2], prodcoun, prodcost, entires[5]);
+                        p.dtadded = dtadded;
                         if (cusDict.ContainsKey(entires[0]))
                         {
 

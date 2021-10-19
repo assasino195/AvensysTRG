@@ -2,4 +2,4 @@
 2,BellPepper,14,3,Vegetables
 100,A5 Wagyu,7,100,Meat
 200,Fresh Milk,8,4.5,Dairy
-3,Spinach,20,3.3,Vegetables
+3,Spinach,15,3.3,Vegetables

@@ -37,8 +37,10 @@ namespace SmartBasket
         }
         public void writingToSmartBasketTxt(Dictionary<string, Customer> custDict)
         {
+            File.Delete(@"C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\SmartBasket\bin\Debug\smartbasket.txt");
             FileStream fs3 = new FileStream($"SmartBasket.txt", FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter sw3 = new StreamWriter(fs3);
+            
             //if (!tempbask.isCheckedOut)
             //{
             //    foreach (var d in tempbask.Itembasket)
@@ -88,7 +90,7 @@ namespace SmartBasket
 
                     foreach (var prod in dic.Value.PurchaseHistory)
                     {
-                        sw4.WriteLine($"{dic.Key},{prod.productID},{prod.productName},{prod.productCount},{prod.productPrice},{prod.productCategory}");
+                        sw4.WriteLine($"{dic.Key},{prod.productID},{prod.productName},{prod.productCount},{prod.productPrice},{prod.productCategory},{prod.dtadded}");
                     }
 
 

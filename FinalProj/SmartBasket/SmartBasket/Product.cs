@@ -13,6 +13,7 @@ namespace SmartBasket
         public string productID { get; set; }
         public int productCount { get; set; }
         public double productPrice { get; set; }
+        public DateTime dtadded { get; set; }
         public Product(string pid,string pn,int pc,double pp,string prodcat)
         {
             productName = pn;
