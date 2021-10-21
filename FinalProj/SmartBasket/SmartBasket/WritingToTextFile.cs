@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SmartBasket
 {
-    class WritingToTextFile
+    public class WritingToTextFile
     {
-        public void writingToCustomerTxt(Dictionary<string,Customer> custDict)
+        public string writingToCustomerTxt(Dictionary<string,Customer> custDict)
         {
             FileStream fs1 = new FileStream($"customerdict.txt", FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs1);
@@ -21,8 +21,9 @@ namespace SmartBasket
 
             sw.Close();
             fs1.Close();
+            return "Completed writing to customerdict.txt";
         }
-        public void writingToInventoryTxt(Dictionary<string,Product> prodDict)
+        public string writingToInventoryTxt(Dictionary<string,Product> prodDict)
         {
             FileStream fs2 = new FileStream($"inventory.txt", FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter sw2 = new StreamWriter(fs2);
@@ -34,10 +35,11 @@ namespace SmartBasket
 
             sw2.Close();
             fs2.Close();
+            return "Completed writing to inventory.txt";
         }
-        public void writingToSmartBasketTxt(Dictionary<string, Customer> custDict)
+        public string writingToSmartBasketTxt(Dictionary<string, Customer> custDict)
         {
-            File.Delete(@"C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\SmartBasket\bin\Debug\smartbasket.txt");
+            //File.Delete(@"C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\SmartBasket\bin\Debug\SmartBasket.txt");
             FileStream fs3 = new FileStream($"SmartBasket.txt", FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter sw3 = new StreamWriter(fs3);
             
@@ -62,10 +64,15 @@ namespace SmartBasket
                     }
                 }
             }
+            if(fs3.Length==0)
+            {
+                sw3.WriteLine(" ");
+            }
             sw3.Close();
             fs3.Close();
+            return "completed writing to smartbasket.txt";
         }
-        public void WritingToPurchaseHistory(Dictionary<string,Customer> custDict)
+        public string WritingToPurchaseHistory(Dictionary<string,Customer> custDict)
         {
             FileStream fs4 = new FileStream($"purchasehistory.txt", FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter sw4 = new StreamWriter(fs4);
@@ -99,6 +106,7 @@ namespace SmartBasket
             }
             sw4.Close();
             fs4.Close();
+            return "completed writing to purchasehistory.txt";
         }
     }
 }

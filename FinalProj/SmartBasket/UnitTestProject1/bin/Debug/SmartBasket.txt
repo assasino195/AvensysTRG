@@ -1,0 +1,5 @@
+1,False,1,avacado,10,1,fruit
+1,False,1,avacado,20,1,fruit
+1,False,1,avacado,20,1,fruit
+1,False,1,avacado,20,1,fruit
+2,False,1,avacado,20,1,fruit

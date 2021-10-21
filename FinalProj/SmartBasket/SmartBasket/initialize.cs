@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmartBasket
 {
-    class initialize
+    public class initialize
     {
         public Dictionary<string,Customer> retrievecus()
         {
@@ -21,7 +21,7 @@ namespace SmartBasket
                 Customer tempcus = new Customer(entires[0], entires[1], entires[2], entires[3], entires[4]);
                 cusDict.Add(entires[0], tempcus);
                 //List<string> booklst = new List<string>();
-
+                Console.WriteLine("added user "+entires[0]);
             }
             string filepath2 = @"C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\SmartBasket\bin\Debug\purchasehistory.txt";
             List<string> lines2 = File.ReadAllLines(filepath2).ToList();

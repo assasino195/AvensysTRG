@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SmartBasket
 {
-    class GenerateSalesReport
+    public class GenerateSalesReport
     {
-        public void generatesalesreport(Dictionary<string,Customer> custDict)
+        public List<string> generatesalesreport(Dictionary<string,Customer> custDict)
         {
             Dictionary<string, Product> countingdictionary = new Dictionary<string, Product>();
-
+            List<string> temp = new List<string>();
             double total = 0;
             foreach (var d in custDict)
             {
@@ -25,17 +25,21 @@ namespace SmartBasket
                     {
                         countingdictionary.Add(a.productID, a);
                     }
-                    Console.WriteLine($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
+                    // Console.WriteLine($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
+                    //temp.Add($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
                     total += a.productCount * a.productPrice;
                 }
             }
-            Console.WriteLine();
+            //Console.WriteLine();
+            //countingdictionary.OrderByDescending
+            
             foreach (var d in countingdictionary)
             {
-                Console.WriteLine($"ID: {d.Key}\t{d.Value.productName}\twas sold {d.Value.productCount}\ttimes at {d.Value.productPrice}");
+                temp.Add($"ID: {d.Key}\t{d.Value.productName}\twas sold {d.Value.productCount}\ttimes at {d.Value.productPrice}");
             }
-            Console.WriteLine("Total Sales: " + total);
-            Console.WriteLine("Total GST Taxed: " + total * 0.07);
+            temp.Add("Total Sales: " + total);
+            temp.Add("Total GST Taxed: " + total * 0.07);
+            return temp;
         }
     }
 }

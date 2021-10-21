@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartBasket
 {
-    class Basket
+    public class Basket
     {
         
         public bool isCheckedOut { get; set; }

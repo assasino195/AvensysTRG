@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SmartBasket
 {
-    class Program
+    public class Program
     {
         static Dictionary<string, Product> prodDict = new Dictionary<string, Product>();
         static Dictionary<string, Customer> custDict = new Dictionary<string, Customer>();
@@ -74,43 +74,171 @@ namespace SmartBasket
                                                     {
                                                         case "1":
                                                             {
-                                                                Product temprod = selectprod.ShopForVege(prodDict);
-                                                                if (temprod != null)
+                                                               List<string> prodlist= selectprod.displayproducts(prodDict, "Vegetables");
+                                                                foreach(string prod in prodlist)
                                                                 {
-                                                                   
-                                                                    cusdic.Value.bas.Itembasket.Add(temprod);
+                                                                    Console.WriteLine(prod);
+                                                                }
+                                                                Console.WriteLine("Enter Option of item you wish to buy");
+                                                                string itemopt = Console.ReadLine();
+                                                                if (prodDict.ContainsKey(itemopt))
+                                                                {
+                                                                    Console.WriteLine("Enter Quantity you wish to buy");
+                                                                    try
+                                                                    {
+                                                                        int quant = int.Parse(Console.ReadLine());
+                                                                        if (prodDict[itemopt].productCount < quant)
+                                                                        {
+                                                                            Console.WriteLine("Exceeded the amount of stock we have please lower the count");
+                                                                           
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Product tempp= selectprod.ShopForProduct(prodDict, itemopt, quant);
+
+                                                                            if (tempp != null)
+                                                                            {
+
+                                                                                cusdic.Value.bas.Itembasket.Add(tempp);
+                                                                                Console.WriteLine("Added to basket");
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                Console.WriteLine("failed please try again");
+                                                                            }
+                                                                            
+
+
+                                                                            //cusdic.Value.bas.Itembasket.Add(tempp); ;
+                                                                           
+                                                                            
+                                                                        }
+                                                                    }
+                                                                    catch (Exception)
+                                                                    {
+                                                                        Console.WriteLine("Enter a valid Number");
+                                                                       
+                                                                    }
                                                                 }
                                                                 else
                                                                 {
-                                                                    selectprod.ShopForVege(prodDict);
+                                                                    Console.WriteLine("Enter a Valid Option");
+                                                                    
                                                                 }
+                                                               
+                                                               
 
 
                                                                 break;
                                                             }
                                                         case "2":
                                                             {
-                                                                Product temprod = selectprod.ShopForMeat(prodDict);
-                                                                if (temprod != null)
+                                                                List<string> prodlist = selectprod.displayproducts(prodDict, "Meat");
+                                                                foreach (string prod in prodlist)
                                                                 {
-
-                                                                    cusdic.Value.bas.Itembasket.Add(temprod);
+                                                                    Console.WriteLine(prod);
                                                                 }
-                                                               
+                                                                Console.WriteLine("Enter Option of item you wish to buy");
+                                                                string itemopt = Console.ReadLine();
+                                                                if (prodDict.ContainsKey(itemopt))
+                                                                {
+                                                                    Console.WriteLine("Enter Quantity you wish to buy");
+                                                                    try
+                                                                    {
+                                                                        int quant = int.Parse(Console.ReadLine());
+                                                                        if (prodDict[itemopt].productCount < quant)
+                                                                        {
+                                                                            Console.WriteLine("Exceeded the amount of stock we have please lower the count");
+
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Product tempp = selectprod.ShopForProduct(prodDict, itemopt, quant);
+
+                                                                            if (tempp != null)
+                                                                            {
+
+                                                                                cusdic.Value.bas.Itembasket.Add(tempp);
+                                                                                Console.WriteLine("Added to basket");
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                Console.WriteLine("failed please try again");
+                                                                            }
+
+
+
+                                                                            //cusdic.Value.bas.Itembasket.Add(tempp); ;
+
+
+                                                                        }
+                                                                    }
+                                                                    catch (Exception)
+                                                                    {
+                                                                        Console.WriteLine("Enter a valid Number");
+
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    Console.WriteLine("Enter a Valid Option");
+
+                                                                }
+
 
                                                                 break;
                                                             }
                                                         case "3":
                                                             {
 
-
-                                                                Product temprod = selectprod.ShopForDairy(prodDict);
-                                                                if (temprod != null)
+                                                                List<string> prodlist = selectprod.displayproducts(prodDict, "Dairy");
+                                                                foreach (string prod in prodlist)
                                                                 {
+                                                                    Console.WriteLine(prod);
+                                                                }
+                                                                Console.WriteLine("Enter Option of item you wish to buy");
+                                                                string itemopt = Console.ReadLine();
+                                                                if (prodDict.ContainsKey(itemopt))
+                                                                {
+                                                                    Console.WriteLine("Enter Quantity you wish to buy");
+                                                                    try
+                                                                    {
+                                                                        int quant = int.Parse(Console.ReadLine());
+                                                                        if (prodDict[itemopt].productCount < quant)
+                                                                        {
+                                                                            Console.WriteLine("Exceeded the amount of stock we have please lower the count");
 
-                                                                    cusdic.Value.bas.Itembasket.Add(temprod);
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Product tempp = selectprod.ShopForProduct(prodDict, itemopt, quant);
+
+                                                                            if (tempp != null)
+                                                                            {
+
+                                                                                cusdic.Value.bas.Itembasket.Add(tempp);
+                                                                                Console.WriteLine("Added to basket");
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                Console.WriteLine("failed please try again");
+                                                                            }
+
+
+
+                                                                            //cusdic.Value.bas.Itembasket.Add(tempp); ;
+
+
+                                                                        }
+                                                                    }
+                                                                    catch (Exception)
+                                                                    {
+                                                                        Console.WriteLine("Enter a valid Number");
+
+                                                                    }
                                                                 }
                                                                 break;
+                                                                
                                                             }
                                                         case "Q":
                                                             {
@@ -177,7 +305,11 @@ namespace SmartBasket
                             }
                             else if (cusdic.Value.role.Equals("Manager"))
                             {
-                                Console.WriteLine("1.Add New Product\n2.Generate Sales Report");
+                                string newprodname = string.Empty;
+                                string newprodID = string.Empty;
+                                int stock = 0;                              
+                                double price =0 ;
+                                Console.WriteLine("1.Add new Products\n2.Generate Sales Report");
                                 string manageroptinput = Console.ReadLine();
                                 switch (manageroptinput)
                                 {
@@ -186,46 +318,70 @@ namespace SmartBasket
                                             Console.WriteLine("1.Vegetables\n2.Meat\n3.Dairy Products");
                                             Console.WriteLine("Q. Back");
                                             string addprodinput = Console.ReadLine();
-                                            switch (addprodinput)
+                                            try
                                             {
-                                                case "1":
-                                                    {
-                                                        CreatingNewProduct createnewprod = new CreatingNewProduct();
-                                                        Product temp = createnewprod.AddingNewProduct("Vegetables");
-                                                        if (temp != null)
-                                                        {
-                                                            prodDict.Add(temp.productID, temp);
-                                                        }
 
-                                                        break;
-                                                    }
-                                                case "2":
-                                                    {
-                                                        CreatingNewProduct createnewprod = new CreatingNewProduct();
-                                                        Product temp = createnewprod.AddingNewProduct("Meat");
-                                                        if (temp != null)
+
+                                                Console.WriteLine("Enter New Product Name");
+                                                 newprodname = Console.ReadLine();
+                                                Console.WriteLine("Enter ID of new Product");
+                                                 newprodID = Console.ReadLine();
+                                                Console.WriteLine("Enter New Product Stock Quantity");
+                                                 stock = int.Parse(Console.ReadLine());
+                                                Console.WriteLine("Enter Price of New Product");
+                                                 price = double.Parse(Console.ReadLine());
+                                                switch (addprodinput)
+                                                {
+                                                    case "1":
                                                         {
-                                                            prodDict.Add(temp.productID, temp);
+                                                            CreatingNewProduct createnewprod = new CreatingNewProduct();
+                                                            Product temp = createnewprod.AddingNewProduct(newprodID, newprodname, stock, price, "Vegetable");
+                                                            if (temp != null)
+                                                            {
+                                                                prodDict.Add(temp.productID, temp);
+                                                            }
+
+                                                            break;
                                                         }
-                                                        break;
-                                                    }
-                                                case "3":
-                                                    {
-                                                        CreatingNewProduct createnewprod = new CreatingNewProduct();
-                                                        Product temp = createnewprod.AddingNewProduct("Dairy");
-                                                        if (temp != null)
+                                                    case "2":
                                                         {
-                                                            prodDict.Add(temp.productID, temp);
+                                                            CreatingNewProduct createnewprod = new CreatingNewProduct();
+                                                            Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Meat");
+                                                            if (temp != null)
+                                                            {
+                                                                prodDict.Add(temp.productID, temp);
+                                                            }
+                                                            break;
                                                         }
-                                                        break;
-                                                    }
+                                                    case "3":
+                                                        {
+                                                            CreatingNewProduct createnewprod = new CreatingNewProduct();
+                                                            Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Dairy");
+                                                            if (temp != null)
+                                                            {
+                                                                prodDict.Add(temp.productID, temp);
+                                                            }
+                                                            break;
+                                                        }
+                                                }
                                             }
+                                            catch (Exception e)
+                                            {
+                                                Console.WriteLine(e.Message);
+                                                
+                                            }
+                                           
                                             break;
                                         }
                                     case "2":
                                         {
                                             GenerateSalesReport gensalesreport = new GenerateSalesReport();
-                                            gensalesreport.generatesalesreport(custDict);
+                                            List<string> temp = gensalesreport.generatesalesreport(custDict);
+                                            foreach(string reports in temp)
+                                            {
+                                                Console.WriteLine(reports);
+                                            }
+                                           // gensalesreport.generatesalesreport(custDict);
                                             break;
                                         }
                                 }
@@ -253,7 +409,13 @@ namespace SmartBasket
                 {
 
                     CreatingNewCustomer createnewcust = new CreatingNewCustomer();
-                    Customer tempcus= createnewcust.createcustomer(idinput);
+                    Console.WriteLine("Enter your name");
+                    string nameinput = Console.ReadLine();
+                    Console.WriteLine("Enter Your Email");
+                    string emailinput = Console.ReadLine();
+                    Console.WriteLine("Enter Your Phone No");
+                    string phonenoinput = Console.ReadLine();
+                    Customer tempcus= createnewcust.createcustomer(idinput,nameinput,emailinput,phonenoinput);
                     if(tempcus!=null)
                     {
                         custDict.Add(idinput, tempcus);
@@ -264,7 +426,7 @@ namespace SmartBasket
             }
         }
        
-        static void Main(string[] args)
+         static void Main(string[] args)
         {
             init();
             Operation();

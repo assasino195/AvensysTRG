@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartBasket
 {
-    class Product
+    public class Product
     {
         public string productName { get; set; }
         public string productCategory { get; set; }

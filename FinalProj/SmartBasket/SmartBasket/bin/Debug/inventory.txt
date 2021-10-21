@@ -1,5 +1,6 @@
 1,Brocolli,8,10.5,Vegetables
 2,BellPepper,14,3,Vegetables
-100,A5 Wagyu,7,100,Meat
+100,A5 Wagyu,2,100,Meat
 200,Fresh Milk,8,4.5,Dairy
-3,Spinach,13,3.3,Vegetables
+3,Spinach,1,3.3,Vegetables
+

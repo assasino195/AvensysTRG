@@ -6,30 +6,12 @@ using System.Threading.Tasks;
 
 namespace SmartBasket
 {
-    class CreatingNewProduct
+   public class CreatingNewProduct
     {
-        public Product AddingNewProduct(string category)
+        public Product AddingNewProduct(string newprodID,string newprodName,int stock,double price, string category)
         {
-            try
-            {
-
-
-                Console.WriteLine("Enter New Product Name");
-                string newprodname = Console.ReadLine();
-                Console.WriteLine("Enter ID of new Product");
-                string newprodID = Console.ReadLine();
-                Console.WriteLine("Enter New Product Stock Quantity");
-                int stock = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter Price of New Product");
-                double price = double.Parse(Console.ReadLine());
-                Product temp = new Product(newprodID, newprodname, stock, price, category);
-                return temp;
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return null;
-            }
+            Product temp = new Product(newprodID, newprodName, stock, price, category);
+            return temp;
         }
     }
 }

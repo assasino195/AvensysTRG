@@ -1,0 +1,4 @@
+1,false,1,avacado,20,1,fruit
+1,false,2,avacado,20,1,fruit
+1,false,3,avacado,20,1,fruit
+1,false,4,avacado,20,1,fruit

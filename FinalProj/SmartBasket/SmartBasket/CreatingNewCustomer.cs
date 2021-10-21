@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace SmartBasket
 {
-    class CreatingNewCustomer
+    public class CreatingNewCustomer
     {
-        public Customer createcustomer(string idinput)
+       
+        public CreatingNewCustomer() { }
+        public Customer createcustomer(string idinput,string nameinput,string email,string phoneno)
         {
-            Console.WriteLine("Enter your name");
-            string nameinput = Console.ReadLine();
-            Console.WriteLine("Enter Your Email");
-            string emailinput = Console.ReadLine();
-            if (IsValidEmail(emailinput))
+           
+            
+            if (IsValidEmail(email))
             {
-                Console.WriteLine("Enter Your Phone No");
-                string phonenoinput = Console.ReadLine();
-                if (isvalidphoneno(phonenoinput))
+                
+                if (isvalidphoneno(phoneno))
                 {
                     //custDict.Add(idinput,
-                    Customer temp= new Customer(idinput, nameinput, emailinput, phonenoinput, "Member");
+                    Customer temp= new Customer(idinput, nameinput, email, phoneno, "Member");
                     Console.WriteLine("Welcome to Super Market!");
                     return temp;
                 }
@@ -35,7 +34,7 @@ namespace SmartBasket
                 return null;
             }
         }
-        public static bool IsValidEmail(string email)
+        public bool IsValidEmail(string email)
         {
             try
             {
@@ -47,7 +46,7 @@ namespace SmartBasket
                 return false;
             }
         }
-        public static bool isvalidphoneno(string phoneno)
+        public bool isvalidphoneno(string phoneno)
         {
             int count = 0;
             foreach (char a in phoneno)

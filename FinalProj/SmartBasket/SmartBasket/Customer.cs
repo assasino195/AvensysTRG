@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SmartBasket
 {
-    class Customer
+    public class Customer
     {
         public string customerName { get; set; }
         public string customerID { get; set; }
@@ -27,6 +23,7 @@ namespace SmartBasket
             get { return purchasehistory; }
             set { purchasehistory = value; }
         }
+        public Customer() { }
         public Customer(string cid,string cn,string ce,string cpn,string role)
         {
             customerName = cn;
