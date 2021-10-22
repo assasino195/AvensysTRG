@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\Q2\bin\Debug\Q2.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\Q2\bin\Debug\Q2.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\Q2\bin\Debug\Q2.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\Q2\obj\Debug\Q2.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\Q2\obj\Debug\Q2.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\Q2\obj\Debug\Q2.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\Q2\obj\Debug\Q2.pdb
