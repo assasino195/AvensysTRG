@@ -263,7 +263,7 @@ namespace SmartBasket
             List<string> a = gensales.generatesalesreport(cusdic);
             
             string result = a[4];
-            string correct = $"ID: { 3}\tSpinach\twas sold { 7}\ttimes at { 3.3}";
+            string correct = $"ID: { 3}\tSpinach\twas sold { 9}\ttimes at { 3.3}";
 
             Assert.AreEqual(result, correct);
 
@@ -364,6 +364,17 @@ namespace SmartBasket
             Assert.IsTrue(b.isCheckedOut);
         }
         [TestMethod]
+        public void testmethod38()
+        {
+            selectingProducts selectprod = new selectingProducts();
+            Dictionary<string, Product> proddict = new Dictionary<string, Product>();
+            proddict.Add("1", new Product("1", "avacado", 10, 1, "Vegetables"));
+            proddict.Add("2", new Product("1", "bavacado", 10, 1, "Vegetables"));
+            Product result=selectprod.Removefrombasket(proddict, "1");
+            Assert.IsInstanceOfType(result, typeof(Product));
+        }
+       
+        [TestMethod]
         public void testmethod90()
         {
             initialize init = new initialize();
@@ -415,8 +426,15 @@ namespace SmartBasket
         public void testmethod96()
         {
             initialize init = new initialize();
-            init.retrievecus()
+            init.retrievecus();
         }
 
+        [TestMethod]
+        public void testmethod97()
+        {
+            initialize init = new initialize();
+            init.retrievecategories();
         }
+
+    }
 }

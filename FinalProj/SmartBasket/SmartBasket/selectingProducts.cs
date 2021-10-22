@@ -47,6 +47,11 @@ namespace SmartBasket
             return p;
 
         }
+        public Product Removefrombasket(Dictionary<string,Product> prodDict,string id)
+        {
+            Product p = prodDict[id];
+            return p;
+        }
         //public Product ShopForMeat(Dictionary<string, Product> prodDict)
         //{
         //    foreach (var prodic in prodDict)

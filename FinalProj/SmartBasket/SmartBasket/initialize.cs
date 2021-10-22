@@ -123,6 +123,28 @@ namespace SmartBasket
             return prodDict;
 
         }
+        public Dictionary<string,string> retrievecategories()
+        {
+            Dictionary<string, string> catdict = new Dictionary<string, string>();
+            string filepath3 = @"C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\SmartBasket\bin\Debug\inventory.txt";
+            List<string> lines3 = File.ReadAllLines(filepath3).ToList();
+            foreach (var line in lines3)
+            {
+                if (!string.IsNullOrWhiteSpace(line))
+                {
+                    string[] entires = line.Split(',');
+                    string cat = entires[4];
+                    if(!catdict.ContainsKey(cat))
+                    {
+                        catdict.Add(cat, cat);
+                    }
+                }
+
+
+            }
+            return catdict;
+        }
+        
                 
     }
    

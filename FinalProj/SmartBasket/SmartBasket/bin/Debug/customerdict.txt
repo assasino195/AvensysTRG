@@ -3,3 +3,4 @@
 3,timothy,tim@gmail.com,93123212,Member
 4,janet,jan@gmail.com,83828182,Member
 999,Manager,Manage@gmail.com,88888888,Manager
+5,mary,lol@hotmail.com,98765432,Member
