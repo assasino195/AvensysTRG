@@ -1,7 +1,0 @@
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\prelim mock paper\bin\Debug\prelim mock paper.exe.config
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\prelim mock paper\bin\Debug\prelim mock paper.exe
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\prelim mock paper\bin\Debug\prelim mock paper.pdb
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\prelim mock paper\obj\Debug\Q1.csproj.AssemblyReference.cache
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\prelim mock paper\obj\Debug\Q1.csproj.CoreCompileInputs.cache
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\prelim mock paper\obj\Debug\prelim mock paper.exe
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\Mock Test\prelim mock paper\prelim mock paper\obj\Debug\prelim mock paper.pdb

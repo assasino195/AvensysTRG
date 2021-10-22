@@ -1,0 +1,7 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\threadingexamples\threadingexamples\bin\Debug\threadingexamples.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\threadingexamples\threadingexamples\bin\Debug\threadingexamples.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\threadingexamples\threadingexamples\bin\Debug\threadingexamples.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\threadingexamples\threadingexamples\obj\Debug\threadingexamples.csprojAssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\threadingexamples\threadingexamples\obj\Debug\threadingexamples.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\threadingexamples\threadingexamples\obj\Debug\threadingexamples.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 5\threadingexamples\threadingexamples\obj\Debug\threadingexamples.pdb
