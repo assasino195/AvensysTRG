@@ -48,6 +48,7 @@
     <Compile Include="CreatingNewProduct.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="GenerateSalesReport.cs" />
+    <Compile Include="HotsellingItems.cs" />
     <Compile Include="initialize.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />

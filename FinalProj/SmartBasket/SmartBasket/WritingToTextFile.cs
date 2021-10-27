@@ -25,6 +25,7 @@ namespace SmartBasket
         }
         public string writingToInventoryTxt(Dictionary<string,Product> prodDict)
         {
+            File.Delete(@"C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\SmartBasket\bin\Debug\inventory.txt");
             FileStream fs2 = new FileStream($"inventory.txt", FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter sw2 = new StreamWriter(fs2);
 

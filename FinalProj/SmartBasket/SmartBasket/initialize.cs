@@ -132,11 +132,18 @@ namespace SmartBasket
             {
                 if (!string.IsNullOrWhiteSpace(line))
                 {
-                    string[] entires = line.Split(',');
-                    string cat = entires[4];
-                    if(!catdict.ContainsKey(cat))
+                    try
                     {
-                        catdict.Add(cat, cat);
+                        string[] entires = line.Split(',');
+                        string cat = entires[4];
+                        if (!catdict.ContainsKey(cat))
+                        {
+                            catdict.Add(cat, cat);
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e.Message);
                     }
                 }
 

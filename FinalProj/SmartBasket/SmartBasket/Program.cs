@@ -265,7 +265,9 @@ namespace SmartBasket
                                             }
                                         case "2":
                                             {
+                                                selectingProducts selectprod = new selectingProducts();
                                                 Console.Clear();
+                                                HotsellingItems hotitem = new HotsellingItems();
                                                 foreach (var items in cusdic.Value.bas.Itembasket)
                                                 {
                                                     string temp = $"{items.productID}. {items.productName}\t Price is: ${string.Format("{0:N2}", items.productPrice)}\t " +
@@ -275,7 +277,49 @@ namespace SmartBasket
                                                     //Console.WriteLine(items);
                                                 }
                                                 Console.WriteLine($"Total Cost Is {cusdic.Value.bas.calculatetotal()}");
+                                                Console.WriteLine();
+                                                Console.WriteLine("Hot Items in Market At The Moment");
+                                                foreach(var prod in hotitem.displayHotItems(custDict))
+                                                {
+                                                    if(prodDict.ContainsKey(prod.productID))
+                                                    {
+                                                        Console.WriteLine($"{prodDict[prod.productID].productID}. {prodDict[prod.productID].productName}\t Quantity:{prodDict[prod.productID].productCount} at: ${prodDict[prod.productID].productPrice}");
+                                                        
+                                                    }
+                                                }
+                                                Console.WriteLine("Do you wish to add any of this items? Y/N");
+                                                string addingitems = Console.ReadLine().ToLower();
+                                                if(addingitems.Equals("y"))
+                                                {
+                                                    Console.WriteLine("Enter Item ID you wish to add");
+                                                    string itemid = Console.ReadLine();
+                                                    if(prodDict.ContainsKey(itemid))
+                                                    {
+                                                        Console.WriteLine("Enter Quantity you wish to purchase");
+                                                        try
+                                                        {
+                                                            int quant= int.Parse(Console.ReadLine());
+                                                            if (quant < prodDict[itemid].productCount)
+                                                            {
+                                                                cusdic.Value.bas.Itembasket.Add(selectprod.ShopForProduct(prodDict, itemid, quant));
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine($"Not Enough Stock We have Only {prodDict[itemid].productCount} in stock");
+                                                            }
+                                                        }
+                                                        catch(Exception e)
+                                                        {
+                                                            Console.WriteLine(  e.Message);
+                                                        }
+                                                     
+                                                    }
+                                                    Console.WriteLine("Press any button to continue");
+                                                    Console.ReadLine();
+                                                    break;
+                                                }
                                                 Console.WriteLine("1.Check Out\n2.Remove Product\n3.Exit");
+
                                                 string checkingout = Console.ReadLine().ToUpper();
                                                 if (checkingout.Equals("1"))
                                                 {
@@ -286,7 +330,7 @@ namespace SmartBasket
                                                         {
                                                             if (prodDict[prod.productID].productCount < prod.productCount)
                                                             {
-                                                                Console.WriteLine("Please redo your basket");
+                                                                Console.WriteLine($"Please redo your basket {prod.productName} is no longer available in the store");
                                                             }
                                                             else
                                                             {
@@ -318,7 +362,15 @@ namespace SmartBasket
                                                         }
                                                         
                                                     }
-                                                    Console.WriteLine("Item has been removed: "+removed);
+                                                    if(removed)
+                                                    {
+                                                        Console.WriteLine("Item has been removed: " + removed);
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Item Not Found");
+                                                    }
+                                                    
                                                 }
 
                                                 break;
@@ -350,7 +402,7 @@ namespace SmartBasket
                                 string newprodID = string.Empty;
                                 int stock = 0;                              
                                 double price =0 ;
-                                Console.WriteLine("1.Add new Products\n2.Generate Sales Report");
+                                Console.WriteLine("1.Add new Products\n2.Generate Sales Report\n3.Display All Products in store\nQ.Exit");
                                 string manageroptinput = Console.ReadLine();
                                 switch (manageroptinput)
                                 {
@@ -404,6 +456,7 @@ namespace SmartBasket
                                                             }
                                                             break;
                                                         }
+
                                                 }
                                             }
                                             catch (Exception e)
@@ -423,6 +476,34 @@ namespace SmartBasket
                                                 Console.WriteLine(reports);
                                             }
                                            // gensalesreport.generatesalesreport(custDict);
+                                            break;
+                                        }
+                                    case "3":
+                                        {
+                                            foreach(var prod in prodDict)
+                                            {
+                                                Console.WriteLine($"{prod.Value.productID}: {prod.Value.productName}\tQuantity: {prod.Value.productCount}\tat {prod.Value.productPrice}");
+                                            }
+                                            break;
+                                        }
+                                    case "4":
+                                        {
+                                            foreach (var prod in prodDict)
+                                            {
+                                                Console.WriteLine($"{prod.Value.productID}: {prod.Value.productName}\tQuantity: {prod.Value.productCount}\tat {prod.Value.productPrice}");
+                                            }
+                                            Console.WriteLine("enter the ID of the product you wish to remove");
+                                            string removeid = Console.ReadLine();
+                                            if(prodDict.ContainsKey(removeid))
+                                            {
+                                                Console.WriteLine($"{prodDict[removeid].productID} has been successfully removed");
+                                                prodDict.Remove(removeid);
+                                               
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Item Not Found");
+                                            }
                                             break;
                                         }
                                 }
