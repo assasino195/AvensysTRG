@@ -1,0 +1,6 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\FinalExam\bin\Debug\FinalExam.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\FinalExam\bin\Debug\FinalExam.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\FinalExam\bin\Debug\FinalExam.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\FinalExam\obj\Debug\Q3.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\FinalExam\obj\Debug\FinalExam.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\FinalExam\obj\Debug\FinalExam.pdb

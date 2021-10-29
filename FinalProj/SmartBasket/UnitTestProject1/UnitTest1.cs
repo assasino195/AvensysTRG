@@ -435,6 +435,12 @@ namespace SmartBasket
             initialize init = new initialize();
             init.retrievecategories();
         }
+        [TestMethod]
+        public void testmethod98()
+        {
+            Program p = new Program();
+            
+        }
 
     }
 }

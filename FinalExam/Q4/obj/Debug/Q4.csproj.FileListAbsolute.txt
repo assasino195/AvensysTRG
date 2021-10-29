@@ -1,0 +1,6 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\Q4\bin\Debug\Q4.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\Q4\bin\Debug\Q4.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\Q4\bin\Debug\Q4.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\Q4\obj\Debug\Q4.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\Q4\obj\Debug\Q4.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalExam\Q4\obj\Debug\Q4.pdb
