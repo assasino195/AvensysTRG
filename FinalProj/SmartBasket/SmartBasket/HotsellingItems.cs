@@ -33,7 +33,7 @@ namespace SmartBasket
             int item11 = 0;
             int item22 = 0;
             int item33 = 0;
-           foreach(var prod in countingdic)
+            foreach (var prod in countingdic)
             {
                 if (prod.Value.productCount > item33 && prod.Value.productCount > item22 && prod.Value.productCount > item11)
                 {
@@ -44,11 +44,11 @@ namespace SmartBasket
                     item11 = prod.Value.productCount;
                     item1 = prod.Key;
                 }
-                else if(prod.Value.productCount > item33 && prod.Value.productCount > item22 && prod.Value.productCount < item11)
+                else if (prod.Value.productCount > item33 && prod.Value.productCount > item22 && prod.Value.productCount < item11)
                 {
                     item3 = item2;
                     item33 = item22;
-                   
+
                     item22 = prod.Value.productCount;
                     item2 = prod.Key;
                 }

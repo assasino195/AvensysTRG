@@ -314,6 +314,10 @@ namespace SmartBasket
                                                         }
                                                      
                                                     }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Please Enter a valid product ID");
+                                                    }
                                                     Console.WriteLine("Press any button to continue");
                                                     Console.ReadLine();
                                                     break;
