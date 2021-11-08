@@ -4,3 +4,4 @@
 4,janet,jan@gmail.com,83828182,Member
 999,Manager,Manage@gmail.com,88888888,Manager
 5,mary,lol@hotmail.com,98765432,Member
+6,heng wei yao,lol@hotmail.com,82139943,Member

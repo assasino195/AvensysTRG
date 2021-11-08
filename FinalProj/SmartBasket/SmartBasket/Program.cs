@@ -201,7 +201,7 @@ namespace SmartBasket
 
                                                                 break;
                                                             }
-                                                        case "3":
+                                                        case "3":   
                                                             {
 
                                                                 List<string> prodlist = selectprod.displayproducts(prodDict, "Dairy");

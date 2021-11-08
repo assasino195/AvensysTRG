@@ -1,7 +1,9 @@
 1,2,BellPepper,3,3,Vegetables,10/10/2010 12:00:00 AM
-1,1,Brocolli,1,1.5,Vegetables,10/10/2010 12:00:00 AM
+1,1,Brocolli,5,1.5,Vegetables,10/10/2010 12:00:00 AM
 1,200,Fresh Milk,1,4.5,Dairy,10/10/2010 12:00:00 AM
+1,1,Brocolli,0,1.5,Vegetables,2/11/2021 1:59:52 AM
+1,2,BellPepper,0,3,Vegetables,2/11/2021 2:20:03 AM
 2,100,A5 Wagyu,3,100,Meat,10/10/2010 12:00:00 AM
-3,3,Spinach,7,3.3,Vegetables,11/10/2010 12:00:00 AM
+3,3,Spinach,15,3.3,Vegetables,11/10/2010 12:00:00 AM
 3,3,Spinach,2,3.3,Vegetables,13/10/2010 12:00:00 AM
 5,1,Brocolli,1,10.5,Vegetables,27/10/2021 3:54:53 PM
