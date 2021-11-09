@@ -25,9 +25,10 @@ namespace SmartBasket
             //prodDict.Add("200", new Product("100", "Fresh Milk", 10, 4.50, "Dairy"));
             //custDict.Add("1", new Customer("1", "John", "LOL@hotmail.com", "98754321", "Member"));
             initialize initcs = new initialize();
-            custDict = initcs.retrievecus();//initialize customer details,purchase history & smart basket txt
+           
             prodDict = initcs.retrieveInventory();//initialize inventory.txt
-            prodcategories = initcs.retrievecategories();
+            prodcategories = initcs.retrievecategories(prodDict);
+            custDict = initcs.retrievecus();//initialize customer details,purchase history & smart basket txt
         }
 
         public static void Operation()
@@ -60,7 +61,7 @@ namespace SmartBasket
                                 bool inmenu = true;
                                 while (inmenu)
                                 {
-                                    Console.Clear();
+                                    //Console.Clear();
                                     Console.WriteLine("1.Shop for products\n2.View Basket\n3.View Purchase History\nq.Exit");
                                     string optin = Console.ReadLine();
 
@@ -112,7 +113,7 @@ namespace SmartBasket
                                                                             if (tempp != null)
                                                                             {
 
-                                                                                cusdic.Value.bas.Itembasket.Add(tempp);
+                                                                                cusdic.Value.Bas.Itembasket.Add(tempp);
                                                                                 Console.WriteLine("Added to basket");
                                                                             }
                                                                             else
@@ -161,7 +162,7 @@ namespace SmartBasket
                                                                         int quant = int.Parse(Console.ReadLine());
                                                                         if (prodDict[itemopt].productCount < quant)
                                                                         {
-                                                                            Console.WriteLine($"{prodDict[itemopt].productID} {prodDict[itemopt].productName} is no longer available");
+                                                                            Console.WriteLine($"{prodDict[itemopt].productID} {prodDict[itemopt].ProductName} is no longer available");
 
                                                                         }
                                                                         else
@@ -171,7 +172,7 @@ namespace SmartBasket
                                                                             if (tempp != null)
                                                                             {
 
-                                                                                cusdic.Value.bas.Itembasket.Add(tempp);
+                                                                                cusdic.Value.Bas.Itembasket.Add(tempp);
                                                                                 Console.WriteLine("Added to basket");
                                                                             }
                                                                             else
@@ -229,7 +230,7 @@ namespace SmartBasket
                                                                             if (tempp != null)
                                                                             {
 
-                                                                                cusdic.Value.bas.Itembasket.Add(tempp);
+                                                                                cusdic.Value.Bas.Itembasket.Add(tempp);
                                                                                 Console.WriteLine("Added to basket");
                                                                             }
                                                                             else
@@ -268,22 +269,24 @@ namespace SmartBasket
                                                 selectingProducts selectprod = new selectingProducts();
                                                 Console.Clear();
                                                 HotsellingItems hotitem = new HotsellingItems();
-                                                foreach (var items in cusdic.Value.bas.Itembasket)
+                                                foreach (var items in cusdic.Value.Bas.Itembasket)
                                                 {
-                                                    string temp = $"{items.productID}. {items.productName}\t Price is: ${string.Format("{0:N2}", items.productPrice)}\t " +
+                                                    string temp = $"{items.productID}. {items.ProductName}\t Price is: ${string.Format("{0:N2}", items.productPrice)}\t " +
                                                                                 $"Quantity to purchase: {items.productCount}";
                                                     Console.WriteLine(temp);
                                                     Console.WriteLine();
                                                     //Console.WriteLine(items);
                                                 }
-                                                Console.WriteLine($"Total Cost Is {cusdic.Value.bas.calculatetotal()}");
+                                                CalculateTotalPrice calutotal = new CalculateTotalPrice();
+                                                //double totalprice=
+                                                Console.WriteLine($"Total Cost Is {calutotal.calculatetotal(cusdic.Value.Bas.Itembasket)}");
                                                 Console.WriteLine();
                                                 Console.WriteLine("Hot Items in Market At The Moment");
                                                 foreach(var prod in hotitem.displayHotItems(custDict))
                                                 {
                                                     if(prodDict.ContainsKey(prod.productID))
                                                     {
-                                                        Console.WriteLine($"{prodDict[prod.productID].productID}. {prodDict[prod.productID].productName}\t Quantity:{prodDict[prod.productID].productCount} at: ${prodDict[prod.productID].productPrice}");
+                                                        Console.WriteLine($"{prodDict[prod.productID].productID}. {prodDict[prod.productID].ProductName}\t Quantity:{prodDict[prod.productID].productCount} at: ${prodDict[prod.productID].productPrice}");
                                                         
                                                     }
                                                 }
@@ -301,7 +304,7 @@ namespace SmartBasket
                                                             int quant= int.Parse(Console.ReadLine());
                                                             if (quant < prodDict[itemid].productCount)
                                                             {
-                                                                cusdic.Value.bas.Itembasket.Add(selectprod.ShopForProduct(prodDict, itemid, quant));
+                                                                cusdic.Value.Bas.Itembasket.Add(selectprod.ShopForProduct(prodDict, itemid, quant));
                                                             }
                                                             else
                                                             {
@@ -327,14 +330,14 @@ namespace SmartBasket
                                                 string checkingout = Console.ReadLine().ToUpper();
                                                 if (checkingout.Equals("1"))
                                                 {
-                                                    cusdic.Value.bas.isCheckedOut = true;
-                                                    foreach (var prod in cusdic.Value.bas.Itembasket)
+                                                    cusdic.Value.Bas.isCheckedOut = true;
+                                                    foreach (var prod in cusdic.Value.Bas.Itembasket)
                                                     {
                                                         if (prodDict.ContainsKey(prod.productID))
                                                         {
                                                             if (prodDict[prod.productID].productCount < prod.productCount)
                                                             {
-                                                                Console.WriteLine($"Please redo your basket {prod.productName} is no longer available in the store");
+                                                                Console.WriteLine($"Please redo your basket {prod.ProductName} is no longer available in the store");
                                                             }
                                                             else
                                                             {
@@ -345,7 +348,7 @@ namespace SmartBasket
                                                         }
                                                     }
                                                    
-                                                    cusdic.Value.bas.Itembasket.Clear();
+                                                    cusdic.Value.Bas.Itembasket.Clear();
                                                     //purchaseHist.Add(tempbask);
                                                     inmenu = false;
                                                 }
@@ -354,12 +357,12 @@ namespace SmartBasket
                                                     bool removed = false;
                                                     Console.WriteLine("enter the ID of the product you wish to remove");
                                                     string removeid = Console.ReadLine();
-                                                    foreach(var prod in cusdic.Value.bas.Itembasket)
+                                                    foreach(var prod in cusdic.Value.Bas.Itembasket)
                                                     {
                                                        
                                                         if(prod.productID==removeid)
                                                         {
-                                                            cusdic.Value.bas.Itembasket.Remove(prod);
+                                                            cusdic.Value.Bas.Itembasket.Remove(prod);
                                                             Console.WriteLine("Item successfully removed");
                                                             removed = true;
                                                             break;
@@ -384,7 +387,7 @@ namespace SmartBasket
                                                 foreach (var p in cusdic.Value.PurchaseHistory)
                                                 {
                                                    
-                                                        Console.WriteLine($"On {p.dtadded}\t you purchased {p.productCount} product ID: { p.productID}\t{ p.productName}\t at a price of { p.productPrice} { p.productCategory}");
+                                                        Console.WriteLine($"On {p.dtadded}\t you purchased {p.productCount} product ID: { p.productID}\t{ p.ProductName}\t at a price of { p.productPrice} { p.productCategory}");
                                                     
                                                 }
                                                 break;
@@ -486,7 +489,7 @@ namespace SmartBasket
                                         {
                                             foreach(var prod in prodDict)
                                             {
-                                                Console.WriteLine($"{prod.Value.productID}: {prod.Value.productName}\tQuantity: {prod.Value.productCount}\tat {prod.Value.productPrice}");
+                                                Console.WriteLine($"{prod.Value.productID}: {prod.Value.ProductName}\tQuantity: {prod.Value.productCount}\tat {prod.Value.productPrice}");
                                             }
                                             break;
                                         }
@@ -494,7 +497,7 @@ namespace SmartBasket
                                         {
                                             foreach (var prod in prodDict)
                                             {
-                                                Console.WriteLine($"{prod.Value.productID}: {prod.Value.productName}\tQuantity: {prod.Value.productCount}\tat {prod.Value.productPrice}");
+                                                Console.WriteLine($"{prod.Value.productID}: {prod.Value.ProductName}\tQuantity: {prod.Value.productCount}\tat {prod.Value.productPrice}");
                                             }
                                             Console.WriteLine("enter the ID of the product you wish to remove");
                                             string removeid = Console.ReadLine();
@@ -525,8 +528,8 @@ namespace SmartBasket
                     WritingToTextFile writetotext = new WritingToTextFile();
                     writetotext.writingToCustomerTxt(custDict);
                     writetotext.writingToInventoryTxt(prodDict);
-                    writetotext.writingToSmartBasketTxt(custDict);
-                    writetotext.WritingToPurchaseHistory(custDict);
+                    //writetotext.writingToSmartBasketTxt(custDict);
+                    //writetotext.WritingToPurchaseHistory(custDict);
                     
                    
                     

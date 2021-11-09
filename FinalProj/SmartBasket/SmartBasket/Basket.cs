@@ -21,19 +21,11 @@ namespace SmartBasket
         {
             isCheckedOut = checkedout;
         }
-        public void addtocart(Product p)
-        {
-            itembasket.Add(p);
-        }
-        public double calculatetotal()
-        {
-            double temp = 0;
-           foreach(var prod in itembasket)
-            {
-                temp += prod.productCount * prod.productPrice;
-            }
-            return temp*1.07;
-        }
+        //public void addtocart(Product p)
+        //{
+        //    itembasket.Add(p);
+        //}
+       
        
     }
 }

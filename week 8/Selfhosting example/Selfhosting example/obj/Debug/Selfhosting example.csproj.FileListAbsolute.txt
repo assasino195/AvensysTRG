@@ -1,0 +1,17 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\Selfhosting example.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\Selfhosting example.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\Selfhosting example.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\Newtonsoft.Json.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\System.Web.Http.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\System.Web.Http.SelfHost.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\Newtonsoft.Json.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\System.Web.Http.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\System.Web.Http.SelfHost.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\obj\Debug\Selfhosting example.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\obj\Debug\Selfhosting example.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\obj\Debug\Selfhosting example.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\obj\Debug\Selfhosting example.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\Selfhosting example\Selfhosting example\bin\Debug\System.Web.Http.WebHost.xml

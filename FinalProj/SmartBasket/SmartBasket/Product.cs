@@ -8,23 +8,42 @@ namespace SmartBasket
 {
     public class Product
     {
-        public string productName { get; set; }
-        public string productCategory { get; set; }
-        public string productID { get; set; }
-        public int productCount { get; set; }
-        public double productPrice { get; set; }
+        private string productName;
+        public string ProductName { get {return productName; } set { productName = value ; } }
+
+        private string ProductCategory;
+        public string productCategory { get { return ProductCategory; } set { ProductCategory = value; } }
+
+        private string ProductID;
+        public string productID { get { return ProductID; } set { ProductID = value; } }
+
+        private int ProductCount;
+        public int productCount { get { return ProductCount; } set { ProductCount = value; } }
+
+        private double ProductPrice;
+        public double productPrice { get { return ProductPrice; } set { ProductPrice = value; } }
         public DateTime dtadded { get; set; }
+        public Product() { }
         public Product(string pid,string pn,int pc,double pp,string prodcat)
         {
-            productName = pn;
+            ProductName = pn;
             productID = pid;
             productCount = pc;
             productPrice = pp;
             productCategory = prodcat;
         }
+        public Product(string pid, string pn, int pc, double pp, string prodcat,DateTime dt)
+        {
+            ProductName = pn;
+            productID = pid;
+            productCount = pc;
+            productPrice = pp;
+            productCategory = prodcat;
+            dtadded = dt;
+        }
         public Product(Dictionary<string,Product> dic,string i,int c)
         {
-            productName = dic[i].productName;
+            ProductName = dic[i].ProductName;
             productID = dic[i].productID;
             productCount = c;
             productPrice = dic[i].productPrice;
@@ -32,7 +51,7 @@ namespace SmartBasket
         }
         public override string ToString()
         {
-            return $"{productID},{productName},{productCategory},{productCount},{productPrice}";
+            return $"{productID},{ProductName},{productCategory},{productCount},{productPrice}";
         }
     }
 }

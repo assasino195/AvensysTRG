@@ -4,12 +4,19 @@ namespace SmartBasket
 {
     public class Customer
     {
-        public string customerName { get; set; }
+        private string customerName;
+        public string CustomerName
+        {
+            get { return customerName; }
+            set { customerName = value; }
+        }
+      
         public string customerID { get; set; }
         public string role { get; set; }
         public string customerEmail { get; set; }
         public string customerPhoneNo { get; set; }
-        public Basket bas = new Basket();
+        private Basket bas = new Basket();
+        public Basket Bas { get { return bas; } set { bas = value; } }
         //private List<Product> smartbask = new List<Product>();
         //public List<Product> Smartbask
         //{
@@ -32,15 +39,15 @@ namespace SmartBasket
             customerPhoneNo = cpn;
             this.role = role;
         }
-        public void addToPurchaseHistory(Product b)
-        {
+        //public void addToPurchaseHistory(Product b)
+        //{
             
-            purchasehistory.Add(b);
-        }
-        public void addtosmartbasket(Product p)
-        {
-            bas.Itembasket.Add(p);
-        }
+        //    purchasehistory.Add(b);
+        //}
+        //public void addtosmartbasket(Product p)
+        //{
+        //    bas.Itembasket.Add(p);
+        //}
         public override string ToString()
         {
             return $"{customerID},{customerName},{customerEmail},{customerPhoneNo},{role}";

@@ -18,7 +18,7 @@ namespace SmartBasket
                 {
                     if (prod.Value.productCount > 0)
                     {
-                        string t = $"{prod.Key}. {prod.Value.productName}\t Price is: ${string.Format("{0:N2}", prod.Value.productPrice)}\t " +
+                        string t = $"{prod.Key}. {prod.Value.ProductName}\t Price is: ${string.Format("{0:N2}", prod.Value.productPrice)}\t " +
                             $"In stock: {prod.Value.productCount}";
                         //Console.WriteLine(t);
                         temp.Add(t);

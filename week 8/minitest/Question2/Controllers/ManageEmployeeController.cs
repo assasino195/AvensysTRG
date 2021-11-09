@@ -11,7 +11,7 @@ namespace Question2.Controllers
     public class ManageEmployeeController : ApiController
     {
         
-        Dictionary<string, student> studic = new Dictionary<string, student>();
+        Dictionary<string, student> studic = new Dictionary<string, student>(); 
         [HttpGet]
         [Route("")]
         public string welcome()

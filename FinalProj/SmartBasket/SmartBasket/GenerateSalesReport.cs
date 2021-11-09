@@ -35,7 +35,7 @@ namespace SmartBasket
             
             foreach (var d in countingdictionary)
             {
-                temp.Add($"ID: {d.Key}\t{d.Value.productName}\twas sold {d.Value.productCount}\ttimes at {d.Value.productPrice}");
+                temp.Add($"ID: {d.Key}\t{d.Value.ProductName}\twas sold {d.Value.productCount}\ttimes at {d.Value.productPrice}");
             }
             temp.Add("Total Sales: " + total);
             temp.Add("Total GST Taxed: " + total * 0.07);
