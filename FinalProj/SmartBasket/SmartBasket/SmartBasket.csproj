@@ -47,18 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basket.cs" />
-    <Compile Include="CalculateTotalPrice.cs" />
-    <Compile Include="CreatingNewCustomer.cs" />
-    <Compile Include="CreatingNewProduct.cs" />
+    <Compile Include="BasketManager.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="GenerateSalesReport.cs" />
-    <Compile Include="HotsellingItems.cs" />
-    <Compile Include="initialize.cs" />
+    <Compile Include="LaunchnExitServices.cs" />
+    <Compile Include="ManagerServices.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="selectingProducts.cs" />
-    <Compile Include="WritingToTextFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

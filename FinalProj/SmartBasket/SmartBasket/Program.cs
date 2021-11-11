@@ -24,7 +24,7 @@ namespace SmartBasket
             //prodDict.Add("100", new Product("100", "A5 Wagyu", 5, 100, "Meat"));
             //prodDict.Add("200", new Product("100", "Fresh Milk", 10, 4.50, "Dairy"));
             //custDict.Add("1", new Customer("1", "John", "LOL@hotmail.com", "98754321", "Member"));
-            initialize initcs = new initialize();
+            LaunchnExitServices initcs = new LaunchnExitServices();
            
             prodDict = initcs.retrieveInventory();//initialize inventory.txt
             prodcategories = initcs.retrievecategories(prodDict);
@@ -72,7 +72,7 @@ namespace SmartBasket
                                                 bool stayinbuymenu = true;
                                                 while (stayinbuymenu)
                                                 {
-                                                    selectingProducts selectprod = new selectingProducts();
+                                                    BasketManager selectprod = new BasketManager();
                                                     Console.Clear();
                                                     //Console.WriteLine("1.Vegetables\n2.Meat\n3.Dairy Products");
                                                     int menucount = 1;
@@ -266,9 +266,9 @@ namespace SmartBasket
                                             }
                                         case "2":
                                             {
-                                                selectingProducts selectprod = new selectingProducts();
+                                                BasketManager selectprod = new BasketManager();
                                                 Console.Clear();
-                                                HotsellingItems hotitem = new HotsellingItems();
+                                                BasketManager hotitem = new BasketManager();
                                                 foreach (var items in cusdic.Value.Bas.Itembasket)
                                                 {
                                                     string temp = $"{items.productID}. {items.ProductName}\t Price is: ${string.Format("{0:N2}", items.productPrice)}\t " +
@@ -277,7 +277,7 @@ namespace SmartBasket
                                                     Console.WriteLine();
                                                     //Console.WriteLine(items);
                                                 }
-                                                CalculateTotalPrice calutotal = new CalculateTotalPrice();
+                                                BasketManager calutotal = new BasketManager();
                                                 //double totalprice=
                                                 Console.WriteLine($"Total Cost Is {calutotal.calculatetotal(cusdic.Value.Bas.Itembasket)}");
                                                 Console.WriteLine();
@@ -434,7 +434,7 @@ namespace SmartBasket
                                                 {
                                                     case "1":
                                                         {
-                                                            CreatingNewProduct createnewprod = new CreatingNewProduct();
+                                                            ManagerServices createnewprod = new ManagerServices();
                                                             Product temp = createnewprod.AddingNewProduct(newprodID, newprodname, stock, price, "Vegetables");
                                                             if (temp != null)
                                                             {
@@ -445,7 +445,7 @@ namespace SmartBasket
                                                         }
                                                     case "2":
                                                         {
-                                                            CreatingNewProduct createnewprod = new CreatingNewProduct();
+                                                            ManagerServices createnewprod = new ManagerServices();
                                                             Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Meat");
                                                             if (temp != null)
                                                             {
@@ -455,7 +455,7 @@ namespace SmartBasket
                                                         }
                                                     case "3":
                                                         {
-                                                            CreatingNewProduct createnewprod = new CreatingNewProduct();
+                                                            ManagerServices createnewprod = new ManagerServices();
                                                             Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Dairy");
                                                             if (temp != null)
                                                             {
@@ -476,7 +476,7 @@ namespace SmartBasket
                                         }
                                     case "2":
                                         {
-                                            GenerateSalesReport gensalesreport = new GenerateSalesReport();
+                                            ManagerServices gensalesreport = new ManagerServices();
                                             List<string> temp = gensalesreport.generatesalesreport(custDict);
                                             foreach(string reports in temp)
                                             {
@@ -525,7 +525,7 @@ namespace SmartBasket
                     stay = false;
 
 
-                    WritingToTextFile writetotext = new WritingToTextFile();
+                    LaunchnExitServices writetotext = new LaunchnExitServices();
                     writetotext.writingToCustomerTxt(custDict);
                     writetotext.writingToInventoryTxt(prodDict);
                     //writetotext.writingToSmartBasketTxt(custDict);
@@ -537,7 +537,7 @@ namespace SmartBasket
                 else
                 {
 
-                    CreatingNewCustomer createnewcust = new CreatingNewCustomer();
+                    ManagerServices createnewcust = new ManagerServices();
                     Console.WriteLine("Enter your name");
                     string nameinput = Console.ReadLine();
                     Console.WriteLine("Enter Your Email");

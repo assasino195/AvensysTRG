@@ -1,0 +1,11 @@
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\bin\Debug\sampleEntityFramework.exe.config
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\bin\Debug\sampleEntityFramework.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\bin\Debug\sampleEntityFramework.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\bin\Debug\EntityFramework.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\bin\Debug\EntityFramework.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\obj\Debug\sampleEntityFramework.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\obj\Debug\sampleEntityFramework.csproj.CoreCompileInputs.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\obj\Debug\sampleEntityFramework.exe
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\week 8\sampleEntityFramework\sampleEntityFramework\obj\Debug\sampleEntityFramework.pdb

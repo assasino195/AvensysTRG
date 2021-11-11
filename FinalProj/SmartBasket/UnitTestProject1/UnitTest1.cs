@@ -11,15 +11,15 @@ namespace SmartBasket
         //Product Product;
         Customer Cus;
         //Basket bask;
-        CreatingNewCustomer newcus;
-        GenerateSalesReport gensalesreport;
+        ManagerServices newcus;
+        
 
         [TestInitialize]
         public void testinitialize()
         {
-            gensalesreport = new GenerateSalesReport();
+          
             Cus = new Customer();
-            newcus = new CreatingNewCustomer();
+            newcus = new ManagerServices();
         }
         [TestMethod]
         public void TestMethod1()
@@ -80,7 +80,8 @@ namespace SmartBasket
             tempdic["1"].PurchaseHistory.Add(tempdic["1"].Bas.Itembasket[0]);
             // List<string> temp= new System.Collections.Generic.List<string>();
             // temp.Add($"1, jane, lol@hotmail.com", "98765432", "member")
-            List<string> generated = gensalesreport.generatesalesreport(tempdic);
+            ManagerServices manage = new ManagerServices();
+            List<string> generated = manage.generatesalesreport(tempdic);
             string a = generated[0];
             string tem = $"ID: { 1}\tavacado\twas sold { 10}\ttimes at { 1.5}";
 
@@ -99,7 +100,7 @@ namespace SmartBasket
             Basket b = new Basket();
             b.Itembasket.Add(p);
             // b.Itembasket.Add(p);
-            CalculateTotalPrice cal = new CalculateTotalPrice();
+            BasketManager cal = new BasketManager();
             double result = cal.calculatetotal(b.Itembasket);
             double difference = Math.Abs(result - 10.7);
             Assert.IsTrue(difference < 0.001);
@@ -108,7 +109,7 @@ namespace SmartBasket
         public void testmethod11()
         {
             Product p = new Product("1", "avacado", 10, 1, "fruit");
-            CreatingNewProduct newprod = new CreatingNewProduct();
+             ManagerServices newprod = new ManagerServices();
             Product b = newprod.AddingNewProduct("1", "avacado", 10, 1, "fruit");
             Assert.IsInstanceOfType(b, typeof(Product));
         }
@@ -129,7 +130,7 @@ namespace SmartBasket
             Dictionary<string, Customer> cusdic = new Dictionary<string, Customer>();
             Customer p = new Customer();
             cusdic.Add("1", p);
-            WritingToTextFile write = new WritingToTextFile();
+            LaunchnExitServices write = new LaunchnExitServices();
             string result = write.writingToCustomerTxt(cusdic);
             Assert.AreEqual(result, "Completed writing to customerdict.txt");
 
@@ -140,7 +141,7 @@ namespace SmartBasket
             Dictionary<string, Product> invendic = new Dictionary<string, Product>();
             Product p = new Product("1", "avacado", 10, 1, "fruit");
             invendic.Add("1", p);
-            WritingToTextFile write = new WritingToTextFile();
+            LaunchnExitServices write = new LaunchnExitServices();
             string result = write.writingToInventoryTxt(invendic);
             Assert.AreEqual(result, "Completed writing to inventory.txt");
 
@@ -164,7 +165,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod17()
         {
-            selectingProducts selectprod = new selectingProducts();
+            BasketManager selectprod = new BasketManager();
             Dictionary<string, Product> invendic = new Dictionary<string, Product>();
             Product p = new Product("1", "avacado", 10, 1, "fruit");
             string t = $"{"1"}. {"avacado"}\t Price is: ${string.Format("{0:N2}", 1)}\t " +
@@ -176,7 +177,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod18()
         {
-            selectingProducts selectprod = new selectingProducts();
+            BasketManager selectprod = new BasketManager();
            
             Dictionary<string, Product> invendic = new Dictionary<string, Product>();
             Product p = new Product("1", "avacado", 10, 1, "fruit");
@@ -196,7 +197,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod21()
         {
-            initialize init = new initialize();
+            LaunchnExitServices init = new LaunchnExitServices();
             Dictionary<string, Product> cusdic = init.retrieveInventory();
 
             Assert.IsInstanceOfType(cusdic["1"], typeof(Product));
@@ -204,7 +205,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod22()
         {
-            initialize init = new initialize();
+            LaunchnExitServices init = new LaunchnExitServices();
             Dictionary<string, Product> cusdic = init.retrieveInventory();
 
             Assert.IsNotNull(cusdic["1"]);
@@ -223,7 +224,7 @@ namespace SmartBasket
         public void testmethod25()
         {
             //Customer p = new Customer("1", "mary", "lol@hotmail.com", "6542341", "member");
-            CreatingNewCustomer create = new CreatingNewCustomer();
+            ManagerServices create = new ManagerServices();
             Customer p= create.createcustomer("1", "mary", "lol@hotmail.com", "6542341");
 
             Assert.IsNull(p);
@@ -232,7 +233,7 @@ namespace SmartBasket
         public void testmethod26()
         {
             //Customer p = new Customer("1", "mary", "lol@hotmail.com", "6542341", "member");
-            CreatingNewCustomer create = new CreatingNewCustomer();
+            ManagerServices create = new ManagerServices();
             Customer p = create.createcustomer("1", "mary", "lol@hotmail.com", "65242341");
 
             Assert.IsNull(p);
@@ -241,7 +242,7 @@ namespace SmartBasket
         public void testmethod27()
         {
             //Customer p = new Customer("1", "mary", "lol@hotmail.com", "6542341", "member");
-            CreatingNewCustomer create = new CreatingNewCustomer();
+            ManagerServices create = new ManagerServices();
             Customer p = create.createcustomer("1", "mary", "lol", "95242341");
 
             Assert.IsNull(p);
@@ -250,7 +251,7 @@ namespace SmartBasket
         public void testmethod28()
         {
             //Customer p = new Customer("1", "mary", "lol@hotmail.com", "6542341", "member");
-            CreatingNewCustomer create = new CreatingNewCustomer();
+            ManagerServices create = new ManagerServices();
             Customer p = create.createcustomer("1", "mary", "lol@hotmail.com", "98765432");
 
             Assert.IsInstanceOfType(p,typeof(Customer));
@@ -258,8 +259,8 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod29()
         {
-            initialize init = new initialize();
-            GenerateSalesReport gensales = new GenerateSalesReport();
+            LaunchnExitServices init = new LaunchnExitServices();
+            ManagerServices gensales = new ManagerServices();
             Dictionary<string, Customer> cusdic = init.retrievecus();
             List<string> a = gensales.generatesalesreport(cusdic);
             
@@ -273,7 +274,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod30()
         {
-            CreatingNewCustomer create = new CreatingNewCustomer();
+            ManagerServices create = new ManagerServices();
             
             Dictionary<string, Customer> cusdic = new Dictionary<string, Customer>();
             Customer p = create.createcustomer("1", "mary", "lol@hotmail.com", "98765432");
@@ -282,9 +283,8 @@ namespace SmartBasket
             cusdic["1"].PurchaseHistory.Add(prod);
             cusdic["1"].PurchaseHistory.Add(prod);
             //cusdic["1"].addToPurchaseHistory(prod);
-            GenerateSalesReport gensales = new GenerateSalesReport();
             
-            List<string>a=gensales.generatesalesreport(cusdic);
+            List<string>a=create.generatesalesreport(cusdic);
 
 
             string actualresult = $"ID: {"1"}\t{"avacado"}\twas sold {"20"}\ttimes at {"1"}";
@@ -298,7 +298,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod31()
         {
-            initialize init = new initialize();
+            LaunchnExitServices init = new LaunchnExitServices();
             
             Dictionary<string, Customer> cusdic = init.retrievecus();
             List<Product> a = cusdic["1"].PurchaseHistory;
@@ -367,7 +367,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod38()
         {
-            selectingProducts selectprod = new selectingProducts();
+            BasketManager selectprod = new BasketManager();
             Dictionary<string, Product> proddict = new Dictionary<string, Product>();
             proddict.Add("1", new Product("1", "avacado", 10, 1, "Vegetables"));
             proddict.Add("2", new Product("1", "bavacado", 10, 1, "Vegetables"));
@@ -378,7 +378,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod90()
         {
-            initialize init = new initialize();
+            LaunchnExitServices init = new LaunchnExitServices();
             Dictionary<string, Customer> cusdic = init.retrievecus();
 
             Assert.IsInstanceOfType(cusdic["1"], typeof(Customer));
@@ -386,7 +386,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod91()
         {
-            initialize init = new initialize();
+            LaunchnExitServices init = new LaunchnExitServices();
             Dictionary<string, Customer> cusdic = init.retrievecus();
 
             Assert.IsInstanceOfType(cusdic["1"],typeof(Customer));
@@ -394,7 +394,7 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod93()
         {
-            initialize init = new initialize();
+            LaunchnExitServices init = new LaunchnExitServices();
             Dictionary<string, Customer> cusdic = init.retrievecus();
             
             Assert.IsNotNull(cusdic["1"].Bas.Itembasket);
@@ -426,14 +426,14 @@ namespace SmartBasket
         [TestMethod]
         public void testmethod96()
         {
-            initialize init = new initialize();
+            LaunchnExitServices init = new LaunchnExitServices();
             init.retrievecus();
         }
 
         [TestMethod]
         public void testmethod97()
         {
-            initialize init = new initialize();
+            LaunchnExitServices init = new LaunchnExitServices();
            // init.retrievecategories();
         }
         [TestMethod]
