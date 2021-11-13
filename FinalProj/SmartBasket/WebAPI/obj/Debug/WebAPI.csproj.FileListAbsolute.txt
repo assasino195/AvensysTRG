@@ -1,4 +1,3 @@
-C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\obj\Debug\WebAPI.csproj.AssemblyReference.cache
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInputs.cache
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\bin\WebAPI.dll.config
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\bin\WebAPI.dll
@@ -86,3 +85,4 @@ C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\b
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\bin\EntityFramework.SqlServer.dll
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\bin\EntityFramework.xml
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\bin\EntityFramework.SqlServer.xml
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\obj\Debug\WebAPI.csproj.AssemblyReference.cache

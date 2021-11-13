@@ -8,36 +8,36 @@ namespace SmartBasket
 {
     public class ManagerServices
     {
-        public Product AddingNewProduct(string newprodID, string newprodName, int stock, double price, string category)
-        {
-            Product temp = new Product(newprodID, newprodName, stock, price, category);
-            return temp;
-        }
+        //public Product AddingNewProduct(string newprodID, string newprodName, int stock, double price, string category)
+        //{
+        //    //Product temp = new Product(newprodID, newprodName, stock, price, category);
+        //    //return temp;
+        //}
 
-        public Customer createcustomer(string idinput, string nameinput, string email, string phoneno)
-        {
+        //public Customer createcustomer(string idinput, string nameinput, string email, string phoneno)
+        //{
 
 
-            if (IsValidEmail(email))
-            {
+        //    if (IsValidEmail(email))
+        //    {
 
-                if (isvalidphoneno(phoneno))
-                {
-                    //custDict.Add(idinput,
-                    Customer temp = new Customer(idinput, nameinput, email, phoneno, "Member");
-                    Console.WriteLine("Welcome to Super Market!");
-                    return temp;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //        if (isvalidphoneno(phoneno))
+        //        {
+        //            //custDict.Add(idinput,
+        //           // Customer temp = new Customer(idinput, nameinput, email, phoneno, "Member");
+        //            Console.WriteLine("Welcome to Super Market!");
+        //            //return temp;
+        //        }
+        //        else
+        //        {
+        //            return null;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
         public bool IsValidEmail(string email)
         {
             try
@@ -84,15 +84,15 @@ namespace SmartBasket
             double total = 0;
             foreach (var d in custDict)
             {
-                foreach (var a in d.Value.PurchaseHistory)
+                foreach (var a in d.Value.purchaseHist)
                 {
-                    if (countingdictionary.ContainsKey(a.productID))
+                    if (countingdictionary.ContainsKey(a.productID.ToString()))
                     {
-                        countingdictionary[a.productID].productCount += a.productCount;
+                        countingdictionary[a.productID.ToString()].productCount += a.productCount;
                     }
                     else
                     {
-                        countingdictionary.Add(a.productID, a);
+                        countingdictionary.Add(a.productID.ToString(), a);
                     }
                     // Console.WriteLine($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
                     //temp.Add($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");

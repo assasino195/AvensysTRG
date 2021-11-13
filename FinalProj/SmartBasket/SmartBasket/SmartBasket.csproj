@@ -46,14 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Basket.cs" />
+    <Compile Include="accountmanager.cs" />
     <Compile Include="BasketManager.cs" />
+    <Compile Include="BasketManagerHttp.cs" />
+    <Compile Include="ConsoleIO.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="LaunchnExitServices.cs" />
     <Compile Include="ManagerServices.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="purchasehist.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

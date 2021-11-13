@@ -15,8 +15,11 @@ namespace WebAPI
         //public string basketid { get; set; }
 
         //public bool isCheckedOut { get; set; }
+        
+        //public string 
+        //[Key]
+        //public Customer customers { get; set; }
 
-        public virtual List<Product> products { get; set; }
 
         //public virtual Customer customer { get; set; }
 

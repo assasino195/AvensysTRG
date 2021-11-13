@@ -23,18 +23,18 @@ namespace SmartBasket
             Dictionary<string, Product> countingdic = new Dictionary<string, Product>();
             foreach (var cus in cusdic)
             {
-                foreach (var prodinpurc in cus.Value.PurchaseHistory)
-                {
-                    if (countingdic.ContainsKey(prodinpurc.productID))
-                    {
-                        int totalcount = countingdic[prodinpurc.productID].productCount;
-                        countingdic[prodinpurc.productID].productCount = totalcount + prodinpurc.productCount;
-                    }
-                    else
-                    {
-                        countingdic.Add(prodinpurc.productID, prodinpurc);
-                    }
-                }
+                //foreach (var prodinpurc in cus.PurchaseHistory)
+                //{
+                //    if (countingdic.ContainsKey(prodinpurc.productID))
+                //    {
+                //        int totalcount = countingdic[prodinpurc.productID].productCount;
+                //        countingdic[prodinpurc.productID].productCount = totalcount + prodinpurc.productCount;
+                //    }
+                //    else
+                //    {
+                //        countingdic.Add(prodinpurc.productID, prodinpurc);
+                //    }
+                //}
             }
             string item1 = string.Empty;
             string item2 = string.Empty;

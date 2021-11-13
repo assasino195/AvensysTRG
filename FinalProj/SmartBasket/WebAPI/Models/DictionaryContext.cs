@@ -22,6 +22,9 @@ namespace WebAPI.Models
         }
         public virtual DbSet<Product> products { get; set; }
         public virtual DbSet<Customer> customers { get; set; }
+       // public virtual DbSet<psuedoproduct> psuedoproducts { get; set; }
+        
+        
        // public virtual DbSet<Basket> baskets { get; set; }
         //public virtual DbSet<purchasehist> purchasehistorys { get; set; }
         //public virtual DbSet<string> catDict { get; set; }

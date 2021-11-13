@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebAPI.Models;
 
 namespace WebAPI
 {
@@ -13,9 +14,14 @@ namespace WebAPI
         public string customerEmail { get; set; }
         public string customerPhoneNo { get; set; }
         public bool isCheckedOut { get; set; }
-
-        public virtual ICollection<Product> products { get; set; }
+       //public ICollection<string> products { get; set; } 
+        //public ICollection<string> purchaseHist { get; set; } 
+        //public Models.psuedoproduct psuedoproducts { get; set; }
+        public virtual ICollection<psuedoproduct> psueoproducts { get; set; }
+        public virtual ICollection<Product> products { get; set; } 
         public virtual ICollection<Product> purchaseHist { get; set; }
+        //public List<Product> products { get; set; } = new List<Product>();
+        //public List<Product> purchaseHist { get; set; } = new List<Product>();
         //private Basket bas = new Basket();
         // public Basket Bas { get { return bas; } set { bas = value; } }
         //[ForeignKey("Basket")]

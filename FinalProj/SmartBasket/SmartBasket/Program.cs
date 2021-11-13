@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 
 namespace SmartBasket
 {
@@ -9,9 +10,11 @@ namespace SmartBasket
     {
         static Dictionary<string, Product> prodDict = new Dictionary<string, Product>();
         static Dictionary<string, Customer> custDict = new Dictionary<string, Customer>();
-        static Dictionary<string, Basket> baskdict = new Dictionary<string, Basket>();
+        //static Dictionary<string, Basket> baskdict = new Dictionary<string, Basket>();
         static Dictionary<string, string> prodcategories = new Dictionary<string, string>();
-    
+        static readonly HttpClient client = new HttpClient();
+        static accountmanager accmanager = new accountmanager(client);
+
         public static void init()
         {
             //all vege=1-99
@@ -31,9 +34,10 @@ namespace SmartBasket
             custDict = initcs.retrievecus();//initialize customer details,purchase history & smart basket txt
         }
 
-        public static void Operation()
+        public static async void Operation()
         {
-
+            
+            
             bool stay = true;
             while (stay)
             {
@@ -45,16 +49,17 @@ namespace SmartBasket
                 
                 //DateTime.TryParse(dateinput, out DateTime todaysdate);
                 //List<Product> tempbasket = new List<Product>();
-                Basket tempbask = new Basket(false);
+                //Basket tempbask = new Basket(false);
                 Console.WriteLine("Enter your ID or Q to exit");
                 string idinput = Console.ReadLine().ToLower();
-                if (custDict.ContainsKey(idinput))
+                Customer c=await accmanager.Login(idinput);
+                if (c!=null)
                 {
-                    foreach (var cusdic in custDict)
-                    {
-                        if (cusdic.Key.Equals(idinput))
-                        {
-                            if (cusdic.Value.role.Equals("Member"))
+                    //foreach (var cusdic in custDict)
+                    //{
+                        //if (cusdic.Key.Equals(idinput))
+                        //{
+                            if (c.role.Equals("Member"))
                             {
                                 
                               
@@ -113,7 +118,7 @@ namespace SmartBasket
                                                                             if (tempp != null)
                                                                             {
 
-                                                                                cusdic.Value.Bas.Itembasket.Add(tempp);
+                                                                               // cusdic.Value.Bas.Itembasket.Add(tempp);
                                                                                 Console.WriteLine("Added to basket");
                                                                             }
                                                                             else
@@ -172,7 +177,7 @@ namespace SmartBasket
                                                                             if (tempp != null)
                                                                             {
 
-                                                                                cusdic.Value.Bas.Itembasket.Add(tempp);
+                                                                                //cusdic.Value.Bas.Itembasket.Add(tempp);
                                                                                 Console.WriteLine("Added to basket");
                                                                             }
                                                                             else
@@ -230,7 +235,7 @@ namespace SmartBasket
                                                                             if (tempp != null)
                                                                             {
 
-                                                                                cusdic.Value.Bas.Itembasket.Add(tempp);
+                                                                                //cusdic.Value.Bas.Itembasket.Add(tempp);
                                                                                 Console.WriteLine("Added to basket");
                                                                             }
                                                                             else
@@ -269,26 +274,26 @@ namespace SmartBasket
                                                 BasketManager selectprod = new BasketManager();
                                                 Console.Clear();
                                                 BasketManager hotitem = new BasketManager();
-                                                foreach (var items in cusdic.Value.Bas.Itembasket)
-                                                {
-                                                    string temp = $"{items.productID}. {items.ProductName}\t Price is: ${string.Format("{0:N2}", items.productPrice)}\t " +
-                                                                                $"Quantity to purchase: {items.productCount}";
-                                                    Console.WriteLine(temp);
-                                                    Console.WriteLine();
-                                                    //Console.WriteLine(items);
-                                                }
+                                                //foreach (var items in cusdic.Value.Bas.Itembasket)
+                                                //{
+                                                //    string temp = $"{items.productID}. {items.ProductName}\t Price is: ${string.Format("{0:N2}", items.productPrice)}\t " +
+                                                //                                $"Quantity to purchase: {items.productCount}";
+                                                //    Console.WriteLine(temp);
+                                                //    Console.WriteLine();
+                                                //    //Console.WriteLine(items);
+                                                //}
                                                 BasketManager calutotal = new BasketManager();
                                                 //double totalprice=
-                                                Console.WriteLine($"Total Cost Is {calutotal.calculatetotal(cusdic.Value.Bas.Itembasket)}");
+                                               //Console.WriteLine($"Total Cost Is {calutotal.calculatetotal(cusdic.Value.Bas.Itembasket)}");
                                                 Console.WriteLine();
                                                 Console.WriteLine("Hot Items in Market At The Moment");
                                                 foreach(var prod in hotitem.displayHotItems(custDict))
                                                 {
-                                                    if(prodDict.ContainsKey(prod.productID))
-                                                    {
-                                                        Console.WriteLine($"{prodDict[prod.productID].productID}. {prodDict[prod.productID].ProductName}\t Quantity:{prodDict[prod.productID].productCount} at: ${prodDict[prod.productID].productPrice}");
+                                                    //if(prodDict.ContainsKey(prod.productID))
+                                                    //{
+                                                    //    Console.WriteLine($"{prodDict[prod.productID].productID}. {prodDict[prod.productID].ProductName}\t Quantity:{prodDict[prod.productID].productCount} at: ${prodDict[prod.productID].productPrice}");
                                                         
-                                                    }
+                                                    //}
                                                 }
                                                 Console.WriteLine("Do you wish to add any of this items? Y/N");
                                                 string addingitems = Console.ReadLine().ToLower();
@@ -304,7 +309,7 @@ namespace SmartBasket
                                                             int quant= int.Parse(Console.ReadLine());
                                                             if (quant < prodDict[itemid].productCount)
                                                             {
-                                                                cusdic.Value.Bas.Itembasket.Add(selectprod.ShopForProduct(prodDict, itemid, quant));
+                                                                //cusdic.Value.Bas.Itembasket.Add(selectprod.ShopForProduct(prodDict, itemid, quant));
                                                             }
                                                             else
                                                             {
@@ -330,25 +335,25 @@ namespace SmartBasket
                                                 string checkingout = Console.ReadLine().ToUpper();
                                                 if (checkingout.Equals("1"))
                                                 {
-                                                    cusdic.Value.Bas.isCheckedOut = true;
-                                                    foreach (var prod in cusdic.Value.Bas.Itembasket)
-                                                    {
-                                                        if (prodDict.ContainsKey(prod.productID))
-                                                        {
-                                                            if (prodDict[prod.productID].productCount < prod.productCount)
-                                                            {
-                                                                Console.WriteLine($"Please redo your basket {prod.ProductName} is no longer available in the store");
-                                                            }
-                                                            else
-                                                            {
-                                                                prodDict[prod.productID].productCount = prodDict[prod.productID].productCount - prod.productCount;
-                                                                prod.dtadded = dateinput;
-                                                                cusdic.Value.PurchaseHistory.Add(prod);
-                                                            }
-                                                        }
-                                                    }
+                                                    //cusdic.Value.Bas.isCheckedOut = true;
+                                                    //foreach (var prod in cusdic.Value.Bas.Itembasket)
+                                                    //{
+                                                    //    if (prodDict.ContainsKey(prod.productID))
+                                                    //    {
+                                                    //        if (prodDict[prod.productID].productCount < prod.productCount)
+                                                    //        {
+                                                    //            Console.WriteLine($"Please redo your basket {prod.ProductName} is no longer available in the store");
+                                                    //        }
+                                                    //        else
+                                                    //        {
+                                                    //            prodDict[prod.productID].productCount = prodDict[prod.productID].productCount - prod.productCount;
+                                                    //            prod.dtadded = dateinput;
+                                                    //            cusdic.Value.PurchaseHistory.Add(prod);
+                                                    //        }
+                                                    //    }
+                                                    //}
                                                    
-                                                    cusdic.Value.Bas.Itembasket.Clear();
+                                                   // cusdic.Value.Bas.Itembasket.Clear();
                                                     //purchaseHist.Add(tempbask);
                                                     inmenu = false;
                                                 }
@@ -357,18 +362,18 @@ namespace SmartBasket
                                                     bool removed = false;
                                                     Console.WriteLine("enter the ID of the product you wish to remove");
                                                     string removeid = Console.ReadLine();
-                                                    foreach(var prod in cusdic.Value.Bas.Itembasket)
-                                                    {
+                                                    //foreach(var prod in cusdic.Value.Bas.Itembasket)
+                                                    //{
                                                        
-                                                        if(prod.productID==removeid)
-                                                        {
-                                                            cusdic.Value.Bas.Itembasket.Remove(prod);
-                                                            Console.WriteLine("Item successfully removed");
-                                                            removed = true;
-                                                            break;
-                                                        }
+                                                    //    if(prod.productID==removeid)
+                                                    //    {
+                                                    //        cusdic.Value.Bas.Itembasket.Remove(prod);
+                                                    //        Console.WriteLine("Item successfully removed");
+                                                    //        removed = true;
+                                                    //        break;
+                                                    //    }
                                                         
-                                                    }
+                                                    //}
                                                     if(removed)
                                                     {
                                                         Console.WriteLine("Item has been removed: " + removed);
@@ -384,25 +389,25 @@ namespace SmartBasket
                                             }
                                         case "3":
                                             {
-                                                foreach (var p in cusdic.Value.PurchaseHistory)
-                                                {
+                                                //foreach (var p in cusdic.Value.PurchaseHistory)
+                                                //{
                                                    
-                                                        Console.WriteLine($"On {p.dtadded}\t you purchased {p.productCount} product ID: { p.productID}\t{ p.ProductName}\t at a price of { p.productPrice} { p.productCategory}");
+                                                //        Console.WriteLine($"On {p.dtadded}\t you purchased {p.productCount} product ID: { p.productID}\t{ p.ProductName}\t at a price of { p.productPrice} { p.productCategory}");
                                                     
-                                                }
+                                                //}
                                                 break;
                                             }
                                         case "q":
                                             {
 
                                                 inmenu = false;
-                                                baskdict.Add(idinput, tempbask);
+                                                //baskdict.Add(idinput, tempbask);
                                                 break;
                                             }
                                     }
                                 }
                             }
-                            else if (cusdic.Value.role.Equals("Manager"))
+                            else if (idinput.Equals("Manager"))
                             {
                                 Console.Clear();
                                 string newprodname = string.Empty;
@@ -435,32 +440,32 @@ namespace SmartBasket
                                                     case "1":
                                                         {
                                                             ManagerServices createnewprod = new ManagerServices();
-                                                            Product temp = createnewprod.AddingNewProduct(newprodID, newprodname, stock, price, "Vegetables");
-                                                            if (temp != null)
-                                                            {
-                                                                prodDict.Add(temp.productID, temp);
-                                                            }
+                                                            //Product temp = createnewprod.AddingNewProduct(newprodID, newprodname, stock, price, "Vegetables");
+                                                            //if (temp != null)
+                                                            //{
+                                                            //   // prodDict.Add(temp.productID, temp);
+                                                            //}
 
                                                             break;
                                                         }
                                                     case "2":
                                                         {
                                                             ManagerServices createnewprod = new ManagerServices();
-                                                            Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Meat");
-                                                            if (temp != null)
-                                                            {
-                                                                prodDict.Add(temp.productID, temp);
-                                                            }
+                                                            //Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Meat");
+                                                            //if (temp != null)
+                                                            //{
+                                                            //    //prodDict.Add(temp.productID, temp);
+                                                            //}
                                                             break;
                                                         }
                                                     case "3":
                                                         {
                                                             ManagerServices createnewprod = new ManagerServices();
-                                                            Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Dairy");
-                                                            if (temp != null)
-                                                            {
-                                                                prodDict.Add(temp.productID, temp);
-                                                            }
+                                                            //Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Dairy");
+                                                            //if (temp != null)
+                                                            //{
+                                                            // //   prodDict.Add(temp.productID, temp);
+                                                            //}
                                                             break;
                                                         }
 
@@ -477,11 +482,11 @@ namespace SmartBasket
                                     case "2":
                                         {
                                             ManagerServices gensalesreport = new ManagerServices();
-                                            List<string> temp = gensalesreport.generatesalesreport(custDict);
-                                            foreach(string reports in temp)
-                                            {
-                                                Console.WriteLine(reports);
-                                            }
+                                            //List<string> temp = gensalesreport.generatesalesreport(custDict);
+                                            //foreach(string reports in temp)
+                                            //{
+                                            //    Console.WriteLine(reports);
+                                            //}
                                            // gensalesreport.generatesalesreport(custDict);
                                             break;
                                         }
@@ -518,15 +523,17 @@ namespace SmartBasket
                             }
                         }
                        
-                    }
-                }
+                    
+            
+                
                 else if (idinput.Equals("q"))
                 {
                     stay = false;
 
 
                     LaunchnExitServices writetotext = new LaunchnExitServices();
-                    writetotext.writingToCustomerTxt(custDict);
+                   //
+                   //writetotext.writingToCustomerTxt(custDict);
                     writetotext.writingToInventoryTxt(prodDict);
                     //writetotext.writingToSmartBasketTxt(custDict);
                     //writetotext.WritingToPurchaseHistory(custDict);
@@ -544,15 +551,15 @@ namespace SmartBasket
                     string emailinput = Console.ReadLine();
                     Console.WriteLine("Enter Your Phone No");
                     string phonenoinput = Console.ReadLine();
-                    Customer tempcus= createnewcust.createcustomer(idinput,nameinput,emailinput,phonenoinput);
-                    if(tempcus!=null)
-                    {
-                        custDict.Add(idinput, tempcus);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid Email or Phone Number");
-                    }
+                   // Customer tempcus= createnewcust.createcustomer(idinput,nameinput,emailinput,phonenoinput);
+                    //if(tempcus!=null)
+                    //{
+                    //    custDict.Add(idinput, tempcus);
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Invalid Email or Phone Number");
+                    //}
                 }
 
 
@@ -562,6 +569,7 @@ namespace SmartBasket
          static void Main(string[] args)
         {
             init();
+            
             Operation();
             Console.ReadLine();
 

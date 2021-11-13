@@ -11,7 +11,9 @@ namespace WebAPI.Models
     {
         //[Key]
         //public int purchasehistID { get; set; }
-       
+        public DateTime dt { get; set; }
+        public double total { get; set; }
+        public Customer customers { get; set; }
         //public virtual Customer customer { get; set; }
         //public virtual List<Product> PurchaseHistory{
         //    get;set;

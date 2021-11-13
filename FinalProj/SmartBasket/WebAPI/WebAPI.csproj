@@ -59,6 +59,7 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasketServicesController.cs" />
     <Compile Include="Controllers\LaunchNExitServicesController.cs" />
     <Compile Include="Controllers\ManagerServicesController.cs" />
@@ -137,6 +139,7 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DictionaryContext.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\psuedoproduct.cs" />
     <Compile Include="Models\purchasehist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -156,6 +159,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Account\" />
     <Folder Include="Views\BasketServices\" />
     <Folder Include="Views\CreatingNewCustomer\" />
     <Folder Include="Views\LaunchNExitServices\" />

@@ -24,9 +24,9 @@ namespace WebAPI.Controllers
         [Route("addingproduct")]
         public IHttpActionResult AddingNewProduct(Product p)
         {
-            
-            
-            if(!launchcont.products.Any(x => x.productID == p.productID))
+
+            Product prod = launchcont.products.Where(x => x.ProductName == p.ProductName).FirstOrDefault();
+            if (prod==null)
             {
                 launchcont.products.Add(p);
                
@@ -36,49 +36,35 @@ namespace WebAPI.Controllers
             }
             else
             {
-                return BadRequest("Product ID already exist");
+                return BadRequest("Product already exist");
             }
         }
-        [HttpPost]
-        [Route("addingcustomer")]
-        public IHttpActionResult createcustomer(Customer c)
-        {
-            //custDict.Add(idinput,
-
-            if (!launchcont.customers.Any(x => x.customerID == c.customerID))
-            {
-
-                launchcont.customers.Add(c);
-                launchcont.SaveChanges();
-                return Ok("Customer Created");
-            }
-            else
-            {
-                return BadRequest("Customer ID already exist");
-            }
-        }
+        
 
         [HttpGet]
         [Route("salesreport")]
         public List<string> generatesalesreport()
         {
-            Dictionary<int, Product> countingdictionary = new Dictionary<int, Product>();
+            Dictionary<string, Product> countingdictionary = new Dictionary<string, Product>();
             List<string> temp = new List<string>();
             double total = 0;
             foreach (var d in launchcont.customers)
             {
                 foreach (var a in d.purchaseHist)
                 {
-                    if (countingdictionary.ContainsKey(a.productID))
-                    {
-                        countingdictionary[a.productID].productCount += a.productCount;
-                    }
-                    else
-                    {
-                        countingdictionary.Add(a.productID, a);
-                    }
-                    // Console.WriteLine($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
-                    //temp.Add($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
+                    //string[] split = a.Split(' ');
+                    //int.TryParse( split[2], out int countt);
+                    //double.TryParse(split[3], out double price);
+                    //if (countingdictionary.ContainsKey(split[0]))
+                    //{
+                    //    countingdictionary[split[0]].productCount +=countt;
+                    //}
+                    //else
+                    //{
+                    //    countingdictionary.Add(split[0], new Product() { productID = int.Parse(split[0]), ProductName = split[1], productCount = countt });
+                    //}
+                    Console.WriteLine($"Product ID:{a.productID}\t{a.ProductName} quantity {a.productCount} at a price of {a.productPrice}");
+                    temp.Add($"Product ID:{a.productID}\t{a.ProductName} quantity {a.productCount} at a price of {a.productPrice}");
                     total += a.productCount * a.productPrice;
                 }
             }
