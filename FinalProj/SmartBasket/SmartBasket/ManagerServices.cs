@@ -77,38 +77,38 @@ namespace SmartBasket
                 return false;
             }
         }
-        public List<string> generatesalesreport(Dictionary<string, Customer> custDict)
-        {
-            Dictionary<string, Product> countingdictionary = new Dictionary<string, Product>();
-            List<string> temp = new List<string>();
-            double total = 0;
-            foreach (var d in custDict)
-            {
-                foreach (var a in d.Value.purchaseHist)
-                {
-                    if (countingdictionary.ContainsKey(a.productID.ToString()))
-                    {
-                        countingdictionary[a.productID.ToString()].productCount += a.productCount;
-                    }
-                    else
-                    {
-                        countingdictionary.Add(a.productID.ToString(), a);
-                    }
-                    // Console.WriteLine($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
-                    //temp.Add($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
-                    total += a.productCount * a.productPrice;
-                }
-            }
-            //Console.WriteLine();
-            //countingdictionary.OrderByDescending
+        //public List<string> generatesalesreport(Dictionary<string, Customer> custDict)
+        //{
+        //    Dictionary<string, Product> countingdictionary = new Dictionary<string, Product>();
+        //    List<string> temp = new List<string>();
+        //    double total = 0;
+        //    foreach (var d in custDict)
+        //    {
+        //        foreach (var a in d.Value.purchaseHist)
+        //        {
+        //            if (countingdictionary.ContainsKey(a.productID.ToString()))
+        //            {
+        //                countingdictionary[a.productID.ToString()].productCount += a.productCount;
+        //            }
+        //            else
+        //            {
+        //                countingdictionary.Add(a.productID.ToString(), a);
+        //            }
+        //            // Console.WriteLine($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
+        //            //temp.Add($"Product ID:{a.productID}\t{a.productName} quantity {a.productCount} at a price of {a.productPrice}");
+        //            total += a.productCount * a.productPrice;
+        //        }
+        //    }
+        //    //Console.WriteLine();
+        //    //countingdictionary.OrderByDescending
 
-            foreach (var d in countingdictionary)
-            {
-                temp.Add($"ID: {d.Key}\t{d.Value.ProductName}\twas sold {d.Value.productCount}\ttimes at {d.Value.productPrice}");
-            }
-            temp.Add("Total Sales: " + total);
-            temp.Add("Total GST Taxed: " + total * 0.07);
-            return temp;
-        }
+        //    foreach (var d in countingdictionary)
+        //    {
+        //        temp.Add($"ID: {d.Key}\t{d.Value.ProductName}\twas sold {d.Value.productCount}\ttimes at {d.Value.productPrice}");
+        //    }
+        //    temp.Add("Total Sales: " + total);
+        //    temp.Add("Total GST Taxed: " + total * 0.07);
+        //    return temp;
+        //}
     }
 }

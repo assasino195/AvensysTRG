@@ -1,557 +1,282 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
+
 
 namespace SmartBasket
 {
     public class Program
     {
-        static Dictionary<string, Product> prodDict = new Dictionary<string, Product>();
-        static Dictionary<string, Customer> custDict = new Dictionary<string, Customer>();
-        //static Dictionary<string, Basket> baskdict = new Dictionary<string, Basket>();
-        static Dictionary<string, string> prodcategories = new Dictionary<string, string>();
+
         static readonly HttpClient client = new HttpClient();
-        static accountmanager accmanager = new accountmanager(client);
+        static accountmanagerHttp accmanager = new accountmanagerHttp(client);
+        static ManagerServicesHttp managerservices = new ManagerServicesHttp(client);
+        static BasketManagerHttp basketmanager = new BasketManagerHttp(client);
+        static ConsoleIO consoleio = new ConsoleIO();
 
-        public static void init()
+
+        
+
+        static async Task Main(string[] args)
         {
-            //all vege=1-99
-            //all meat=100-199
-            //all dairy=200-299
+            int id = 0;
 
-            ///all to be commented out once file we start using file stream
-            //prodDict.Add("1", new Product("1", "Brocolli", 5, 1.5, "Vegetables"));
-            //prodDict.Add("2", new Product("2", "BellPepper", 20, 3, "Vegetables"));
-            //prodDict.Add("100", new Product("100", "A5 Wagyu", 5, 100, "Meat"));
-            //prodDict.Add("200", new Product("100", "Fresh Milk", 10, 4.50, "Dairy"));
-            //custDict.Add("1", new Customer("1", "John", "LOL@hotmail.com", "98754321", "Member"));
-            LaunchnExitServices initcs = new LaunchnExitServices();
-           
-            prodDict = initcs.retrieveInventory();//initialize inventory.txt
-            prodcategories = initcs.retrievecategories(prodDict);
-            custDict = initcs.retrievecus();//initialize customer details,purchase history & smart basket txt
-        }
-
-        public static async void Operation()
-        {
-            
-            
             bool stay = true;
             while (stay)
             {
 
-                //Console.WriteLine("Enter todays date");
-                //string date = Console.ReadLine();
-                //DateTime dateinput=DateTime.Parse(date);
-                DateTime dateinput = DateTime.UtcNow;
-                
-                //DateTime.TryParse(dateinput, out DateTime todaysdate);
-                //List<Product> tempbasket = new List<Product>();
-                //Basket tempbask = new Basket(false);
+
                 Console.WriteLine("Enter your ID or Q to exit");
                 string idinput = Console.ReadLine().ToLower();
-                Customer c=await accmanager.Login(idinput);
-                if (c!=null)
+                try
                 {
-                    //foreach (var cusdic in custDict)
-                    //{
-                        //if (cusdic.Key.Equals(idinput))
-                        //{
-                            if (c.role.Equals("Member"))
-                            {
-                                
-                              
-                                bool inmenu = true;
-                                while (inmenu)
-                                {
-                                    //Console.Clear();
-                                    Console.WriteLine("1.Shop for products\n2.View Basket\n3.View Purchase History\nq.Exit");
-                                    string optin = Console.ReadLine();
+                    id = int.Parse(idinput);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                Customer c = await accmanager.Login(id);
+                if (c != null)
+                {
 
-                                    switch (optin)
+                    if (c.role.Equals("customer"))
+                    {
+
+
+                        bool inmenu = true;
+                        while (inmenu)
+                        {
+                            //Console.Clear();
+                            Console.WriteLine("1.Shop for products\n2.View Basket\n3.View Purchase History\nq.Exit");
+                            string optin = Console.ReadLine();
+
+                            switch (optin)
+                            {
+                                case "1":
                                     {
-                                        case "1":
+                                        try
+                                        {
+                                            // Console.Clear();
+                                            consoleio.displayprods(await basketmanager.displayprod());
+                                            Console.WriteLine("Do you wish to add product? Y/N");
+                                            string addingproduct = Console.ReadLine().ToLower();
+                                            int prodid = 0;
+                                            int count = 0;
+                                            if (addingproduct.Equals("y"))
                                             {
-                                                bool stayinbuymenu = true;
-                                                while (stayinbuymenu)
+                                                try
                                                 {
-                                                    BasketManager selectprod = new BasketManager();
-                                                    Console.Clear();
-                                                    //Console.WriteLine("1.Vegetables\n2.Meat\n3.Dairy Products");
-                                                    int menucount = 1;
-                                                    foreach(var d in prodcategories)
-                                                    {
-                                                        Console.WriteLine($"{menucount}. {d.Value}");
-                                                        menucount++;
-                                                    }
-                                                    Console.WriteLine("Q. Back");
-                                                    string catopt = Console.ReadLine().ToUpper();
-
-                                                    switch (catopt)
-                                                    {
-                                                        case "1":
-                                                            {
-                                                               List<string> prodlist= selectprod.displayproducts(prodDict, "Vegetables");
-                                                                foreach(string prod in prodlist)
-                                                                {
-                                                                    Console.WriteLine(prod);
-                                                                }
-                                                                Console.WriteLine("Enter Option of item you wish to buy");
-                                                                string itemopt = Console.ReadLine();
-                                                                if (prodDict.ContainsKey(itemopt))
-                                                                {
-                                                                    Console.WriteLine("Enter Quantity you wish to buy");
-                                                                    try
-                                                                    {
-                                                                        int quant = int.Parse(Console.ReadLine());
-                                                                        if (prodDict[itemopt].productCount < quant)
-                                                                        {
-                                                                            Console.WriteLine("Exceeded the amount of stock we have please lower the count");
-                                                                           
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            Product tempp= selectprod.ShopForProduct(prodDict, itemopt, quant);
-
-                                                                            if (tempp != null)
-                                                                            {
-
-                                                                               // cusdic.Value.Bas.Itembasket.Add(tempp);
-                                                                                Console.WriteLine("Added to basket");
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                Console.WriteLine("failed please try again");
-                                                                            }
-                                                                            
-
-
-                                                                            //cusdic.Value.bas.Itembasket.Add(tempp); ;
-                                                                           
-                                                                            
-                                                                        }
-                                                                    }
-                                                                    catch (Exception)
-                                                                    {
-                                                                        Console.WriteLine("Enter a valid Number");
-                                                                       
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    Console.WriteLine("Enter a Valid Option");
-                                                                    
-                                                                }
-                                                               
-                                                               
-
-
-                                                                break;
-                                                            }
-                                                        case "2":
-                                                            {
-                                                                List<string> prodlist = selectprod.displayproducts(prodDict, "Meat");
-                                                                foreach (string prod in prodlist)
-                                                                {
-                                                                    Console.WriteLine(prod);
-                                                                }
-                                                                Console.WriteLine("Enter Option of item you wish to buy");
-                                                                string itemopt = Console.ReadLine();
-                                                                if (prodDict.ContainsKey(itemopt))
-                                                                {
-                                                                    Console.WriteLine("Enter Quantity you wish to buy");
-                                                                    try
-                                                                    {
-                                                                        int quant = int.Parse(Console.ReadLine());
-                                                                        if (prodDict[itemopt].productCount < quant)
-                                                                        {
-                                                                            Console.WriteLine($"{prodDict[itemopt].productID} {prodDict[itemopt].ProductName} is no longer available");
-
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            Product tempp = selectprod.ShopForProduct(prodDict, itemopt, quant);
-
-                                                                            if (tempp != null)
-                                                                            {
-
-                                                                                //cusdic.Value.Bas.Itembasket.Add(tempp);
-                                                                                Console.WriteLine("Added to basket");
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                Console.WriteLine("failed please try again");
-                                                                            }
-
-
-
-                                                                            //cusdic.Value.bas.Itembasket.Add(tempp); ;
-
-
-                                                                        }
-                                                                    }
-                                                                    catch (Exception)
-                                                                    {
-                                                                        Console.WriteLine("Enter a valid Number");
-
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    Console.WriteLine("Enter a Valid Option");
-
-                                                                }
-
-
-                                                                break;
-                                                            }
-                                                        case "3":   
-                                                            {
-
-                                                                List<string> prodlist = selectprod.displayproducts(prodDict, "Dairy");
-                                                                foreach (string prod in prodlist)
-                                                                {
-                                                                    Console.WriteLine(prod);
-                                                                }
-                                                                Console.WriteLine("Enter Option of item you wish to buy");
-                                                                string itemopt = Console.ReadLine();
-                                                                if (prodDict.ContainsKey(itemopt))
-                                                                {
-                                                                    Console.WriteLine("Enter Quantity you wish to buy");
-                                                                    try
-                                                                    {
-                                                                        int quant = int.Parse(Console.ReadLine());
-                                                                        if (prodDict[itemopt].productCount < quant)
-                                                                        {
-                                                                            Console.WriteLine("Exceeded the amount of stock we have please lower the count");
-
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            Product tempp = selectprod.ShopForProduct(prodDict, itemopt, quant);
-
-                                                                            if (tempp != null)
-                                                                            {
-
-                                                                                //cusdic.Value.Bas.Itembasket.Add(tempp);
-                                                                                Console.WriteLine("Added to basket");
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                Console.WriteLine("failed please try again");
-                                                                            }
-
-
-
-                                                                            //cusdic.Value.bas.Itembasket.Add(tempp); ;
-
-
-                                                                        }
-                                                                    }
-                                                                    catch (Exception)
-                                                                    {
-                                                                        Console.WriteLine("Enter a valid Number");
-
-                                                                    }
-                                                                }
-                                                                break;
-                                                                
-                                                            }
-                                                        case "Q":
-                                                            {
-                                                                stayinbuymenu = false;
-                                                                break;
-                                                            }
-                                                    }
-
+                                                    Console.WriteLine("Enter product ID");
+                                                    prodid = int.Parse(Console.ReadLine());
+                                                    Console.WriteLine("enter quantity");
+                                                    count = int.Parse(Console.ReadLine());
+                                                    Console.WriteLine(await basketmanager.shopforprod(prodid, count, c.customerID));
                                                 }
-                                                break;
+                                                catch (Exception e)
+                                                {
+                                                    Console.WriteLine(e.Message);
+                                                }
+
                                             }
-                                        case "2":
-                                            {
-                                                BasketManager selectprod = new BasketManager();
-                                                Console.Clear();
-                                                BasketManager hotitem = new BasketManager();
-                                                //foreach (var items in cusdic.Value.Bas.Itembasket)
-                                                //{
-                                                //    string temp = $"{items.productID}. {items.ProductName}\t Price is: ${string.Format("{0:N2}", items.productPrice)}\t " +
-                                                //                                $"Quantity to purchase: {items.productCount}";
-                                                //    Console.WriteLine(temp);
-                                                //    Console.WriteLine();
-                                                //    //Console.WriteLine(items);
-                                                //}
-                                                BasketManager calutotal = new BasketManager();
-                                                //double totalprice=
-                                               //Console.WriteLine($"Total Cost Is {calutotal.calculatetotal(cusdic.Value.Bas.Itembasket)}");
-                                                Console.WriteLine();
-                                                Console.WriteLine("Hot Items in Market At The Moment");
-                                                foreach(var prod in hotitem.displayHotItems(custDict))
-                                                {
-                                                    //if(prodDict.ContainsKey(prod.productID))
-                                                    //{
-                                                    //    Console.WriteLine($"{prodDict[prod.productID].productID}. {prodDict[prod.productID].ProductName}\t Quantity:{prodDict[prod.productID].productCount} at: ${prodDict[prod.productID].productPrice}");
-                                                        
-                                                    //}
-                                                }
-                                                Console.WriteLine("Do you wish to add any of this items? Y/N");
-                                                string addingitems = Console.ReadLine().ToLower();
-                                                if(addingitems.Equals("y"))
-                                                {
-                                                    Console.WriteLine("Enter Item ID you wish to add");
-                                                    string itemid = Console.ReadLine();
-                                                    if(prodDict.ContainsKey(itemid))
-                                                    {
-                                                        Console.WriteLine("Enter Quantity you wish to purchase");
-                                                        try
-                                                        {
-                                                            int quant= int.Parse(Console.ReadLine());
-                                                            if (quant < prodDict[itemid].productCount)
-                                                            {
-                                                                //cusdic.Value.Bas.Itembasket.Add(selectprod.ShopForProduct(prodDict, itemid, quant));
-                                                            }
-                                                            else
-                                                            {
-                                                                Console.WriteLine($"Not Enough Stock We have Only {prodDict[itemid].productCount} in stock");
-                                                            }
-                                                        }
-                                                        catch(Exception e)
-                                                        {
-                                                            Console.WriteLine(  e.Message);
-                                                        }
-                                                     
-                                                    }
-                                                    else
-                                                    {
-                                                        Console.WriteLine("Please Enter a valid product ID");
-                                                    }
-                                                    Console.WriteLine("Press any button to continue");
-                                                    Console.ReadLine();
-                                                    break;
-                                                }
-                                                Console.WriteLine("1.Check Out\n2.Remove Product\n3.Exit");
+                                            
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            Console.WriteLine(e.Message);
+                                        }
+                                        // Console.WriteLine(await basketmanager.displayprod());
+                                       
 
-                                                string checkingout = Console.ReadLine().ToUpper();
-                                                if (checkingout.Equals("1"))
-                                                {
-                                                    //cusdic.Value.Bas.isCheckedOut = true;
-                                                    //foreach (var prod in cusdic.Value.Bas.Itembasket)
-                                                    //{
-                                                    //    if (prodDict.ContainsKey(prod.productID))
-                                                    //    {
-                                                    //        if (prodDict[prod.productID].productCount < prod.productCount)
-                                                    //        {
-                                                    //            Console.WriteLine($"Please redo your basket {prod.ProductName} is no longer available in the store");
-                                                    //        }
-                                                    //        else
-                                                    //        {
-                                                    //            prodDict[prod.productID].productCount = prodDict[prod.productID].productCount - prod.productCount;
-                                                    //            prod.dtadded = dateinput;
-                                                    //            cusdic.Value.PurchaseHistory.Add(prod);
-                                                    //        }
-                                                    //    }
-                                                    //}
-                                                   
-                                                   // cusdic.Value.Bas.Itembasket.Clear();
-                                                    //purchaseHist.Add(tempbask);
-                                                    inmenu = false;
-                                                }
-                                                else if(checkingout.Equals("2"))
-                                                {
-                                                    bool removed = false;
-                                                    Console.WriteLine("enter the ID of the product you wish to remove");
-                                                    string removeid = Console.ReadLine();
-                                                    //foreach(var prod in cusdic.Value.Bas.Itembasket)
-                                                    //{
-                                                       
-                                                    //    if(prod.productID==removeid)
-                                                    //    {
-                                                    //        cusdic.Value.Bas.Itembasket.Remove(prod);
-                                                    //        Console.WriteLine("Item successfully removed");
-                                                    //        removed = true;
-                                                    //        break;
-                                                    //    }
-                                                        
-                                                    //}
-                                                    if(removed)
-                                                    {
-                                                        Console.WriteLine("Item has been removed: " + removed);
-                                                    }
-                                                    else
-                                                    {
-                                                        Console.WriteLine("Item Not Found");
-                                                    }
-                                                    
-                                                }
 
-                                                break;
-                                            }
-                                        case "3":
-                                            {
-                                                //foreach (var p in cusdic.Value.PurchaseHistory)
-                                                //{
-                                                   
-                                                //        Console.WriteLine($"On {p.dtadded}\t you purchased {p.productCount} product ID: { p.productID}\t{ p.ProductName}\t at a price of { p.productPrice} { p.productCategory}");
-                                                    
-                                                //}
-                                                break;
-                                            }
-                                        case "q":
-                                            {
 
-                                                inmenu = false;
-                                                //baskdict.Add(idinput, tempbask);
-                                                break;
-                                            }
+
+
+
+                                        break;
                                     }
-                                }
-                            }
-                            else if (idinput.Equals("Manager"))
-                            {
-                                Console.Clear();
-                                string newprodname = string.Empty;
-                                string newprodID = string.Empty;
-                                int stock = 0;                              
-                                double price =0 ;
-                                Console.WriteLine("1.Add new Products\n2.Generate Sales Report\n3.Display All Products in store\n4.Remove Product\nQ.Exit");
-                                string manageroptinput = Console.ReadLine();
-                                switch (manageroptinput)
-                                {
-                                    case "1":
+                                case "2":
+                                    {
+                                        try
                                         {
-                                            Console.WriteLine("1.Vegetables\n2.Meat\n3.Dairy Products");
-                                            Console.WriteLine("Q. Back");
-                                            string addprodinput = Console.ReadLine();
-                                            try
+                                            consoleio.viewbasket(await basketmanager.viewbasket(c.customerID));
+                                            Console.WriteLine();
+                                           consoleio.calculatetotal(await basketmanager.calculatetotal(c.customerID));
+
+                                           // Console.WriteLine(await basketmanager.calculatetotal(c.customerID));
+                                            Console.WriteLine("Do you wish to checkout? Y/N");
+                                            string checkingout = Console.ReadLine().ToLower();
+                                            if (checkingout.Equals("y"))
                                             {
-
-
-                                                Console.WriteLine("Enter New Product Name");
-                                                 newprodname = Console.ReadLine();
-                                                Console.WriteLine("Enter ID of new Product");
-                                                 newprodID = Console.ReadLine();
-                                                Console.WriteLine("Enter New Product Stock Quantity");
-                                                 stock = int.Parse(Console.ReadLine());
-                                                Console.WriteLine("Enter Price of New Product");
-                                                 price = double.Parse(Console.ReadLine());
-                                                switch (addprodinput)
-                                                {
-                                                    case "1":
-                                                        {
-                                                            ManagerServices createnewprod = new ManagerServices();
-                                                            //Product temp = createnewprod.AddingNewProduct(newprodID, newprodname, stock, price, "Vegetables");
-                                                            //if (temp != null)
-                                                            //{
-                                                            //   // prodDict.Add(temp.productID, temp);
-                                                            //}
-
-                                                            break;
-                                                        }
-                                                    case "2":
-                                                        {
-                                                            ManagerServices createnewprod = new ManagerServices();
-                                                            //Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Meat");
-                                                            //if (temp != null)
-                                                            //{
-                                                            //    //prodDict.Add(temp.productID, temp);
-                                                            //}
-                                                            break;
-                                                        }
-                                                    case "3":
-                                                        {
-                                                            ManagerServices createnewprod = new ManagerServices();
-                                                            //Product temp = createnewprod.AddingNewProduct(newprodID,newprodname,stock,price,"Dairy");
-                                                            //if (temp != null)
-                                                            //{
-                                                            // //   prodDict.Add(temp.productID, temp);
-                                                            //}
-                                                            break;
-                                                        }
-
-                                                }
+                                                Console.WriteLine(await basketmanager.checkingout(c.customerID));
                                             }
-                                            catch (Exception e)
-                                            {
-                                                Console.WriteLine(e.Message);
-                                                
-                                            }
-                                           
-                                            break;
                                         }
-                                    case "2":
+                                        catch(Exception e)
                                         {
-                                            ManagerServices gensalesreport = new ManagerServices();
-                                            //List<string> temp = gensalesreport.generatesalesreport(custDict);
-                                            //foreach(string reports in temp)
-                                            //{
-                                            //    Console.WriteLine(reports);
-                                            //}
-                                           // gensalesreport.generatesalesreport(custDict);
-                                            break;
+                                            Console.WriteLine(e.Message);
                                         }
-                                    case "3":
-                                        {
-                                            foreach(var prod in prodDict)
-                                            {
-                                                Console.WriteLine($"{prod.Value.productID}: {prod.Value.ProductName}\tQuantity: {prod.Value.productCount}\tat {prod.Value.productPrice}");
-                                            }
-                                            break;
-                                        }
-                                    case "4":
-                                        {
-                                            foreach (var prod in prodDict)
-                                            {
-                                                Console.WriteLine($"{prod.Value.productID}: {prod.Value.ProductName}\tQuantity: {prod.Value.productCount}\tat {prod.Value.productPrice}");
-                                            }
-                                            Console.WriteLine("enter the ID of the product you wish to remove");
-                                            string removeid = Console.ReadLine();
-                                            if(prodDict.ContainsKey(removeid))
-                                            {
-                                                Console.WriteLine($"{prodDict[removeid].productID} has been successfully removed");
-                                                prodDict.Remove(removeid);
-                                               
-                                            }
-                                            else
-                                            {
-                                                Console.WriteLine("Item Not Found");
-                                            }
-                                            break;
-                                        }
-                                }
 
+                                        break;
+                                    }
+                                case "3":
+                                    {
+                                        try
+                                        {
+                                            consoleio.displaypurchasehist(await basketmanager.displaypurchaseHist(c.customerID));
+                                        }
+                                        catch(Exception e)
+                                        {
+                                            Console.WriteLine(e.Message);
+                                        }
+                                        //foreach (var p in cusdic.Value.PurchaseHistory)
+                                        //{
+
+                                        //        Console.WriteLine($"On {p.dtadded}\t you purchased {p.productCount} product ID: { p.productID}\t{ p.ProductName}\t at a price of { p.productPrice} { p.productCategory}");
+
+                                        //}
+                                        break;
+                                    }
+                                case "q":
+                                    {
+
+                                        inmenu = false;
+                                        //baskdict.Add(idinput, tempbask);
+                                        break;
+                                    }
                             }
                         }
-                       
-                    
-            
-                
+                    }
+                    else if (c.role.Equals("manager"))
+                    {
+                        Console.Clear();
+                        string newprodname = string.Empty;
+                        
+                        int stock = 0;
+                        double price = 0;
+                        Console.WriteLine("1.Add new Products\n2.Generate Sales Report\n3.Display All Products in store\n4.Remove Product\nQ.Exit");
+                        string manageroptinput = Console.ReadLine().ToLower();
+                        bool inamanger = true;
+                        while (inamanger)
+                        {
+                            switch (manageroptinput)
+                            {
+                                case "1":
+                                    {
+
+                                        try
+                                        {
+                                            Console.WriteLine("Enter New Product Name");
+                                            newprodname = Console.ReadLine();
+                                            Console.WriteLine("Enter New Product Stock Quantity");
+                                            stock = int.Parse(Console.ReadLine());
+                                            Console.WriteLine("Enter product category");
+                                            string category = Console.ReadLine();
+                                            Console.WriteLine("Enter Price of New Product");
+                                            price = double.Parse(Console.ReadLine());
+                                            Console.WriteLine(await managerservices.addprod(consoleio.addprod(newprodname, stock, price, category)));
+
+
+
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            Console.WriteLine(e.Message);
+
+                                        }
+                                        Console.ReadLine();
+                                        break;
+                                    }
+                                case "2":
+                                    {
+                                        try
+                                        {
+
+                                            consoleio.displaysalesreport(await managerservices.salesreport());
+                                            
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            Console.WriteLine(e.Message);
+                                        }
+                                        Console.ReadLine();
+                                        break;
+                                    }
+                                case "3":
+                                    {
+                                        consoleio.displayprods(await basketmanager.displayprod());
+                                        Console.ReadLine();
+                                        break;
+                                    }
+                                case "4":
+                                    {
+                                        try
+                                        {
+                                            Console.WriteLine("Enter product ID you wish to remove");
+                                            int prodid = int.Parse(Console.ReadLine());
+                                            Console.WriteLine(await managerservices.removeprod(prodid));
+
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            Console.WriteLine(e.Message);
+                                        }
+                                        Console.ReadLine();
+                                        break;
+                                    }
+                                case "q":
+                                    {
+                                        inamanger = false;
+                                        break;
+                                    }
+                                case "5":
+                                    {
+                                        consoleio.viewallcustomers(await managerservices.retrievecustomer());
+                                        Console.ReadLine();
+                                        break;
+                                    }
+                                default:
+                                    {
+                                        Console.WriteLine("Enter a valid option");
+                                        
+                                        break;
+                                    }
+                            }
+                        }
+
+                    }
+                }
+
+
+
+
                 else if (idinput.Equals("q"))
                 {
                     stay = false;
+                }
+                else if(idinput.Equals(""))
+                {
 
-
-                    LaunchnExitServices writetotext = new LaunchnExitServices();
-                   //
-                   //writetotext.writingToCustomerTxt(custDict);
-                    writetotext.writingToInventoryTxt(prodDict);
-                    //writetotext.writingToSmartBasketTxt(custDict);
-                    //writetotext.WritingToPurchaseHistory(custDict);
-                    
-                   
-                    
                 }
                 else
                 {
+                    try
+                    {
+                        Console.WriteLine("Enter your name");
+                        string nameinput = Console.ReadLine();
+                        Console.WriteLine("Enter Your Email");
+                        string emailinput = Console.ReadLine();
+                        Console.WriteLine("Enter Your Phone No");
+                        string phonenoinput = Console.ReadLine();
+                        Console.WriteLine(await accmanager.addcustomer(consoleio.creatingnewcustomer(nameinput, emailinput, phonenoinput))); 
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
 
-                    ManagerServices createnewcust = new ManagerServices();
-                    Console.WriteLine("Enter your name");
-                    string nameinput = Console.ReadLine();
-                    Console.WriteLine("Enter Your Email");
-                    string emailinput = Console.ReadLine();
-                    Console.WriteLine("Enter Your Phone No");
-                    string phonenoinput = Console.ReadLine();
-                   // Customer tempcus= createnewcust.createcustomer(idinput,nameinput,emailinput,phonenoinput);
+
+                    // Customer tempcus= createnewcust.createcustomer(idinput,nameinput,emailinput,phonenoinput);
                     //if(tempcus!=null)
                     //{
                     //    custDict.Add(idinput, tempcus);
@@ -564,13 +289,9 @@ namespace SmartBasket
 
 
             }
-        }
-       
-         static void Main(string[] args)
-        {
-            init();
-            
-            Operation();
+            // init();
+
+            //Operation();
             Console.ReadLine();
 
         }

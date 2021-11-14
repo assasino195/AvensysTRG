@@ -185,41 +185,49 @@ namespace WebAPI.Controllers
             bool foundsameitem = false;
             if (prod != null)
             {
-                if (prod.productCount > count)
+                if (c != null)
                 {
-                    foreach(var psuedoprod in c.psueoproducts)
+                    if (prod.productCount > count)
                     {
-                        if(!psuedoprod.ischeckedout)
+
+                        foreach (var psuedoprod in c.psueoproducts)
                         {
-                            if(psuedoprod.productid.Equals(prodid))
+                            if (!psuedoprod.ischeckedout)
                             {
-                                foundsameitem = true;
-                                psuedoprod.count = psuedoprod.count + count;
-                                launchcont.Entry(psuedoprod).State = EntityState.Modified;
-                                launchcont.SaveChanges();
+                                if (psuedoprod.productid.Equals(prodid))
+                                {
+                                    foundsameitem = true;
+                                    psuedoprod.count = psuedoprod.count + count;
+                                    launchcont.Entry(psuedoprod).State = EntityState.Modified;
+                                    launchcont.SaveChanges();
+                                }
+
                             }
-                           
                         }
-                    }
-                    if(foundsameitem)
-                    {
-                        return Ok("Updated Quantity of product");
+                        if (foundsameitem)
+                        {
+                            return Ok("Updated Quantity of product");
+                        }
+                        else
+                        {
+                            c.psueoproducts.Add(new psuedoproduct() { productid = prodid, count = count, dt = DateTime.UtcNow });
+
+                            launchcont.SaveChanges();
+                            return Ok($"{prod.ProductName} has been added to basket");
+                        }
+
+
+
+
                     }
                     else
                     {
-                        c.psueoproducts.Add(new psuedoproduct() { productid = prodid, count = count, dt = DateTime.UtcNow });
-                        
-                        launchcont.SaveChanges();
-                        return Ok($"{prod.ProductName} has been added to basket");
+                        return BadRequest("Please lower amount of quantity to purchase");
                     }
-                   
-                    
-                   
-                    
                 }
                 else
                 {
-                    return BadRequest("Please lower amount of quantity to purchase");
+                    return BadRequest("customer ID doesn't exist");
                 }
             }
             else

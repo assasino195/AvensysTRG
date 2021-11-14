@@ -12,7 +12,7 @@ namespace SmartBasket
     {
         private readonly HttpClient _httpClient;
 
-        string baselink = "https://localhost:44306/api/smartbasket/basket";
+        string baselink = "http://webapi.local/api/smartbasket/basket";
         public BasketManagerHttp(HttpClient httpClient)
         {
             _httpClient = httpClient;
@@ -26,25 +26,45 @@ namespace SmartBasket
             HttpResponseMessage response = await _httpClient.GetAsync(
                 $"{baselink}/viewproducts");
 
+            if (response.IsSuccessStatusCode)
+            {
 
 
-            responseBody = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<Product>>(responseBody);
+                responseBody = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<List<Product>>(responseBody);
+            }
+            else
+            {
+                responseBody = await response.Content.ReadAsStringAsync();
+                throw new Exception(responseBody);
+            }
+
+          
+            
 
         }
-        public async Task<string> calculatetotal(int id)
+        public async Task<List< string>> calculatetotal(int id)
         {
             string responseBody;
 
 
-
+           
             HttpResponseMessage response = await _httpClient.GetAsync(
-                $"{baselink}/calculatetotal?id={id}");
+                $"{baselink}/calculatetotal?customerid={id}");
 
 
+            if (response.IsSuccessStatusCode)
+            {
 
-            responseBody = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<string>(responseBody);
+
+                responseBody = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject< List<string>> (responseBody);
+            }
+            else
+            {
+                responseBody = await response.Content.ReadAsStringAsync();
+                throw new Exception(responseBody);
+            }
 
         }
         //public async Task<List<string>> displayhotsellingprod()
@@ -71,12 +91,24 @@ namespace SmartBasket
             HttpResponseMessage response = await _httpClient.GetAsync(
                 $"{baselink}/addtobasket?prodid={prodid}&count={count}&customerid={customerid}");
 
+            if (response.IsSuccessStatusCode)
+            {
 
 
-            responseBody = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<string>(responseBody);
+                responseBody = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<string>(responseBody);
+            }
+            else
+            {
+                responseBody = await response.Content.ReadAsStringAsync();
+                throw new Exception(responseBody);
+            }
+
+           
+            
 
         }
+
         public async Task<string>removeproduct(int prodid, int customerid)
         {
             string responseBody;
@@ -88,23 +120,69 @@ namespace SmartBasket
 
 
 
-            responseBody = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<string>(responseBody);
+            if (response.IsSuccessStatusCode)
+            {
+
+
+                responseBody = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<string>(responseBody);
+            }
+            else
+            {
+                responseBody = await response.Content.ReadAsStringAsync();
+                throw new Exception(responseBody);
+            }
 
         }
-        public async Task<string> checkingout( int customerid)
+
+        public async Task<List<string>> viewbasket( int customerid)
         {
             string responseBody;
 
 
 
             HttpResponseMessage response = await _httpClient.GetAsync(
-                $"{baselink}/checkout?customerid={customerid}");
+                $"{baselink}/viewbasket?customerid={customerid}");
+
+
+            if (response.IsSuccessStatusCode)
+            {
+
+
+                responseBody = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<List<string>>(responseBody);
+            }
+            else
+            {
+                responseBody = await response.Content.ReadAsStringAsync();
+                throw new Exception(responseBody);
+            }
+
+        }
+
+        public async Task<string> checkingout( int customerid)
+        {
+            string responseBody;
 
 
 
-            responseBody = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<string>(responseBody);
+            HttpResponseMessage response = await _httpClient.PostAsync(
+                $"{baselink}/checkout?customerid={customerid}",new StringContent(customerid.ToString(), Encoding.UTF8, "application/json"));
+
+
+
+            if (response.IsSuccessStatusCode)
+            {
+
+
+                responseBody = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<string>(responseBody);
+            }
+            else
+            {
+                responseBody = await response.Content.ReadAsStringAsync();
+                throw new Exception(responseBody);
+            }
 
         }
         public async Task<List<string>> displaypurchaseHist(int customerid)
@@ -117,11 +195,22 @@ namespace SmartBasket
                 $"{baselink}/viewpurchasehistory?customerid={customerid}");
 
 
+            if (response.IsSuccessStatusCode)
+            {
 
-            responseBody = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<string>>(responseBody);
+
+                responseBody = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<List<string>>(responseBody);
+            }
+            else
+            {
+                responseBody = await response.Content.ReadAsStringAsync();
+                throw new Exception(responseBody);
+            }
 
         }
+
+        
 
 
     }

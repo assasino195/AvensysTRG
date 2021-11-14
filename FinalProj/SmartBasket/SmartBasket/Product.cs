@@ -1,5 +1,8 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SmartBasket
 {
@@ -11,8 +14,7 @@ namespace SmartBasket
         
         public string productCategory { get; set; }
 
-
-    
+      
         public int productID { get; set; }
 
        

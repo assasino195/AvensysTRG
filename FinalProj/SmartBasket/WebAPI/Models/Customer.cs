@@ -18,8 +18,8 @@ namespace WebAPI
         //public ICollection<string> purchaseHist { get; set; } 
         //public Models.psuedoproduct psuedoproducts { get; set; }
         public virtual ICollection<psuedoproduct> psueoproducts { get; set; }
-        public virtual ICollection<Product> products { get; set; } 
-        public virtual ICollection<Product> purchaseHist { get; set; }
+        //public virtual ICollection<Product> products { get; set; } 
+        //public virtual ICollection<Product> purchaseHist { get; set; }
         //public List<Product> products { get; set; } = new List<Product>();
         //public List<Product> purchaseHist { get; set; } = new List<Product>();
         //private Basket bas = new Basket();

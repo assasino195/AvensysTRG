@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using WebAPI.Models;
 
 
 namespace WebAPI.Controllers
@@ -36,48 +38,70 @@ namespace WebAPI.Controllers
             }
             else
             {
-                return BadRequest("Product already exist");
+                prod.productCount = p.productCount + prod.productCount;
+                launchcont.Entry(prod).State = EntityState.Modified;
+                launchcont.SaveChanges();
+                return BadRequest("Product already exist hence, we have added the quantity in it is now"+prod.productCount);
             }
         }
-        
+       
+
 
         [HttpGet]
         [Route("salesreport")]
-        public List<string> generatesalesreport()
+        public IHttpActionResult generatesalesreport()
         {
-            Dictionary<string, Product> countingdictionary = new Dictionary<string, Product>();
+            Dictionary<int, psuedoproduct> countingdictionary = new Dictionary<int, psuedoproduct>();
             List<string> temp = new List<string>();
             double total = 0;
-            foreach (var d in launchcont.customers)
+            foreach (var d in launchcont.customers.ToList())
             {
-                foreach (var a in d.purchaseHist)
-                {
-                    //string[] split = a.Split(' ');
-                    //int.TryParse( split[2], out int countt);
-                    //double.TryParse(split[3], out double price);
-                    //if (countingdictionary.ContainsKey(split[0]))
-                    //{
-                    //    countingdictionary[split[0]].productCount +=countt;
-                    //}
-                    //else
-                    //{
-                    //    countingdictionary.Add(split[0], new Product() { productID = int.Parse(split[0]), ProductName = split[1], productCount = countt });
-                    //}
-                    Console.WriteLine($"Product ID:{a.productID}\t{a.ProductName} quantity {a.productCount} at a price of {a.productPrice}");
-                    temp.Add($"Product ID:{a.productID}\t{a.ProductName} quantity {a.productCount} at a price of {a.productPrice}");
-                    total += a.productCount * a.productPrice;
-                }
-            }
-            //Console.WriteLine();
-            //countingdictionary.OrderByDescending
+                
+                    if (d.psueoproducts.Count > 0)
+                    {
+                        foreach (var a in d.psueoproducts)
+                        {
+                            if (a.ischeckedout)
+                            {
+                               
+                                    if (countingdictionary.ContainsKey(a.productid))
+                                    {
+                                        countingdictionary[a.productid].count += a.count;
+                                    }
+                                    else
+                                    {
+                                        countingdictionary.Add(a.productid, a);
+                                    }
+                                
 
-            foreach (var d in countingdictionary)
-            {
-                temp.Add($"ID: {d.Key}\t{d.Value.ProductName}\twas sold {d.Value.productCount}\ttimes at {d.Value.productPrice}");
+                            }
+                        }
+                    }
+                   
+                
             }
-            temp.Add("Total Sales: " + total);
-            temp.Add("Total GST Taxed: " + total * 0.07);
-            return temp;
+            if (countingdictionary.Count > 0)
+            {
+                foreach (var a in countingdictionary)
+                {
+                    Product p = launchcont.products.Where(x => x.productID == a.Value.productid).FirstOrDefault();
+                    if (p != null)
+                    {
+                        temp.Add($"Product ID:{p.productID} {p.ProductName} quantity {a.Value.count} at a price of {p.productPrice}");
+                        total += a.Value.count * p.productPrice;
+                    }
+                }
+                temp.Add("Total price of all products is: $" + total);
+            }
+            
+            if (total > 0)
+            {
+                return Ok(temp);
+            }
+            else
+            {
+                return BadRequest("No purchase history was found");
+            }
         }
 
 
@@ -127,6 +151,34 @@ namespace WebAPI.Controllers
             {
                 return false;
             }
+        }
+        [HttpGet]
+        [Route("viewallaccounts")]
+        public IHttpActionResult viewallacc()
+        {
+            List<Customer> cuslist = new List<Customer>();
+            foreach(var cus in launchcont.customers)
+            {
+                cuslist.Add(cus);
+            }
+            return Ok(cuslist);
+        }
+        [HttpPost]
+        [Route("removeproduct")]
+        public IHttpActionResult removeproduct(int p)
+        {
+            Product prod = launchcont.products.Where(x => x.productID == p).FirstOrDefault();
+            if(prod!=null)
+            {
+                launchcont.products.Remove(prod);
+                launchcont.SaveChanges();
+                return Ok("Product removed");
+            }
+            else
+            {
+                return BadRequest("product not found");
+            }
+
         }
 
     }
