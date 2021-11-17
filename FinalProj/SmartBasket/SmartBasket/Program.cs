@@ -158,7 +158,7 @@ namespace SmartBasket
                         bool inamanger = true;
                         while (inamanger)
                         {
-                            Console.WriteLine("1.Add new Products\n2.Generate Sales Report\n3.Display All Products in store\n4.Remove Product\nQ.Exit");
+                            Console.WriteLine("1.Add new Products\n2.Generate Sales Report\n3.Display All Products in store\n4.Remove Product\n5.View All Accounts\nQ.Exit");
                             string manageroptinput = Console.ReadLine().ToLower();
                             switch (manageroptinput)
                             {

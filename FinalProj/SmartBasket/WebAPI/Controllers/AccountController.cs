@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-
+using WebAPI.Models;
+using WebAPI.Interface;
 
 namespace WebAPI.Controllers
 {
@@ -11,8 +12,17 @@ namespace WebAPI.Controllers
 
     public class AccountController : ApiController
     {
-        
-           Models.DictionaryContext launchcont = new Models.DictionaryContext();
+        iContext launchcont;
+       
+        public AccountController(iContext t)
+        {
+            launchcont = t;
+        }
+        public AccountController()
+        {
+            launchcont = new DictionaryContext();
+        }
+          // DictionaryContext launchcont = new DictionaryContext();
         
         // GET: Account
         [HttpGet]
@@ -26,11 +36,8 @@ namespace WebAPI.Controllers
         [Route("addingcustomer")]
         public IHttpActionResult createcustomer(Customer c)
         {
-            //custDict.Add(idinput,
-
             if (!launchcont.customers.Any(x => x.customerID == c.customerID))
             {
-
                 launchcont.customers.Add(c);
                 launchcont.SaveChanges();
                 return Ok("Customer Created");

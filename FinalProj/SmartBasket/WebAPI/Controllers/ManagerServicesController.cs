@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using WebAPI.Models;
+using WebAPI.Interface;
 
 
 namespace WebAPI.Controllers
@@ -12,13 +13,16 @@ namespace WebAPI.Controllers
     [RoutePrefix("api/smartbasket/Manager")]
     public class ManagerServicesController : ApiController
     {
-        Models.DictionaryContext launchcont = new Models.DictionaryContext()
+        iContext launchcont;
+        public ManagerServicesController(iContext t)
         {
-            
-       
-        };
+            launchcont = t;
+        }
 
-
+        public ManagerServicesController()
+        {
+            launchcont = new DictionaryContext();
+        }
         
            
         // GET: ManagerServices
@@ -111,57 +115,25 @@ namespace WebAPI.Controllers
 
 
 
-        [HttpGet]
-        public bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-        [HttpGet]
-        public bool isvalidphoneno(string phoneno)
-        {
-            int count = 0;
-            foreach (char a in phoneno)
-            {
-                if (count == 0)
-                {
-                    if (a == '8' || a == '9')
-                    {
-
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                count++;
-            }
-            if (count == 8)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
         [HttpGet]
         [Route("viewallaccounts")]
         public IHttpActionResult viewallacc()
         {
             List<Customer> cuslist = new List<Customer>();
-            foreach(var cus in launchcont.customers)
+           
+                foreach (var cus in launchcont.customers)
+                {
+                    cuslist.Add(cus);
+                }
+            if (cuslist.Count > 0)
             {
-                cuslist.Add(cus);
+                return Ok(cuslist);
             }
-            return Ok(cuslist);
+            else
+            {
+                return BadRequest("No accounts available");
+            }    
         }
         [HttpPost]
         [Route("removeproduct")]

@@ -35,3 +35,4 @@ C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\b
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\bin\EntityFramework.xml
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\bin\EntityFramework.SqlServer.xml
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\obj\Debug\WebAPI.csproj.AssemblyReference.cache
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\bin\Microsoft.VisualStudio.CodeCoverage.Shim.dll
