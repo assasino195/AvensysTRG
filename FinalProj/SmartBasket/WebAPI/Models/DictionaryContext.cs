@@ -9,17 +9,17 @@ namespace WebAPI.Models
 {
     public class DictionaryContext : DbContext
     {
-        public DictionaryContext() : base()
+        public DictionaryContext() : base(@"Data Source=DESKTOP-URQND8D\SQLEXPRESS;Initial Catalog=SmartBasketDB;Integrated Security=True") 
         {
 
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<Customer>().HasMany(s => s.products);
-            //modelBuilder.Entity<purchasehist>().HasMany(s => s.PurchaseHistory);
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        ////    //modelBuilder.Entity<Customer>().HasMany(s => s.products);
+        ////    //modelBuilder.Entity<purchasehist>().HasMany(s => s.PurchaseHistory);
+        //}
         public virtual DbSet<Product> products { get; set; }
         public virtual DbSet<Customer> customers { get; set; }
        // public virtual DbSet<psuedoproduct> psuedoproducts { get; set; }

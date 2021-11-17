@@ -154,11 +154,12 @@ namespace SmartBasket
                         
                         int stock = 0;
                         double price = 0;
-                        Console.WriteLine("1.Add new Products\n2.Generate Sales Report\n3.Display All Products in store\n4.Remove Product\nQ.Exit");
-                        string manageroptinput = Console.ReadLine().ToLower();
+                       
                         bool inamanger = true;
                         while (inamanger)
                         {
+                            Console.WriteLine("1.Add new Products\n2.Generate Sales Report\n3.Display All Products in store\n4.Remove Product\nQ.Exit");
+                            string manageroptinput = Console.ReadLine().ToLower();
                             switch (manageroptinput)
                             {
                                 case "1":
