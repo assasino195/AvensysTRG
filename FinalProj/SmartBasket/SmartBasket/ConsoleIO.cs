@@ -8,6 +8,25 @@ namespace SmartBasket
 {
     class ConsoleIO
     {
+        public Customer DTO2Customer(CustomerDTO cDTO)
+        {
+            Customer c = new Customer()
+            {
+                customerName = cDTO.customerName,
+                customerEmail = cDTO.customerEmail,
+                customerID = cDTO.customerID,
+                customerPhoneNo = cDTO.customerPhoneNo,
+                isCheckedOut = cDTO.isCheckedOut,
+                psueoproducts = cDTO.psueoproducts,
+                role = cDTO.role
+            };
+            return c;
+        }
+        public CustomerDTO Customer2DTO(Customer cDTO)
+        {
+            CustomerDTO c = new CustomerDTO(cDTO) { };
+            return c;
+        }
         public void displayprods(List<Product> prodlist)
         {
             foreach (var prod in prodlist)
@@ -51,17 +70,23 @@ namespace SmartBasket
                 Console.WriteLine(s);
             }
         }
-       public Customer creatingnewcustomer(string name,string email,string phoneno)
+       public CustomerDTO creatingnewcustomer(string name,string email,string phoneno)
         {
-            Customer c = new Customer() { customerName = name, customerEmail = email, customerPhoneNo = phoneno, role = "customer", isCheckedOut = true, };
+
+            CustomerDTO c = new CustomerDTO() { customerName = name, customerEmail = email, customerPhoneNo = phoneno, role = "customer", isCheckedOut = true, };
             return c;
         }
         public void viewallcustomers(List<Customer> cuslist)
         {
             foreach (var cus in cuslist)
             {
-                Console.WriteLine($"ID: {cus.customerID}\tName: {cus.customerName}\tEmail: {cus.customerEmail}\tPhone No: {cus.customerPhoneNo}");
+                Console.WriteLine($"ID: {cus.customerID}\tName: {cus.customerName}\tEmail: {cus.customerEmail}\tPhone No: {cus.customerPhoneNo}\tRole:{cus.role}");
             }
         }
+        public void viewproduct(Product prod)
+        {
+            Console.WriteLine($"ID: {prod.productID} {prod.ProductName} {prod.productCategory} Quantity: {prod.productCount} Price: ${prod.productPrice}");
+        }
+        
     }
 }

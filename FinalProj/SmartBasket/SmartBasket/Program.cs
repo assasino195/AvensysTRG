@@ -36,9 +36,10 @@ namespace SmartBasket
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
+                    
                 }
-                Customer c = await accmanager.Login(id);
-                if (c != null)
+                Customer c = consoleio.DTO2Customer( await accmanager.Login(id));
+                if (c.customerName!= null)
                 {
 
                     if (c.role.Equals("customer"))
@@ -58,7 +59,7 @@ namespace SmartBasket
                                     {
                                         try
                                         {
-                                            // Console.Clear();
+                                            Console.Clear();
                                             consoleio.displayprods(await basketmanager.displayprod());
                                             Console.WriteLine("Do you wish to add product? Y/N");
                                             string addingproduct = Console.ReadLine().ToLower();
@@ -73,6 +74,7 @@ namespace SmartBasket
                                                     Console.WriteLine("enter quantity");
                                                     count = int.Parse(Console.ReadLine());
                                                     Console.WriteLine(await basketmanager.shopforprod(prodid, count, c.customerID));
+                                                    
                                                 }
                                                 catch (Exception e)
                                                 {
@@ -100,17 +102,35 @@ namespace SmartBasket
                                     {
                                         try
                                         {
-                                            consoleio.viewbasket(await basketmanager.viewbasket(c.customerID));
-                                            Console.WriteLine();
-                                           consoleio.calculatetotal(await basketmanager.calculatetotal(c.customerID));
-
-                                           // Console.WriteLine(await basketmanager.calculatetotal(c.customerID));
-                                            Console.WriteLine("Do you wish to checkout? Y/N");
-                                            string checkingout = Console.ReadLine().ToLower();
-                                            if (checkingout.Equals("y"))
+                                            Console.Clear();
+                                            Product prod = await basketmanager.display1product(c.customerID);
+                                           
+                                            if (prod.productID >0)
                                             {
-                                                Console.WriteLine(await basketmanager.checkingout(c.customerID));
+                                                Console.WriteLine("Most Purchased Item");
+                                                consoleio.viewproduct(prod);
+                                                Console.WriteLine("do you wish to add this product to basket?Y/N");
+                                                string addinghotitem = Console.ReadLine().ToLower();
+                                                if (addinghotitem.Equals("y"))
+                                                {
+                                                    Console.WriteLine("Enter Quantity you wish to purchase");
+                                                    int quant = int.Parse(Console.ReadLine());
+                                                    Console.WriteLine(await basketmanager.shopforprod(prod.productID,quant,c.customerID));
+                                                }
                                             }
+                                            Console.Clear();
+                                                consoleio.viewbasket(await basketmanager.viewbasket(c.customerID));
+                                                Console.WriteLine();
+                                                consoleio.calculatetotal(await basketmanager.calculatetotal(c.customerID));
+
+                                                // Console.WriteLine(await basketmanager.calculatetotal(c.customerID));
+                                                Console.WriteLine("Do you wish to checkout? Y/N");
+                                                string checkingout = Console.ReadLine().ToLower();
+                                                if (checkingout.Equals("y"))
+                                                {
+                                                    Console.WriteLine(await basketmanager.checkingout(c.customerID));
+                                                }
+                                            
                                         }
                                         catch(Exception e)
                                         {
@@ -123,6 +143,7 @@ namespace SmartBasket
                                     {
                                         try
                                         {
+                                            Console.Clear();
                                             consoleio.displaypurchasehist(await basketmanager.displaypurchaseHist(c.customerID));
                                         }
                                         catch(Exception e)
@@ -167,6 +188,7 @@ namespace SmartBasket
 
                                         try
                                         {
+                                            Console.Clear();
                                             Console.WriteLine("Enter New Product Name");
                                             newprodname = Console.ReadLine();
                                             Console.WriteLine("Enter New Product Stock Quantity");
@@ -192,7 +214,7 @@ namespace SmartBasket
                                     {
                                         try
                                         {
-
+                                            Console.Clear();
                                             consoleio.displaysalesreport(await managerservices.salesreport());
                                             
                                         }
@@ -205,6 +227,7 @@ namespace SmartBasket
                                     }
                                 case "3":
                                     {
+                                        Console.Clear();
                                         consoleio.displayprods(await basketmanager.displayprod());
                                         Console.ReadLine();
                                         break;
@@ -213,6 +236,7 @@ namespace SmartBasket
                                     {
                                         try
                                         {
+                                            Console.Clear();
                                             Console.WriteLine("Enter product ID you wish to remove");
                                             int prodid = int.Parse(Console.ReadLine());
                                             Console.WriteLine(await managerservices.removeprod(prodid));
@@ -232,12 +256,14 @@ namespace SmartBasket
                                     }
                                 case "5":
                                     {
+                                        Console.Clear();
                                         consoleio.viewallcustomers(await managerservices.retrievecustomer());
                                         Console.ReadLine();
                                         break;
                                     }
                                 default:
                                     {
+                                        Console.Clear();
                                         Console.WriteLine("Enter a valid option");
                                         
                                         break;

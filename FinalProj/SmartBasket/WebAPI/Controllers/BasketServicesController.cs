@@ -16,7 +16,7 @@ namespace WebAPI.Controllers
         // GET: BasketServices
         iContext launchcont;
 
-       
+
         public BasketServicesController(iContext t)
         {
             launchcont = t;
@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
             launchcont = new DictionaryContext();
         }
         [HttpGet]
-       [Route("calculatetotal")]
+        [Route("calculatetotal")]
         public IHttpActionResult calculatetotal(int customerid)
         {
             List<string> result = new List<string>();
@@ -77,10 +77,10 @@ namespace WebAPI.Controllers
             else
             {
                 return BadRequest("Invalid ID");
-            }    
-          
+            }
+
         }
-       
+
         [HttpGet]
         [Route("addtobasket")]
         public IHttpActionResult ShopForProduct(int prodid, int count, int customerid)
@@ -92,7 +92,7 @@ namespace WebAPI.Controllers
             {
                 if (c != null)
                 {
-                    if (prod.productCount > count)
+                    if (prod.productCount >= count)
                     {
 
                         foreach (var psuedoprod in c.psueoproducts)
@@ -141,25 +141,25 @@ namespace WebAPI.Controllers
             }
         }
 
-        
+
         [HttpPost]
         [Route("removefrombasket")]
         public IHttpActionResult Removefrombasket(int prodid, int customerid)
         {
             bool founditem = false;
-            
+
             Customer c = launchcont.customers.Where(x => x.customerID == customerid).FirstOrDefault();
-            if(c!=null)
+            if (c != null)
             {
-                foreach(var prod in c.psueoproducts)
+                foreach (var prod in c.psueoproducts)
                 {
-                    if(!prod.ischeckedout)
+                    if (!prod.ischeckedout)
                     {
                         if (prod.productid.Equals(prodid))
 
                         {
                             c.psueoproducts.Remove(prod);
-                            
+
                             founditem = true;
                             launchcont.SaveChanges();
                             break;
@@ -167,7 +167,7 @@ namespace WebAPI.Controllers
                         }
                     }
                 }
-                if(founditem)
+                if (founditem)
                 {
                     return Ok("Item Removed from basket");
                 }
@@ -180,10 +180,10 @@ namespace WebAPI.Controllers
             {
                 return BadRequest("Invalid Customer ID");
             }
-           
 
 
-           
+
+
         }
         [HttpGet]
         [Route("viewbasket")]
@@ -227,8 +227,8 @@ namespace WebAPI.Controllers
 
         }
         [HttpPost]
-         [Route("checkout")]
-         public IHttpActionResult checkingout(int customerid)
+        [Route("checkout")]
+        public IHttpActionResult checkingout(int customerid)
         {
             Customer c = launchcont.customers.Where(x => x.customerID == customerid).FirstOrDefault();
 
@@ -251,14 +251,14 @@ namespace WebAPI.Controllers
                                 produc.productCount = produc.productCount - prod.count;
                                 launchcont.Entry(produc).State = EntityState.Modified;
                                 launchcont.SaveChanges();
-                                
-                                
+
+
                             }
-                           
+
                         }
-                       
+
                     }
-                    if(hasitem)
+                    if (hasitem)
                     {
                         return Ok("sucessfully checkedout");
                     }
@@ -266,7 +266,7 @@ namespace WebAPI.Controllers
                     {
                         return BadRequest("No items in basket");
                     }
-                 
+
                 }
                 {
                     return BadRequest("no item in basket");
@@ -281,14 +281,14 @@ namespace WebAPI.Controllers
         public IHttpActionResult viewpurchasehist(int customerid)
         {
             List<string> temp = new List<string>();
-            
+
             Customer c = launchcont.customers.Where(x => x.customerID == customerid).FirstOrDefault();
             if (c != null)
             {
 
                 if (c.psueoproducts.Count > 0)
                 {
-                    foreach(var prod in c.psueoproducts)
+                    foreach (var prod in c.psueoproducts)
                     {
                         if (prod.ischeckedout)
                         {
@@ -322,14 +322,14 @@ namespace WebAPI.Controllers
         public IHttpActionResult viewproducts()
         {
             List<Product> prodlist = new List<Product>();
-            foreach(var prod in launchcont.products)
+            foreach (var prod in launchcont.products)
             {
                 if (prod.productCount > 0)
                 {
                     prodlist.Add(prod);
                 }
             }
-            if (prodlist.Count>0)
+            if (prodlist.Count > 0)
             {
                 return Ok(prodlist);
             }
@@ -339,6 +339,87 @@ namespace WebAPI.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("viewpreviouspurchase")]
+        public IHttpActionResult viewpreviouspurchasehistory(int id)
+        {
+            Dictionary<int, psuedoproduct> countingdictionary = new Dictionary<int, psuedoproduct>();
+            Customer c = launchcont.customers.Where(x => x.customerID == id).FirstOrDefault();
+            List<string> temp = new List<string>();
+            
+            if (c.psueoproducts.Count > 0)
+            {
+                foreach (var d in c.psueoproducts.ToList())
+                {
+                    if (d.ischeckedout)
+                    {
+
+                        if (countingdictionary.ContainsKey(d.productid))
+                        {
+                            countingdictionary[d.productid].count += d.count;
+                        }
+                        else
+                        {
+                            countingdictionary.Add(d.productid, d);
+                        }
+                    }
+                }
+                if (countingdictionary.Count > 0)
+                {
+                    int highestcountID = 0;
+                    int highestcount = 0;
+                    foreach (var a in countingdictionary)
+                    {
+                        Product p = launchcont.products.Where(x => x.productID == a.Value.productid).FirstOrDefault();
+                        if (p != null)
+                        {
+                            if (p.productCount > 0)
+                            {
+                                if (p.productCount > highestcount)
+                                {
+                                    highestcount = a.Value.count;
+                                    highestcountID = a.Value.productid;
+                                }
+
+                            }
+                        }
+
+
+                    }
+                    Product p1 = launchcont.products.Where(x => x.productID == highestcountID).FirstOrDefault();
+                    if (p1 != null)
+                    {
+                        if (p1.productCount > 0)
+                        {
+                            return Ok(p1);
+
+                        }
+                        else
+                        {
+                            //return BadRequest("No Available Items Found");
+                            return Ok(new Product() { });
+                        }
+                    }
+                    else
+                    {
+                        //return BadRequest("No Available Items Found");
+                        return Ok(new Product() { });
+                    }
+
+                }
+                else
+                {
+                    //return BadRequest("No Purchase History");
+                    return Ok(new Product() { });
+                }
+
+            }
+            else
+            {
+                //return Ok("No PurchaseHistory Found");
+                return Ok(new Product() { });
+            }    
+        }
 
     }
 }

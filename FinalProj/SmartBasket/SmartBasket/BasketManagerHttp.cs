@@ -210,7 +210,32 @@ namespace SmartBasket
 
         }
 
-        
+        public async Task<Product> display1product(int id)
+        {
+            string responseBody;
+
+
+
+            HttpResponseMessage response = await _httpClient.GetAsync(
+                $"{baselink}/viewpreviouspurchase?id={id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+
+
+                responseBody = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Product>(responseBody);
+            }
+            else
+            {
+                responseBody = await response.Content.ReadAsStringAsync();
+                throw new Exception(responseBody);
+            }
+
+
+
+
+        }
 
 
     }

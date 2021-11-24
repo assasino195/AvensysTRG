@@ -35,3 +35,4 @@ C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\o
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\obj\Release\WebAPI.csproj.CoreCompileInputs.cache
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\obj\Release\WebAPI.dll
 C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\obj\Release\WebAPI.pdb
+C:\Users\weiya\source\repos\AVENSYSTRG\AvensysTRG\FinalProj\SmartBasket\WebAPI\bin\Microsoft.VisualStudio.CodeCoverage.Shim.dll

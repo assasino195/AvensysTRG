@@ -50,6 +50,7 @@
     <Compile Include="BasketManagerHttp.cs" />
     <Compile Include="ConsoleIO.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerDTO.cs" />
     <Compile Include="LaunchnExitServices.cs" />
     <Compile Include="ManagerServices.cs" />
     <Compile Include="ManagerServicesHttp.cs" />
