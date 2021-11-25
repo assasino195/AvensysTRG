@@ -321,12 +321,12 @@ namespace WebAPI.Controllers
         [Route("viewproducts")]
         public IHttpActionResult viewproducts()
         {
-            List<Product> prodlist = new List<Product>();
+            List<ProductDTO> prodlist = new List<ProductDTO>();
             foreach (var prod in launchcont.products)
             {
                 if (prod.productCount > 0)
                 {
-                    prodlist.Add(prod);
+                    prodlist.Add(prod2DTOProd( prod));
                 }
             }
             if (prodlist.Count > 0)
@@ -389,37 +389,40 @@ namespace WebAPI.Controllers
                     Product p1 = launchcont.products.Where(x => x.productID == highestcountID).FirstOrDefault();
                     if (p1 != null)
                     {
-                        if (p1.productCount > 0)
-                        {
-                            return Ok(p1);
+                       
+                            return Ok(prod2DTOProd( p1));
 
-                        }
-                        else
-                        {
-                            //return BadRequest("No Available Items Found");
-                            return Ok(new Product() { });
-                        }
+                        
+                       
                     }
                     else
                     {
                         //return BadRequest("No Available Items Found");
-                        return Ok(new Product() { });
+                        return Ok(prod2DTOProd(new Product() { }));
                     }
 
                 }
                 else
                 {
                     //return BadRequest("No Purchase History");
-                    return Ok(new Product() { });
+                    return Ok(prod2DTOProd(new Product() { }));
                 }
 
             }
             else
             {
                 //return Ok("No PurchaseHistory Found");
-                return Ok(new Product() { });
+                return Ok(prod2DTOProd(new Product() { }));
             }    
-        }
 
+        }
+       
+
+        private ProductDTO prod2DTOProd(Product p)
+        {
+            ProductDTO temp = new ProductDTO(p);
+            return temp;
+        }
+    
     }
 }

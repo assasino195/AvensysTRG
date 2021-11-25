@@ -103,7 +103,7 @@ namespace SmartBasket
                                         try
                                         {
                                             Console.Clear();
-                                            Product prod = await basketmanager.display1product(c.customerID);
+                                            ProductDTO prod = await basketmanager.display1product(c.customerID);
                                            
                                             if (prod.productID >0)
                                             {

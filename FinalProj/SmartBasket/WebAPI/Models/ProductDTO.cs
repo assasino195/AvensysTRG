@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI
 {
-    public class Product
+    public class ProductDTO
     {
         
         public string ProductName { get; set; }
@@ -15,7 +15,7 @@ namespace WebAPI
         
         public string productCategory { get; set; }
 
-       [Key]
+       
         public int productID { get; set; }
 
        
@@ -24,11 +24,11 @@ namespace WebAPI
         
         public double productPrice { get; set; }
         public DateTime dtadded { get; set; }
-        public Product()
+        public ProductDTO()
         {
 
         }
-        public Product(ProductDTO p)
+        public ProductDTO(Product p)
         {
             productCategory = p.productCategory;
             productCount = p.productCount;

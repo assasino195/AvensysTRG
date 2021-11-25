@@ -17,7 +17,7 @@ namespace SmartBasket
         {
             _httpClient = httpClient;
         }
-        public async Task<List<Product>> displayprod()
+        public async Task<List<ProductDTO>> displayprod()
         {
             string responseBody;
 
@@ -31,7 +31,7 @@ namespace SmartBasket
 
 
                 responseBody = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<List<Product>>(responseBody);
+                return JsonConvert.DeserializeObject<List<ProductDTO>>(responseBody);
             }
             else
             {
@@ -210,7 +210,7 @@ namespace SmartBasket
 
         }
 
-        public async Task<Product> display1product(int id)
+        public async Task<ProductDTO> display1product(int id)
         {
             string responseBody;
 
@@ -224,7 +224,7 @@ namespace SmartBasket
 
 
                 responseBody = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<Product>(responseBody);
+                return JsonConvert.DeserializeObject<ProductDTO>(responseBody);
             }
             else
             {

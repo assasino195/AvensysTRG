@@ -28,13 +28,14 @@ namespace WebAPI.Controllers
         // GET: ManagerServices
         [HttpPost]
         [Route("addingproduct")]
-        public IHttpActionResult AddingNewProduct(Product p)
+        public IHttpActionResult AddingNewProduct(ProductDTO p)
         {
 
             Product prod = launchcont.products.Where(x => x.ProductName == p.ProductName).FirstOrDefault();
             if (prod==null)
             {
-                launchcont.products.Add(p);
+                Product targetprod = prodDTO2Prod(p);
+                launchcont.products.Add(targetprod);
                
                 launchcont.SaveChanges();
                 //prodDict.Add(newprodID, temp);
@@ -45,7 +46,7 @@ namespace WebAPI.Controllers
                 prod.productCount = p.productCount + prod.productCount;
                 launchcont.Entry(prod).State = EntityState.Modified;
                 launchcont.SaveChanges();
-                return BadRequest("Product already exist hence, we have added the quantity in it is now"+prod.productCount);
+                return BadRequest("Product already exist hence, we have added the quantity in it is now current quantity: "+prod.productCount);
             }
         }
        
@@ -115,17 +116,18 @@ namespace WebAPI.Controllers
 
 
 
-        
+
         [HttpGet]
         [Route("viewallaccounts")]
         public IHttpActionResult viewallacc()
         {
-            List<Customer> cuslist = new List<Customer>();
-           
-                foreach (var cus in launchcont.customers)
-                {
-                    cuslist.Add(cus);
-                }
+            List<CustomerDTO> cuslist = new List<CustomerDTO>();
+
+            foreach (var cus in launchcont.customers.ToList())
+            {
+                CustomerDTO temp = Customer2DTO(cus);
+                cuslist.Add(temp);
+            }
             if (cuslist.Count > 0)
             {
                 return Ok(cuslist);
@@ -133,7 +135,7 @@ namespace WebAPI.Controllers
             else
             {
                 return BadRequest("No accounts available");
-            }    
+            }
         }
         [HttpPost]
         [Route("removeproduct")]
@@ -153,5 +155,17 @@ namespace WebAPI.Controllers
 
         }
 
+        private Product prodDTO2Prod(ProductDTO p)
+        {
+            Product temp = new Product(p);
+            return temp;
+        }
+
+       
+        private CustomerDTO Customer2DTO(Customer cDTO)
+        {
+            CustomerDTO c = new CustomerDTO(cDTO);
+            return c;
+        }
     }
 }

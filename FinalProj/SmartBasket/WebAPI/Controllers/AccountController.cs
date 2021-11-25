@@ -29,10 +29,16 @@ namespace WebAPI.Controllers
         [Route("login")]
         public IHttpActionResult loginfunc(int id)
         {
-
+            
             Customer c = launchcont.customers.Where(x => x.customerID == id).FirstOrDefault();
-           
-            return Ok(Customer2DTO(c));
+            if (c == null)
+            {
+                return Ok(new CustomerDTO() { });
+            }
+            else
+            {
+                return Ok(Customer2DTO(c));
+            }
         }
         [HttpPost]
         [Route("addingcustomer")]
@@ -61,16 +67,9 @@ namespace WebAPI.Controllers
 
         private Customer DTO2Customer(CustomerDTO cDTO)
         {
-            Customer c = new Customer()
+            Customer c = new Customer(cDTO)
             {
-                customerName = cDTO.customerName,
-                customerEmail = cDTO.customerEmail,
-                customerID = cDTO.customerID,
-                customerPhoneNo = cDTO.customerPhoneNo,
-                isCheckedOut = cDTO.isCheckedOut,
-
-                psueoproducts = cDTO.psueoproducts,
-                role = cDTO.role
+                
             };
             return c;
         }

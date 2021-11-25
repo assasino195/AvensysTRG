@@ -138,6 +138,7 @@
     <Compile Include="Models\CustomerDTO.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DictionaryContext.cs" />
+    <Compile Include="Models\ProductDTO.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\psuedoproduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

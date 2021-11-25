@@ -10,6 +10,7 @@ using System.Data.Entity;
 using Moq;
 using System.Web.Http;
 using System.Web.Http.Results;
+using Newtonsoft.Json;
 
 namespace unittesting
 {
@@ -20,6 +21,7 @@ namespace unittesting
         public void LoginSuccessfully()
         {
             Customer c = new Customer() { customerName = "john", customerID = 1, customerEmail = "lol@hotmail.com", customerPhoneNo = "12345678", role = "customer" };
+           
             var data = new List<Customer>
             {
                c
@@ -37,9 +39,11 @@ namespace unittesting
             AccountController ac = new AccountController(mockContext.Object);
             IHttpActionResult res = ac.loginfunc(1);
            
-            var contentResult = res as OkNegotiatedContentResult<Customer>;
-
-            Assert.Equal(c, contentResult.Content);
+            var contentResult = res as OkNegotiatedContentResult<CustomerDTO>;
+            CustomerDTO c1 = new CustomerDTO(c);
+            var expected= JsonConvert.SerializeObject(c1);
+            var actual = JsonConvert.SerializeObject(contentResult.Content);
+            Assert.Equal(expected, actual);
         }
         [Fact]
         public void LoginFailed()
@@ -62,14 +66,17 @@ namespace unittesting
             AccountController ac = new AccountController(mockContext.Object);
             IHttpActionResult res = ac.loginfunc(2);
 
-            var contentResult = res as OkNegotiatedContentResult<Customer>;
-
-            Assert.Null( contentResult.Content);
+            var contentResult = res as OkNegotiatedContentResult<CustomerDTO>;
+           
+            var expected = JsonConvert.SerializeObject(c);
+            var actual = JsonConvert.SerializeObject(contentResult.Content);
+           // Assert.Null( actual);
+            Assert.NotEqual(actual, expected);
         }
          [Fact]
         public void SuccessfullCreatCustomer()
         {
-            Customer c = new Customer() { customerName = "john", customerID = 1, customerEmail = "lol@hotmail.com", customerPhoneNo = "12345678", role = "customer" };
+            CustomerDTO c = new CustomerDTO() { customerName = "john", customerID = 1, customerEmail = "lol@hotmail.com", customerPhoneNo = "12345678", role = "customer" };
             var data = new List<Customer>
             {
                
@@ -94,10 +101,11 @@ namespace unittesting
         [Fact]
         public void UnsuccessfulCreationOfCustomer()
         {
-            Customer c = new Customer() { customerName = "john", customerID = 1, customerEmail = "lol@hotmail.com", customerPhoneNo = "12345678", role = "customer" };
+            CustomerDTO c = new CustomerDTO() { customerName = "john", customerID = 1, customerEmail = "lol@hotmail.com", customerPhoneNo = "12345678", role = "customer" };
+            Customer c1 = new Customer() { customerName = "john", customerID = 1, customerEmail = "lol@hotmail.com", customerPhoneNo = "12345678", role = "customer" };
             var data = new List<Customer>
             {
-               c
+               c1
             }.AsQueryable();
 
             var mockSet = new Mock<DbSet<Customer>>();
@@ -117,11 +125,37 @@ namespace unittesting
             Assert.IsType<BadRequestErrorMessageResult>(res);
             //Assert.Equal("Customer ID already exist", contentResult.Content);
         }
+        [Fact]
+        public void UnsuccessfulCreationOfCustomerEmptyInputs()
+        {
+            CustomerDTO c = new CustomerDTO() { customerName = "", customerID = 1, customerEmail = "", customerPhoneNo = "12345678", role = "customer" };
+           
+            var data = new List<Customer>
+            {
+              
+            }.AsQueryable();
 
+            var mockSet = new Mock<DbSet<Customer>>();
+            mockSet.As<IQueryable<Customer>>().Setup(x => x.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<Customer>>().Setup(x => x.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Customer>>().Setup(x => x.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<Customer>>().Setup(x => x.GetEnumerator()).Returns(data.GetEnumerator());
+
+            var mockContext = new Mock<DictionaryContext>();
+            mockContext.Setup(x => x.customers).Returns(mockSet.Object);
+
+            AccountController ac = new AccountController(mockContext.Object);
+
+            IHttpActionResult res = ac.createcustomer(c);
+
+
+            Assert.IsType<BadRequestErrorMessageResult>(res);
+            //Assert.Equal("Customer ID already exist", contentResult.Content);
+        }
         [Fact]
         public void SuccessfullCreateProduct()
         {
-            Product c = new Product() { productID = 1 };
+            ProductDTO c = new ProductDTO() { productID = 1 };
             var data = new List<Product>
             {
                
@@ -147,10 +181,11 @@ namespace unittesting
         [Fact]
         public void UnsuccessfulCreationOfProduct()
         {
-            Product c = new Product() { productID = 1 };
+            ProductDTO c = new ProductDTO() { productID = 1 };
+            Product c1 = new Product() { productID = 1 };
             var data = new List<Product>
             {
-                c
+                c1
             }.AsQueryable();
 
 
@@ -282,13 +317,16 @@ namespace unittesting
             ManagerServicesController ac = new ManagerServicesController(mockContext.Object);
             IHttpActionResult res = ac.viewallacc();
 
-            var contentResult = res as OkNegotiatedContentResult<List<Customer>>;
+            var contentResult = res as OkNegotiatedContentResult<List<CustomerDTO>>;
             // mockContext.Verify(m => m.SaveChanges(), Times.Never());
-            List<Customer> assertcustlist = new List<Customer>();
-            assertcustlist.Add(c);
-            assertcustlist.Add(c1);
-            
-                Assert.Contains(c, contentResult.Content);
+            List<CustomerDTO> assertcustlist = new List<CustomerDTO>();
+            CustomerDTO dto1 = new CustomerDTO(c);
+            CustomerDTO dto2 = new CustomerDTO(c1);
+            assertcustlist.Add(dto1);
+            assertcustlist.Add(dto2);
+            var expected = JsonConvert.SerializeObject(assertcustlist);
+            var actual = JsonConvert.SerializeObject(contentResult.Content);
+            Assert.Equal(actual,expected);
             
            
            //Assert.Equal(assertcustlist, contentResult.Content);
@@ -1528,14 +1566,18 @@ namespace unittesting
             BasketServicesController ac = new BasketServicesController(mockContext.Object);
             IHttpActionResult res = ac.viewproducts();
 
-            var contentResult = res as OkNegotiatedContentResult<List<Product>>;
+            var contentResult = res as OkNegotiatedContentResult<List<ProductDTO>>;
             //Assert.IsType<BadRequestErrorMessageResult>(res);
 
             //Assert.IsType<BadRequestErrorMessageResult>(res);
-            List<Product> asserttrue = new List<Product>();
-            asserttrue.Add(prod1);
-            asserttrue.Add(prod2);
-            Assert.Equal(asserttrue, contentResult.Content);
+            List<ProductDTO> asserttrue = new List<ProductDTO>();
+            ProductDTO dto1 = new ProductDTO(prod1);
+            ProductDTO dto2 = new ProductDTO(prod2);
+            asserttrue.Add(dto1);
+            asserttrue.Add(dto2);
+            var expected = JsonConvert.SerializeObject(asserttrue);
+            var actual = JsonConvert.SerializeObject(contentResult.Content);
+            Assert.Equal(expected,actual);
         }
         [Fact]
         public void unsuccesfulViewProducts()
@@ -1573,6 +1615,236 @@ namespace unittesting
             Assert.IsType<BadRequestErrorMessageResult>(res);
 
 
+        }
+
+        [Fact]
+        public void succesfulViewMostPurchasedItem()
+        {
+
+
+            Product prod1 = new Product() { productID = 1, productCount = 5, productPrice = 0.5, ProductName = "brocoli", productCategory = "Vegetable", dtadded = DateTime.UtcNow };
+
+
+            psuedoproduct psuedo1 = new psuedoproduct() { psuedoproductkey = 1, productid = 1, count = 2, dt = DateTime.UtcNow, ischeckedout = true };
+
+            List<psuedoproduct> plist = new List<psuedoproduct>();
+            plist.Add(psuedo1);
+            plist.Add(psuedo1);
+
+            Customer cus = new Customer() { isCheckedOut = true, customerID = 1, psueoproducts = plist };
+
+            var data = new List<Customer>
+            {
+                cus
+
+            }.AsQueryable();
+
+
+            var mockCustomerSet = new Mock<DbSet<Customer>>();
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.Provider).Returns(data.Provider);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.Expression).Returns(data.Expression);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.ElementType).Returns(data.ElementType);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.GetEnumerator()).Returns(data.GetEnumerator());
+            var products = new List<Product>
+            {
+                prod1
+
+            }.AsQueryable();
+
+
+            var mockProductSet = new Mock<DbSet<Product>>();
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.Provider).Returns(products.Provider);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.Expression).Returns(products.Expression);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.ElementType).Returns(products.ElementType);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.GetEnumerator()).Returns(products.GetEnumerator());
+
+            var mockContext = new Mock<DictionaryContext>();
+            mockContext.Setup(x => x.customers).Returns(mockCustomerSet.Object);
+            mockContext.Setup(x => x.products).Returns(mockProductSet.Object);
+
+
+            BasketServicesController ac = new BasketServicesController(mockContext.Object);
+            IHttpActionResult res = ac.viewpreviouspurchasehistory(1);
+
+            var contentResult = res as OkNegotiatedContentResult<ProductDTO>;
+            //Assert.IsType<BadRequestErrorMessageResult>(res);
+
+            //Assert.IsType<BadRequestErrorMessageResult>(res);
+            ProductDTO d1 = new ProductDTO(prod1);
+            var actual = JsonConvert.SerializeObject(d1);
+            var expected = JsonConvert.SerializeObject(contentResult.Content);
+            Assert.Equal(actual,expected);
+        }
+        [Fact]
+        public void unSuccesfulViewMostPurchasedItemItemQuantityis0()
+        {
+
+
+            Product prod1 = new Product() { productID = 1, productCount = 0, productPrice = 0.5, ProductName = "brocoli", productCategory = "Vegetable", dtadded = DateTime.UtcNow };
+
+
+            psuedoproduct psuedo1 = new psuedoproduct() { psuedoproductkey = 1, productid = 1, count = 2, dt = DateTime.UtcNow, ischeckedout = true };
+
+            List<psuedoproduct> plist = new List<psuedoproduct>();
+            plist.Add(psuedo1);
+
+            Customer cus = new Customer() { isCheckedOut = true, customerID = 1, psueoproducts = plist };
+
+            var data = new List<Customer>
+            {
+                cus
+
+            }.AsQueryable();
+
+
+            var mockCustomerSet = new Mock<DbSet<Customer>>();
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.Provider).Returns(data.Provider);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.Expression).Returns(data.Expression);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.ElementType).Returns(data.ElementType);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.GetEnumerator()).Returns(data.GetEnumerator());
+            var products = new List<Product>
+            {
+                prod1
+
+            }.AsQueryable();
+
+
+            var mockProductSet = new Mock<DbSet<Product>>();
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.Provider).Returns(products.Provider);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.Expression).Returns(products.Expression);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.ElementType).Returns(products.ElementType);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.GetEnumerator()).Returns(products.GetEnumerator());
+
+            var mockContext = new Mock<DictionaryContext>();
+            mockContext.Setup(x => x.customers).Returns(mockCustomerSet.Object);
+            mockContext.Setup(x => x.products).Returns(mockProductSet.Object);
+
+
+            BasketServicesController ac = new BasketServicesController(mockContext.Object);
+            IHttpActionResult res = ac.viewpreviouspurchasehistory(1);
+
+            var contentResult = res as OkNegotiatedContentResult<ProductDTO>;
+            //Assert.IsType<BadRequestErrorMessageResult>(res);
+
+            //Assert.IsType<BadRequestErrorMessageResult>(res);
+            ProductDTO d1 = new ProductDTO();
+            var actual = JsonConvert.SerializeObject(d1);
+            var expected = JsonConvert.SerializeObject(contentResult.Content);
+            Assert.Equal(actual, expected);
+        }
+        [Fact]
+        public void unSuccesfulViewMostPurchasedItemNoPurchaseHistory()
+        {
+
+
+            Product prod1 = new Product() { productID = 1, productCount = 0, productPrice = 0.5, ProductName = "brocoli", productCategory = "Vegetable", dtadded = DateTime.UtcNow };
+
+
+            psuedoproduct psuedo1 = new psuedoproduct() { psuedoproductkey = 1, productid = 1, count = 2, dt = DateTime.UtcNow, ischeckedout = false };
+
+            List<psuedoproduct> plist = new List<psuedoproduct>();
+            plist.Add(psuedo1);
+
+            Customer cus = new Customer() { isCheckedOut = true, customerID = 1, psueoproducts = plist };
+
+            var data = new List<Customer>
+            {
+                cus
+
+            }.AsQueryable();
+
+
+            var mockCustomerSet = new Mock<DbSet<Customer>>();
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.Provider).Returns(data.Provider);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.Expression).Returns(data.Expression);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.ElementType).Returns(data.ElementType);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.GetEnumerator()).Returns(data.GetEnumerator());
+            var products = new List<Product>
+            {
+                prod1
+
+            }.AsQueryable();
+
+
+            var mockProductSet = new Mock<DbSet<Product>>();
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.Provider).Returns(products.Provider);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.Expression).Returns(products.Expression);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.ElementType).Returns(products.ElementType);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.GetEnumerator()).Returns(products.GetEnumerator());
+
+            var mockContext = new Mock<DictionaryContext>();
+            mockContext.Setup(x => x.customers).Returns(mockCustomerSet.Object);
+            mockContext.Setup(x => x.products).Returns(mockProductSet.Object);
+
+
+            BasketServicesController ac = new BasketServicesController(mockContext.Object);
+            IHttpActionResult res = ac.viewpreviouspurchasehistory(1);
+
+            var contentResult = res as OkNegotiatedContentResult<ProductDTO>;
+            //Assert.IsType<BadRequestErrorMessageResult>(res);
+
+            //Assert.IsType<BadRequestErrorMessageResult>(res);
+            ProductDTO d1 = new ProductDTO();
+            var actual = JsonConvert.SerializeObject(d1);
+            var expected = JsonConvert.SerializeObject(contentResult.Content);
+            Assert.Equal(actual, expected);
+        }
+        [Fact]
+        public void unSuccesfulViewMostPurchasedItemItemNoItemsInPsuedoList()
+        {
+
+
+            Product prod1 = new Product() { productID = 1, productCount = 0, productPrice = 0.5, ProductName = "brocoli", productCategory = "Vegetable", dtadded = DateTime.UtcNow };
+
+
+            psuedoproduct psuedo1 = new psuedoproduct() { psuedoproductkey = 1, productid = 1, count = 2, dt = DateTime.UtcNow, ischeckedout = true };
+
+            List<psuedoproduct> plist = new List<psuedoproduct>();
+           
+
+            Customer cus = new Customer() { isCheckedOut = true, customerID = 1, psueoproducts = plist };
+
+            var data = new List<Customer>
+            {
+                cus
+
+            }.AsQueryable();
+
+
+            var mockCustomerSet = new Mock<DbSet<Customer>>();
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.Provider).Returns(data.Provider);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.Expression).Returns(data.Expression);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.ElementType).Returns(data.ElementType);
+            mockCustomerSet.As<IQueryable<Customer>>().Setup(x => x.GetEnumerator()).Returns(data.GetEnumerator());
+            var products = new List<Product>
+            {
+                prod1
+
+            }.AsQueryable();
+
+
+            var mockProductSet = new Mock<DbSet<Product>>();
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.Provider).Returns(products.Provider);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.Expression).Returns(products.Expression);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.ElementType).Returns(products.ElementType);
+            mockProductSet.As<IQueryable<Product>>().Setup(x => x.GetEnumerator()).Returns(products.GetEnumerator());
+
+            var mockContext = new Mock<DictionaryContext>();
+            mockContext.Setup(x => x.customers).Returns(mockCustomerSet.Object);
+            mockContext.Setup(x => x.products).Returns(mockProductSet.Object);
+
+
+            BasketServicesController ac = new BasketServicesController(mockContext.Object);
+            IHttpActionResult res = ac.viewpreviouspurchasehistory(1);
+
+            var contentResult = res as OkNegotiatedContentResult<ProductDTO>;
+            //Assert.IsType<BadRequestErrorMessageResult>(res);
+
+            //Assert.IsType<BadRequestErrorMessageResult>(res);
+            ProductDTO d1 = new ProductDTO();
+            var actual = JsonConvert.SerializeObject(d1);
+            var expected = JsonConvert.SerializeObject(contentResult.Content);
+            Assert.Equal(actual, expected);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace SmartBasket
         {
             _httpClient = httpClient;
         }
-        public async Task<string> addprod(Product p)
+        public async Task<string> addprod(ProductDTO p)
         {
             string responseBody;
 
@@ -97,7 +97,7 @@ namespace SmartBasket
             }
 
         }
-        public async Task<List<Customer>> retrievecustomer()
+        public async Task<List<CustomerDTO>> retrievecustomer()
         {
             string responseBody;
 
@@ -111,7 +111,7 @@ namespace SmartBasket
 
 
                 responseBody = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<List<Customer>>(responseBody);
+                return JsonConvert.DeserializeObject<List<CustomerDTO>>(responseBody);
             }
             else
             {

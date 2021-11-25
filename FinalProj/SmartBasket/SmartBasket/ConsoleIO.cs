@@ -8,26 +8,8 @@ namespace SmartBasket
 {
     class ConsoleIO
     {
-        public Customer DTO2Customer(CustomerDTO cDTO)
-        {
-            Customer c = new Customer()
-            {
-                customerName = cDTO.customerName,
-                customerEmail = cDTO.customerEmail,
-                customerID = cDTO.customerID,
-                customerPhoneNo = cDTO.customerPhoneNo,
-                isCheckedOut = cDTO.isCheckedOut,
-                psueoproducts = cDTO.psueoproducts,
-                role = cDTO.role
-            };
-            return c;
-        }
-        public CustomerDTO Customer2DTO(Customer cDTO)
-        {
-            CustomerDTO c = new CustomerDTO(cDTO) { };
-            return c;
-        }
-        public void displayprods(List<Product> prodlist)
+       
+        public void displayprods(List<ProductDTO> prodlist)
         {
             foreach (var prod in prodlist)
             {
@@ -58,9 +40,9 @@ namespace SmartBasket
                 Console.WriteLine(s);
             }
         }
-        public Product addprod(string prodname,int count,double price,string cat)
+        public ProductDTO addprod(string prodname,int count,double price,string cat)
         {
-            Product p = new Product() {ProductName=prodname,productCategory=cat,productCount=count,productPrice=price,dtadded=DateTime.UtcNow };
+            ProductDTO p = new ProductDTO() {ProductName=prodname,productCategory=cat,productCount=count,productPrice=price,dtadded=DateTime.UtcNow };
             return p;
         }
         public void displaysalesreport(List<string> salesreport)
@@ -76,17 +58,47 @@ namespace SmartBasket
             CustomerDTO c = new CustomerDTO() { customerName = name, customerEmail = email, customerPhoneNo = phoneno, role = "customer", isCheckedOut = true, };
             return c;
         }
-        public void viewallcustomers(List<Customer> cuslist)
+        public void viewallcustomers(List<CustomerDTO> cuslist)
         {
             foreach (var cus in cuslist)
             {
                 Console.WriteLine($"ID: {cus.customerID}\tName: {cus.customerName}\tEmail: {cus.customerEmail}\tPhone No: {cus.customerPhoneNo}\tRole:{cus.role}");
             }
         }
-        public void viewproduct(Product prod)
+        public void viewproduct(ProductDTO prod)
         {
             Console.WriteLine($"ID: {prod.productID} {prod.ProductName} {prod.productCategory} Quantity: {prod.productCount} Price: ${prod.productPrice}");
         }
-        
+
+        private Product prodDTO2Prod(ProductDTO p)
+        {
+            Product temp = new Product(p);
+            return temp;
+        }
+
+        private ProductDTO prod2DTOProd(Product p)
+        {
+            ProductDTO temp = new ProductDTO(p);
+            return temp;
+        }
+        public Customer DTO2Customer(CustomerDTO cDTO)
+        {
+            Customer c = new Customer()
+            {
+                customerName = cDTO.customerName,
+                customerEmail = cDTO.customerEmail,
+                customerID = cDTO.customerID,
+                customerPhoneNo = cDTO.customerPhoneNo,
+                isCheckedOut = cDTO.isCheckedOut,
+                psueoproducts = cDTO.psueoproducts,
+                role = cDTO.role
+            };
+            return c;
+        }
+        public CustomerDTO Customer2DTO(Customer cDTO)
+        {
+            CustomerDTO c = new CustomerDTO(cDTO) { };
+            return c;
+        }
     }
 }

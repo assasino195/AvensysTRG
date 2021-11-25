@@ -23,6 +23,19 @@ namespace SmartBasket
         
         public double productPrice { get; set; }
         public DateTime dtadded { get; set; }
+        public Product()
+        {
+
+        }
+        public Product(ProductDTO p)
+        {
+            productCategory = p.productCategory;
+            productCount = p.productCount;
+            productID = p.productID;
+            productPrice = p.productPrice;
+            ProductName = p.ProductName;
+            dtadded = p.dtadded;
+        }
         //public Product() { }
         //public Product(string pid,string pn,int pc,double pp,string prodcat)
         //{
